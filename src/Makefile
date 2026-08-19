@@ -4,7 +4,7 @@
 CC = sparc-gaisler-elf-gcc
 CFLAGS = -mcpu=leon3 -O2 -Wall -Wextra -Wpedantic -std=c99 \
          -ffreestanding -nostdlib -fno-builtin \
-         -I../podklady/simulation_layer/esw_interface
+         -I../specs/simulation_layer/esw_interface
 
 LDFLAGS = -Ttext=0x40000000 -nostartfiles
 

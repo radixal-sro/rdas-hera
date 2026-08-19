@@ -9,7 +9,7 @@
 #ifndef RDAS_TYPES_H
 #define RDAS_TYPES_H
 
-#include "../podklady/simulation_layer/esw_interface/hera_interface.h"
+#include "../specs/simulation_layer/esw_interface/hera_interface.h"
 
 /* In-flight Memory Constants */
 #define RDAS_STACK_BASE          0x40010000U
