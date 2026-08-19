@@ -1,0 +1,214 @@
+--- PAGE 1 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+AUTONOMOUS SOFTWARE EXPERIMENTS ON HERA: TECHNICAL AND
+OPERATIONAL REQUIREMENTS
+Reference
+ESA-HERA-TECS-RS-2026-002045
+Issue/Revision
+1.0
+Date of Issue
+19/06/2026
+
+
+--- PAGE 2 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+Table of Contents
+1.
+TECHNICAL REQUIREMENTS..................................................................................... 3
+1.1.
+Target platform and toolchain ..................................................................................... 3
+1.2.
+Execution model ..................................................................................................... 3
+1.3.
+Language and standards compliance........................................................................... 3
+1.4.
+Memory management constraints ............................................................................... 3
+1.5.
+Runtime and library restrictions................................................................................... 3
+1.6.
+Hardware access and I/O.......................................................................................... 4
+2.
+INPUTS AVAILABLE TO THE ESW................................................................................ 4
+2.1.
+Mission Data Pool ................................................................................................... 4
+2.2.
+Payload data sources............................................................................................... 4
+2.2.1.
+AFC — Asteroid Framing Camera ............................................................................ 4
+2.2.2.
+TIRI — Thermal Infrared Imager .............................................................................. 5
+2.2.3.
+HyperScout — Hyperspectral Imager ........................................................................ 5
+2.2.4.
+PALT — Planetary Altimeter .................................................................................... 5
+3.
+OUTPUTS (TELEMETRY AND REPORTING) .................................................................. 5
+3.1.
+Housekeeping Telemetry — PUS Service 3 ................................................................... 6
+3.2.
+Event Reporting — PUS Service 5 .............................................................................. 6
+3.3.
+Science Data Telemetry ............................................................................................ 7
+4.
+DEVELOPMENT PROCESS AND SOFTWARE PRODUCT ASSURANCE.............................. 7
+Page 2/7
+
+
+--- PAGE 3 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+1. TECHNICAL REQUIREMENTS
+To ensure the software can fly safely on Hera and to keep the safety guarantees of the Core 1
+sandbox, all Experimental Software (ESW) must comply with the requirements below.
+1.1. Target platform and toolchain
+• Processor: ESW shall target the GR712RC LEON3 architecture.
+• Compiler: ESW shall be compiled with Frontgrade Gaisler Bare C Cross Compiler Sys-
+tem for LEON3 GCC, BCC 4.4.2 1.0.52.
+Proposers should assume a constrained embedded environment and choose algorithms, data
+formats, and implementation approaches that are suitable for this processor and toolchain.
+1.2. Execution model
+• No operating system: ESW shall not use any operating system services. It shall run in
+a bare metal style within the provided experimental framework.
+The experiment should be a self-contained application, with explicit control of its execution flow,
+timing, and internal state (using only the platform interfaces provided).
+1.3. Language and standards compliance
+• Language: ESW source code shall be written in C.
+• Standards: ESW shall follow MISRArules and comply with ECSS E ST 40C requirements
+applicable to Category D software.
+Proposals should briefly explain how compliance will be achieved and shown (for example, by
+static analysis reports and documented deviations if needed).
+1.4. Memory management constraints
+• No dynamic allocation: malloc/free (and similar) are forbidden. ESW shall use static
+allocation, or a fixed pool allocator initialised at startup.
+Proposals should include a clear memory approach: expected buffer sizes, any fixed pools,
+and how worst-case memory usage is bounded.
+1.5. Runtime and library restrictions
+• No system calls: ESW shall not use system calls.
+Page 3/7
+
+
+--- PAGE 4 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+• No external libraries: ESW shall not rely on external libraries. Only ESA’s LibmCS math
+library may be used.
+1.6. Hardware access and I/O
+ESW shall not access spacecraft hardware directly. All input/output must use the inter-core
+Communication API provided by the platform. Interface details are in Annex A, and Data Pool
+parameters are described in Annex B.
+2. INPUTS AVAILABLE TO THE ESW
+2.1. Mission Data Pool
+The ESW can read a selected set of spacecraft parameters from the spacecraft data pool. The
+data pool contains observable parameters that are updated by Hera’s on-board software and
+include data coming from different units and subsystems. Access is read-only. A list of available
+parameters is provided in Annex B.
+If your experiment requires spacecraft state data, list the parameter categories you would use
+and explain how your algorithm would use them.
+2.2. Payload data sources
+The ESW can request data acquisitions from specific payloads using the platform interfaces.
+The available options and the on-board processing possibilities depend on the instrument, as
+described below.
+2.2.1. AFC — Asteroid Framing Camera
+The Asteroid Framing Camera (AFC) is Hera’s main visible-light camera and supports both
+navigation and science. It provides meter-scale images for asteroid mapping (shape, surface
+features, DART crater) and supports autonomous navigation. AFC is the main option for in-flight
+image-processing experiments (feature extraction, tracking, compression, prioritisation).
+• Detector: 1020 × 1020 pixel FaintStar2 CMOS sensor.
+• Optics: 5.5◦× 5.5◦field of view.
+• The ESW can request an AFC image. The image is available for on-board processing by
+the ESW and can also be requested for downlink in the next communications window.
+Page 4/7
+
+
+--- PAGE 5 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+2.2.2. TIRI — Thermal Infrared Imager
+TIRI (provided by JAXA) supports thermal mapping of the Didymos–Dimorphos system to esti-
+mate properties such as thermal inertia, porosity, and surface roughness, supporting analysis
+of the DART impact aftermath.
+• Detector: 1024 × 768 uncooled micro-bolometer.
+• Wavelength range: 7–14 µm.
+• Filters: 8-position wheel (one wide-band + six narrow-band filters).
+• The ESW can request TIRI images; they will be downlinked in the next communication
+window. Making TIRI images available for on-board processing in the ESW is still being
+assessed.
+2.2.3. HyperScout — Hyperspectral Imager
+HyperScout is a visible-to-near-infrared hyperspectral instrument used to map mineralogy and
+monitor the dust environment.
+• Detector: 2048 × 1088 CMOS sensor.
+• Optics/bands: ∼15.5◦× 8.3◦field of view, 25 spectral bands (650–950 nm).
+• The ESW can request HyperScout images. They will be downlinked in the next commu-
+nication window. HyperScout images cannot be processed on-board by the ESW.
+HyperScout is suitable for experiments that trigger/schedule acquisitions, or correlate space-
+craft state with downlinked science. It is not suitable for experiments that require on-board
+hyperspectral processing.
+2.2.4. PALT — Planetary Altimeter
+PALT is a laser altimeter/rangefinder that measures line-of-sight distance to the asteroid surface
+using time-of-flight of 1550 nm laser pulses.
+• Performance: nominal 10 m to 20,000 m range, 0.1 m resolution.
+• Multi-target: up to five targets per line of sight.
+• Measurements are available via the data pool, refreshed every two seconds, and can be
+read using Hera_Read_Parameter_float64().
+3. OUTPUTS (TELEMETRY AND REPORTING)
+The Experimental Software (ESW) can generate outputs only through standard CCSDS / ECSS
+PUS telemetry services, using the platformAPI. The on-board software on Core 0 receives these
+Page 5/7
+
+
+--- PAGE 6 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+requests, builds the telemetry packets, and stores them in spacecraft mass memory for later
+downlink, within the limits below.
+Proposers should treat output generation as a core part of the experiment design: outputs are
+how the experiment is monitored and used operationally.
+3.1. Housekeeping Telemetry — PUS Service 3
+Housekeeping (HK) is the standard monitoring service in ECSS PUS. For ESW, HK is the main
+way for operators to confirm correct execution and track key status information (e.g. mode,
+counters, progress, health).
+• Minimum interval: at least 5 minutes between HK reports.
+• Maximum size: 256 bytes per HK packet.
+If your experiment is selected and uses HK, your ICD documentation shall specify:
+• the HK report structure
+• the list of reported parameters, including offset, type, size, and calibration
+• the total HK data volume per execution window (in kBytes)
+Recommended practice: keep HK limited to a small set of stable indicators (mode, cycle counter,
+last-result code, summary metrics). Do not try to stream high-rate data via HK, as it will not fit
+the size and interval limits.
+3.2. Event Reporting — PUS Service 5
+Event Reporting is the ECSS PUS notification service. It is used to inform Ground when im-
+portant events occur, such as completion of a major processing step, a threshold crossing, a
+detection, or a mode change.
+• Minimum interval: at least 20 seconds between event reports.
+• Maximum size: 50 bytes per event packet.
+Only two severity levels are allowed for ESW:
+• Informational
+• Warning
+If your experiment is selected and uses events, your ICD documentation shall specify:
+• the event structure (event identifiers and layout)
+• the event parameters, including offset, type, size, and calibration (as applicable)
+Page 6/7
+
+
+--- PAGE 7 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+• the total event data volume per execution window (in kBytes)
+Recommended practice: Use events for meaningful, discrete conditions (start/stop, completion,
+detection, recoverable anomalies). Avoid repetitive “heartbeat” events—those belong in HK and
+must still respect the HK minimum interval.
+3.3. Science Data Telemetry
+Science Data telemetry is used to downlink experiment results, such as processed image prod-
+ucts, extracted features, summaries, or compact descriptors.
+• Maximum size: 2048 bytes per packet (including headers).
+• Maximum volume per 3 hour slot: 12 MB.
+If your experiment is selected and uses Science Data telemetry, your ICD documentation shall
+specify:
+• the data format (structure/content of the payload, including any compression or encoding)
+• the maximum science data volume per execution window
+4. DEVELOPMENT PROCESS AND SOFTWARE PRODUCT ASSUR-
+ANCE
+Akey part of this call is compliance with European space standards. The Core 1 sandbox makes
+it safer to fly experimental software, but it does not remove the need for a solid engineering
+process. The main standards are ECSS E ST 40C (software engineering) and ECSS Q ST
+80C (software product assurance).
+Even though the ESW is Category D, selected experiments must still follow a clear development
+and verification approach to ensure the selected software performs as expected and can be
+reviewed, integrated, and operated reliably.
+Page 7/7

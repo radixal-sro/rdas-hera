@@ -1,0 +1,120 @@
+--- PAGE 1 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+AUTONOMOUS SOFTWARE EXPERIMENTS ON HERA: ANNEX B -
+DATAPOOL
+Reference
+ESA-HERA-TECS-IF-2026-002050
+Issue/Revision
+1.0
+Date of Issue
+19/06/2026
+
+
+--- PAGE 2 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+Table of Contents
+1.
+Input parameters for the Experiment SW ......................................................................... 3
+2.
+AOCS / GNC (Guidance, Navigation & Control) ................................................................ 3
+3.
+Data handling & memory (MMU) ................................................................................... 3
+4.
+Power & thermal (PCDU / THER) .................................................................................. 4
+5.
+Avionics interfaces and buses (SpW / RTU / 1553) ............................................................ 4
+6.
+Equipment management (selection, comm status)............................................................. 4
+7.
+TM/TC and bandwidth................................................................................................. 5
+8.
+Propulsion (CPS) ....................................................................................................... 5
+9.
+PALT payload............................................................................................................ 5
+Page 2/5
+
+
+--- PAGE 3 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+The mission data pool is a central set of observable spacecraft parameters maintained by Hera’s
+on-board software. It includes data coming from different units and subsystems.
+For the Experimental Software (ESW) running on Core 1, data pool access is read-only. The
+ESW can read a selected set of spacecraft state parameters, but it cannot command actua-
+tors through the data pool. The Spacecraft Data Pool is accessed through the Data Pool read
+functions (e.g. Hera_Read_Parameter_uint32, Hera_Read_Parameter_float64, etc.). These
+functions return the current value of a specific parameter identified by a unique parameter ref-
+erence (parameter_ref).
+The full list of data pool parameters will be provided to the selected experiments.
+1. INPUT PARAMETERS FOR THE EXPERIMENT SW
+A limited number of data pool parameters will be reserved for the Experiment SW (maximum
+10–15). Ground control can use these parameters to provide configuration to the Experiment
+SW before each execution window. Ground will set these parameter values only once per
+execution window, immediately before the experiment starts.
+2. AOCS / GNC (GUIDANCE, NAVIGATION & CONTROL)
+Parameters used to determine attitude/rates and support spacecraft control (including sen-
+sor/actuator selection and validity). This includes both raw telemetry and processed outputs:
+• Modes, transitions, and counters (current mode/submode and time in mode)
+• Validity flags and selection arbitration (which sensor/actuator is valid and selected)
+• Gyro measurements, time tags, and health
+• Star tracker telemetry and decoded status
+• Sun sensor / coarse sun sensor values and selection
+• Reaction wheel data (speed, torque, friction terms, momentum estimates)
+• Estimation outputs (attitude/rate/bias estimates)
+3. DATA HANDLING & MEMORY (MMU)
+Parameters used to monitor mass memory and related functions:
+• Router configuration/status (routing and interface diagnostics)
+• Memory statistics and health counters
+• Storage/downlink selection status
+Page 3/5
+
+
+--- PAGE 4 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+• File delivery (CFDP) tracking parameters
+4. POWER & THERMAL (PCDU / THER)
+Parameters used to monitor power distribution and thermal control:
+• PCDU line switching/LCL status (currents, voltages, protections)
+• TM/TC lane selection and status
+• Bus/interface selection related to PCDU
+• Heater group selection/activation/state
+• Temperature measurements (per unit and sensor point)
+5. AVIONICS INTERFACES AND BUSES (SPW / RTU / 1553)
+Parameters used to monitor main data links and interface chains on the spacecraft:
+• SpaceWire link status (link state for endpoints and general link status variables)
+• SpaceWire error counters (e.g. RMAP/CRC-related error counters)
+• RTU acquisition status and readback (validity of acquisitions and command/status read-
+back)
+• RTU acquired signals (engineering values and on-board calibrated values)
+• Routing / path selection parameters (e.g. PATH parameters used to select payload/data
+paths)
+6. EQUIPMENT MANAGEMENT (SELECTION, COMM STATUS)
+Equipment manager view of the spacecraft: which units are selected, what would be selected
+in SAFE modes, and the overall unit state and communication status:
+• Nominal selection tables (which unit is selected in nominal mode, A/B selection for key
+equipment)
+• SAFE / SURVIVAL selection tables (the equivalent selections used in SAFE/SURVIVAL
+behaviour)
+• Unit communication status (whether a unit is reachable / not reachable)
+• Assembly activation state (activation/state per equipment group)
+Page 4/5
+
+
+--- PAGE 5 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+7. TM/TC AND BANDWIDTH
+Telemetry throughput, bandwidth allocation, and monitoring of telecommand reception:
+• Bandwidth allocation and PTME status (e.g. allocation of slots/virtual channels and PTME
+status)
+• TM loss counters (e.g. counters for lost TM packets due to lack of bandwidth)
+• TC link monitoring and recovery (e.g. time since last TC reception, recovery enable flags,
+and recovery counters)
+8. PROPULSION (CPS)
+CPS unit selection and propulsion-related telemetry:
+• CPS unit selection (A/B unit selection parameters)
+• CPS communication status (where applicable)
+• CPS telemetry for trending (e.g. cumulative on-times, temperatures, and other long-term
+monitoring metrics)
+9. PALT PAYLOAD
+PALT payload configuration and status:
+• PALT configuration and status (instrument settings and measurement-related parameters)
+Page 5/5

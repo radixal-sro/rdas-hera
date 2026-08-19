@@ -1,0 +1,84 @@
+--- PAGE 1 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+AUTONOMOUS SOFTWARE EXPERIMENTS ON HERA: ANNEX D -
+BIN2C.PY, BINARY TO C HEADER CONVERTER
+Reference
+ESA-HERA-TECS-MAN-2026-002053
+Issue/Revision
+1.0
+Date of Issue
+19/06/2026
+
+
+--- PAGE 2 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+Table of Contents
+1.
+Overview ................................................................................................................. 3
+2.
+Prerequisites ............................................................................................................ 3
+3.
+How to Use the Script ................................................................................................. 3
+3.1.
+Command Line Syntax ............................................................................................. 3
+3.2.
+Example Usage ...................................................................................................... 3
+3.3.
+Output .................................................................................................................. 3
+3.4.
+Understanding the Generated Header (images_data.h) ................................................... 3
+3.5.
+File Structure Example ............................................................................................. 4
+Page 2/4
+
+
+--- PAGE 3 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+1. OVERVIEW
+bin2c.py is a Python tool designed for testing AFC images. Its primary purpose is to embed
+raw AFC image files directly into a C application.
+2. PREREQUISITES
+• Python 3.x installed on your machine.
+• No external libraries are required (uses standard sys, os, and re).
+3. HOW TO USE THE SCRIPT
+3.1. Command Line Syntax
+Open your terminal or command prompt and run the script following this pattern:
+python bin2c.py <file1.bin> <file2.bin> ... <fileN.bin>
+3.2. Example Usage
+To convert three image files (test_A.bin, test_B.bin, and noise.bin) into a single header
+file:
+python bin2c.py test_A.bin test_B.bin noise.bin
+3.3. Output
+The script generates a file named images_data.h in the same directory.
+• If the file already exists, it will be overwritten.
+• The script automatically sanitises filenames to create valid C variable names (e.g., test-
+image.bin becomes test_image_bin).
+3.4. Understanding the Generated Header (images_data.h)
+The generated header file contains three main sections:
+1. Global Definitions: Macros for image dimensions.
+2. Data Arrays: The raw bytes of your images stored as const uint8 arrays.
+3. The AFC Bank: An array of pointers allowing you to iterate over all images programmati-
+cally.
+Page 3/4
+
+
+--- PAGE 4 ---
+ESA UNCLASSIFIED - For ESA Official Use Only
+3.5. File Structure Example
+#ifndef IMAGES_DATA_H
+#define IMAGES_DATA_H
+#define IMG_WIDTH 1020
+#define IMG_HEIGHT 1020
+#define IMG_SIZE (IMG_WIDTH * IMG_HEIGHT)
+// 1. Data Arrays
+const uint8 test_A_bin[1040400] = { 0xFF, 0x0A, ... };
+const uint8 test_B_bin[1040400] = { 0x00, 0x01, ... };
+// 2. Number of images
+#define AFC_TEST_IMAGES 2
+// 3. The Bank Array (array of pointers)
+const uint8* const afc_images_bank[AFC_TEST_IMAGES] = {
+test_A_bin,
+test_B_bin
+};
+#endif // IMAGES_DATA_H
+Page 4/4

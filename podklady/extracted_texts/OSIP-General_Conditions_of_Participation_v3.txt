@@ -1,0 +1,1188 @@
+--- PAGE 1 ---
+Reference No: ESA-TECSF-TOR-2022-000109 
+General Conditions of Participation  
+ Campaigns and Channels  
+organised by ESA on OSIP 
+ 
+ 
+ 
+Channels (“General Conditions of Participation”) before entering Ideas (as defined 
+below) to Campaigns or Channels organised by ESA on the Open Space Innovation 
+Platform (OSIP). 
+ 
+They are released by the European Space Agency, an international 
+intergovernmental organisation governed by its Convention, having its headquarters 
+at 24 rue du Général Bertrand, CS 30798, 75345 Paris Cedex 7, France (“ESA” or 
+“the Agency”). 
+ 
+By entering an Idea to a Campaign or Channel organised by ESA on the OSIP, the 
+User of OSIP accepts (such acceptance being a mandatory condition to participate in 
+the OSIP Campaign or Channel) these General Conditions of Participation as well as 
+any Specific Conditions set forth by ESA for each Campaign or Channel as they may 
+be published on OSIP (herein collectively referred to as “Conditions of 
+Participation”).  
+ 
+Once so accepted, the Conditions of Participation will be legally binding to the 
+Participant, in addition to the General Conditions of Use of the OSIP (as well as any 
+conditions referred to therein); the General Conditions of Use of the OSIP will continue 
+to apply to the Participant for as long as it remains a User of OSIP. 
+ 
+I. Definitions 
+In these General Conditions of Participation, the following words and expressions 
+have the following meaning: 
+  
+“Campaign” 
+means a competition launched via OSIP which: 
+(i) 
+is intended to generate Ideas, with a 
+predetermined 
+focus 
+and 
+for 
+certain 
+expected results and  
+(ii) 
+is opened within a defined timeframe.  
+ 
+“Campaign or Channel audience” 
+means the Users of OSIP and/or the general 
+public that is given access to Campaigns and 
+Channels by ESA. 
+ 
+“Campaign or Channel Manager (CM)” means the manager of a particular 
+Campaign or Channel appointed by ESA to run 
+and monitor a Campaign or Channel including the 
+evaluation process.  
+ 
+“Channel” 
+means a competition launched on OSIP which: 
+
+
+--- PAGE 2 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+(i) Is intended to collect ideas from participants on 
+general issues or on specific topics, but without 
+targeting a specific result. 
+(ii) Has an open timeframe. 
+ 
+“Conditions of Participation” 
+has the meaning set forth in the Preamble. 
+ 
+“EISI” 
+stands for “ESA Initial Support for Innovation” and 
+means the firm fixed amount awarded by the 
+Agency, under an EISI Agreement to a Beneficiary, 
+to provide an initial support for a specific Project 
+and not as counterpart for a service or a 
+deliverable. EISI is awarded in application of 
+Resolution on the ESA Initial Support for 
+Innovation (ESA/C(2020)6) adopted by ESA 
+Council on 18 December 2019 and made public on 
+www.esa.int. 
+  
+(information on EISI:  
+https://www.esa.int/Enabling_Support/Preparing_f
+or_the_Future/Discovery_and_Preparation/EISI_-
+_ESA_Initial_Support_for_Innovation) 
+ 
+“EISI Agreement” 
+refers to the agreement between the Agency and 
+the Beneficiary which formalises the particular 
+terms and conditions applicable between the 
+Parties in connection with the award of EISI. The 
+EISI Agreement includes, by reference, the EISI 
+General Clauses adopted by ESA and made public 
+on www.esa.int. 
+ 
+“Evaluation Panel” or “Team of Experts” 
+means the team of experts nominated 
+by 
+ESA 
+to 
+evaluate 
+Ideas 
+submitted 
+by 
+Participants. 
+ 
+“Idea” 
+means, in the context of OSIP Campaigns or 
+Channels, the expression and description of a 
+thought, of a solution, of a process or concept 
+containing typically, and as a minimum, a title and 
+an explanation. 
+ 
+“Idea Call(s)” 
+means calls for ideas on OSIP organised either as 
+Campaigns or as Channels. 
+ 
+“Idea Submission” 
+The documentation embodying an Idea and output 
+of any elaborated Idea submitted by a Participant 
+in a Campaign or into a Channel, as it may be 
+updated by the Participant until the evaluation 
+starts. 
+ 
+
+
+--- PAGE 3 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+“Implementation Path(s)” 
+means the implementation mechanism(s) which 
+may be used by ESA in compliance with the 
+applicable ESA rules and regulations, to implement 
+activities following the evaluation of Ideas 
+submitted via OSIP pursuant to a Campaign or a 
+Channel.  
+ 
+“Intellectual Property Rights”  
+means any patent, registered design, copyright, 
+database right, design right, topography right, 
+trade mark, service mark, application to register 
+any of the aforementioned rights, trade secret, right 
+in unpatented know-how, right of confidence and 
+any other intellectual or industrial property right of 
+any nature whatsoever in any part of the world. 
+ 
+“OSIP” or “Platform” or “Website” 
+means the Open Space Innovation Platform, 
+operated by, or for, ESA for the purposes of 
+Campaigns and Channels. OSIP is the front end to 
+the Discovery element of ESA’s Basic Activities 
+and other ESA-wide calls in the form of a website. 
+It provides an efficient, streamlined entry point for 
+novel 
+Ideas 
+and 
+is 
+available 
+at 
+URL 
+https://ideas.esa.int. 
+ 
+“Participants” 
+means the Users who have formulated and 
+entered an Idea in OSIP. May be “Participant” also: 
+(i)  
+ESA 
+staff 
+members 
+subject 
+to 
+their 
+compliance with ESA rules and regulations; 
+the latter will prevail over the Conditions of 
+Participation in case of conflict or ambiguity; 
+(ii) 
+any personnel of ESA contractors, in 
+particular the on-site contractors, provided 
+their participation to ESA Campaigns / 
+Channels is authorised by their employers 
+and the appropriate justification is provided 
+to ESA upon request. 
+ 
+“Specific Conditions”  
+means the specific conditions of implementation 
+applicable to a specific Campaign or Channel. 
+ 
+“Third Party" 
+means a natural or legal person other than ESA, 
+User and/or Participant. 
+ 
+“Users” (also called “innovators” on the OSIP Platform) 
+means 
+the 
+persons 
+which are registered as users of OSIP and which 
+have been provided by ESA with an access code. 
+They may represent a moral person or attend on 
+their own behalf. Users may become “Participants” 
+to Campaigns and Channels by submitting Ideas.  
+
+
+--- PAGE 4 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+II.  Scope 
+2.1. Scope of application 
+ 
+This document describes the general conditions for Users of OSIP to participate 
+- subject to the exclusion set forth in Article II (2) below - to an OSIP Campaign 
+or Channel organised by ESA and, as Participant, to submit Ideas via OSIP. 
+ 
+It describes the typical procedural steps applicable to Campaigns or Channels, 
+from the early Idea formulation up to a potential selection of the Idea and 
+provides information on potential Implementation Paths.  
+ 
+2.2. Exclusion.  
+ 
+The Conditions of Participation are not designed to be used, and may not be 
+used, to deviate from ESA rules and regulations in the latter’s fields of 
+application. In case a Campaign or a Channel falls in the area of application of 
+specific ESA rules and regulations, then such Campaign or Channel:  
+a. is deemed excluded from the scope of application of this OSIP Process 
+document; and 
+b. may only be launched in accordance with such ESA rules and 
+regulations; in this respect, ESA may then issue Specific Conditions to 
+ensure compatibility and compliance thereof with the relevant applicable 
+ESA rules and regulations. 
+III. Timing and Phases 
+3.1. Indicative Timing 
+ 
+(1) The Specific Conditions set forth, for each Idea Call, on the OSIP will include 
+indicative information on: 
+a. the start date and the end date for the Idea Calls; 
+b. timeline details for each of the phases of the Campaign e.g. submission 
+deadline, end of evaluation phase, end of Campaign.  
+ 
+(2) ESA may change any pre-set schedules as necessary or opportune for ESA 
+and shall update the relevant information on OSIP. 
+ 
+3.2. Typical Phases.  
+ 
+(1) The Idea Calls process starts with an idea phase via OSIP. The Idea phase 
+shall focus on the formulation and submission of a new idea and its maturation. 
+ 
+(2) The Campaigns will typically include following phases: 
+a. the “Idea submission” phase, allowing to Participants to enter new ideas;  
+b. the “community discussion & voting” phase, allowing Participants to edit 
+an Idea and discuss with the community;  
+c. the “evaluation” phase, during which Ideas are evaluated and are 
+therefore no longer editable;  
+
+
+--- PAGE 5 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+d. the “end of Campaign” phase, with all Ideas being processed and either 
+channelled to an Implementation Path or archived, and the Campaign 
+being closed and archived. 
+ 
+(3) The Channels will typically not include time delimited phases. 
+IV. ESA Campaigns and Channels 
+4.1. Scope of ESA Campaigns and Channels 
+ 
+ESA may organise and launch Idea Campaigns and Idea Channels on OSIP:  
+a. Campaigns targeting certain topics and with a deadline for submission 
+of Ideas; 
+b. Channels on generic themes for submission of Ideas. 
+ 
+4.2. General and Specific Conditions.  
+ 
+Both Campaigns and Channels may be launched under these General 
+Conditions of Participation and under relevant Specific Conditions. In case of 
+conflicting terms between these General Conditions of Participation and the 
+provisions of such Specific Conditions, the Specific Conditions shall prevail in 
+relation to the subject matter. 
+ 
+4.3. Eligibility conditions.  
+ 
+(1) Eligibility criteria. The Specific Conditions shall expressly indicate the 
+conditions, additional to the ones set forth in these General Conditions of 
+Participation, which must be fulfilled by the Users to be eligible to participate in 
+the Campaign or Channel. The Participants may be required by ESA to draft 
+and provide a statement of eligibility including confirmation that the eligibility 
+conditions are and will be fulfilled during the entire duration of the Campaign or 
+Channel. 
+ 
+(2) Exclusion criteria. Subject to other exclusion criteria which may be set forth in 
+the Specific Conditions, any Participant may be excluded from the Campaign 
+or Channel (and may also be excluded from the further use of OSIP) if any of 
+the following events occurs: 
+a. the Participant fails to fulfil any of the Conditions of Participations or any 
+terms and conditions referred to herein;  
+b. the Participant is acting in a manner inconsistent with ESA reputation, 
+status and interests; 
+c. the Participant falls under any of the following situations: 
+i. the Participant has been the subject of a judgement which has 
+the force of res judicata for fraud, corruption, involvement in a 
+criminal organisation, money laundering or any other illegal 
+activity; 
+ii. the Participant violated, or is suspected of violating, Intellectual 
+Property Rights of a Third Party. 
+
+
+--- PAGE 6 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+d. the Participant seeks to negate or restrict, through specific labelling or 
+otherwise, the use of proprietary information, data and/or of supporting 
+documents as authorised by the Conditions of Participation. 
+ 
+4.4. Establishment of evaluation criteria and of the Evaluation Panel 
+ 
+(1) Evaluation criteria and weighting factors. For each Campaign or Channel that 
+ESA organises and launches on the OSIP, ESA will: 
+a. establish the evaluation criteria. If not stated otherwise in the Specific 
+Conditions, the main evaluation criterion for the Idea phase of 
+Campaigns and Channels is novelty. In this case, Idea Submissions 
+therefore must clearly demonstrate the novelty in respect to the state of 
+the art, providing the necessary description of such novelty. 
+b. establish weighting factors for each evaluation criterion. If no weighting 
+factors are determined, each evaluation criterion will have equal weight. 
+ 
+(2) Establishment of the Evaluation Panel. The Evaluation Panel shall assist in the 
+evaluation of Ideas in an efficient, fast, transparent and impartial manner. The 
+proposal for the membership of the Evaluation Panel is the responsibility of the 
+CM, who is ex-officio a member of the Evaluation Panel. 
+ 
+The Director of Technology, Engineering and Quality Directorate – or a person 
+to whom he has delegated such authority – shall be the Evaluation Panel 
+Appointing Authority and shall appoint the Evaluation Panel participants. 
+ 
+ESA ensures that all members of the Evaluation Panel (herein “evaluators”) are 
+bound by confidentiality, impartiality and are not in a situation of conflict of 
+interest. In case of conflict of interest, evaluators will promptly inform in writing 
+the CM. The CM shall analyse the declaration of potential conflict of interest 
+and shall take all the necessary measures, including that of excusing the 
+evaluator(s) from the Evaluation Panel to ensure that such potential conflict 
+does not impair the fairness of the evaluation. 
+ 
+These evaluators shall have a proven competence, experience and insight on 
+the subject matter of the Campaign or Channel. Following approval of the 
+Evaluation Panel, the OSIP Secretariat provides evaluators read-access to 
+Ideas submitted to the relevant Campaigns and Channels. 
+ 
+In all cases, changes in the composition of the Evaluation Panel shall only be 
+authorised by the Appointing Authority. 
+ 
+(3) Evaluation by the Evaluation Panel. Evaluators provide their evaluation 
+according to the criteria directly in the evaluation system integrated in OSIP. All 
+evaluations and comments will be personalised and logged for full traceability.  
+ 
+The Evaluation Panel may, at its sole discretion and as part of its evaluation, 
+pose additional questions or requests for clarification to supplement the Idea 
+Submission. The Participant must provide the requested documents within the 
+given timeline, otherwise it may be considered as excluded. 
+ 
+
+
+--- PAGE 7 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+All the decisions made by the Evaluation Panel shall be considered binding and 
+final on the Participant, in any and all phases of a Campaign or a Channel. 
+V. Registration and  Participation 
+5.1. Registration 
+ 
+Before entering Ideas, Users need to register in OSIP. By registering, Users 
+accept: 
+(1) The General Terms and Conditions of use of the OSIP platform 
+(https://bit.ly/OSIPTermsAndConditionsV5 - please always consult the OSIP website for the latest version). 
+(2) General conditions of participation and any specific conditions set forth 
+by ESA for each Campaign or Channel as they may be published on 
+OSIP. 
+(3) The ESA Personal Data Protection Framework made public at the URL 
+(http://www.esa.int/About_Us/Law_at_ESA/Highlights_of_ESA_rules_and_regulation
+s), and the privacy notice and consent forms available on OSIP 
+(https://ideas.esa.int/apps/IMT/UploadedFiles/00/f_3f1ace8a368683703963833d40b8ae48/1.1_Consent_f
+orm_Privacy_notice__OSIP-v1.2.pdf - please always consult the OSIP website for the latest version ). 
+ 
+5.2. Participation 
+ 
+Users participate to Campaigns or Channels on OSIP by entering or modifying 
+an Idea to a Campaign or Channel.  
+ 
+Their participation imply declaration that: 
+a. to their knowledge, they have no conflict of interest in connection with 
+the Campaign or Channel or any aspect thereof. A conflict of interest 
+could arise in particular as a result of economic interests, political or 
+national affinity, family, emotional life or any other shared interest 
+between the User and any person involved in the organisation of a 
+Campaign or Channel or in the evaluation of the Ideas. The Participants 
+must inform ESA, without delay, of any situation considered as a conflict 
+of interest or which could give rise to a conflict of interest. Depending on 
+the situation, such a conflict of interest may lead to the exclusion of the 
+Participant from the Campaign or Channel. 
+ 
+b. they did not and do not perform any illegal practices. In particular, 
+Participants declare to not have been granted, and shall not grant, have 
+not sought and shall not seek, have not attempted and shall not attempt 
+to obtain, and have not accepted and shall not accept any advantage, 
+financial or in kind, to or from any party whatsoever, where such 
+advantage constitutes an illegal practice or involves corruption, either 
+directly or indirectly, in as much as it is in connection with a Campaign 
+or a Channel. In case of misrepresentation, the Participant shall be 
+excluded from the Campaign or Channel. All the terms and conditions of 
+the Article X - “Releases” set forth in the General Conditions of Use of 
+the OSIP shall also apply mutatis mutandis in relation to the participation 
+of the Participant in the Campaigns or Channels. 
+
+
+--- PAGE 8 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+ 
+c. any legal person participating to a Campaign or Channel is duly 
+represented by the individual that filled in the registration form to 
+become User of OSIP. The name and registered office of the legal 
+person so represented, as well as any other required information, must 
+be mentioned in the registration form as well as on any documents or 
+materials submitted any time during the Campaign or Channel.  
+By filling in the registration form on OSIP and by submitting an Idea in 
+OSIP, the individual representing a legal person represents and 
+warrants, without a formal declaration being needed in this respect, that: 
+i. he/she has authority to represent the legal entity and will be 
+responsible for ensuring that such legal entity will comply with 
+these General Conditions of Participation and with any other 
+conditions referred to herein; the representative must keep 
+available and submit to ESA upon request, the power of 
+representation, decision making or control over the legal person 
+in the name of which the registration has been done; 
+ii. the Participant is an economic operator which is not subject to a 
+suspension under ESA Procurement Regulations and, generally, 
+is not subject to a decision preventing him from doing business 
+with ESA. 
+ 
+d. any individual who fills in the registration form in his/her own name 
+(not as representative of a legal person) provides his/her surname 
+and given name, his/her domicile as well as any other required 
+information and is over the age of majority in their state of jurisdiction as 
+of the date of the registration in the Campaign / Channel. 
+ 
+5.3. Applicable Conditions of Participation.  
+ 
+When organising and launching Idea Campaigns and Channels on OSIP, ESA 
+will also specify the version of the General Conditions of Participation and of 
+the Specific Conditions applicable to the Campaign or the Channel. 
+ 
+5.4. Language.  
+ 
+The language of OSIP, the language of Campaigns and Channels as well as of 
+communication between ESA and the Users / Participants shall be English 
+unless the Users / Participants have received prior written permission from the 
+ESA to submit communication in another language. 
+ 
+5.5. Communication during the Campaign or Channel.  
+ 
+Users / Participants will receive communication via OSIP. When appropriate, 
+ESA may also choose to use any other appropriate means of communication. 
+ 
+
+
+--- PAGE 9 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+5.6. Proprietary information, data and supporting documents submitted or 
+made available by the Users / Participants.  
+ 
+(1) By using the OSIP and conforming to these General Conditions of Participation, 
+it is implied that ESA, the members of the Evaluation Panel and any experts 
+supporting the foregoing, in addition to any other use authorised elsewhere in 
+the General Conditions of Participation or in the OSIP Conditions, are permitted 
+to use any such proprietary information, any data and supporting documents 
+submitted or made available by the Users / Participants for the purpose of: 
+a. the eligibility assessment,  
+b. the evaluation of the Idea and the Campaign / Channel procedure,  
+the evaluation of the Idea or parts thereof compared to other ESA 
+activities (e.g. to check for duplications). 
+ 
+5.7 Exclusion  
+ 
+Any breach of the foregoing may, in addition to other remedies available to 
+ESA, lead to the exclusion of the Participant from the Campaign or Channel. 
+ 
+5.8 Modification – termination of OSIP Campaign or Channel 
+ 
+ESA has the right to modify, or terminate any OSIP Campaign or Channel, at 
+any time and without any obligation, liability or responsibility, for any reason, in 
+particular, if: 
+a. the Campaign or Channel is not capable of being run as planned or if its 
+requirements, as mentioned on the Website for that particular Campaign 
+or Channel, are not fulfilled by the Users; or 
+b. the objective pursued by the Campaign or Channel has, in the 
+meantime, been achieved by, or for ESA, through modalities other than 
+that particular Campaign or Channel; 
+c. no application or Idea is submitted or the submitted Idea(s) are not 
+compliant with the Conditions of Participation. 
+ 
+5.9 Information – Personal data 
+ 
+In the course of the performance of any Campaign or Channel, the Participant 
+may receive, or have access to information identifying individuals, submitted or 
+made available by ESA or the Evaluation panel. Such information may be 
+processed by the Participant only during and for the purpose of the Campaign 
+or Channel only, in compliance with instructions given by ESA on the OSIP for 
+that particular Campaign or Channel. In processing such data, the Participant 
+shall at all times comply with the obligations set forth herein and the ones 
+provided in the data privacy laws and regulations applicable to the Participant 
+and shall assist ESA in satisfying its own obligations under the ESA Personal 
+Data 
+Protection 
+Framework 
+available 
+on 
+http://www.esa.int/About_Us/Law_at_ESA/Highlights_of_ESA_rules_and_regulations. 
+The 
+Participant shall not disclose, make accessible, transfer in any way, sell, assign, 
+lease or otherwise exploit any such data (and not allow any of the foregoing on 
+
+
+--- PAGE 10 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+its behalf), in particular not transfer such data out of the territory of the ESA 
+Member States1. 
+ 
+During the term of any Campaign or Channel and after its termination, for the 
+whole duration of the protection of the personal data by any applicable laws or 
+regulations, the Participant is required to protect the Personal Data against any 
+use and any communication not authorised by the disclosing Party or in 
+violation with any applicable laws or regulations. 
+ 
+VI. Participant Content (Idea, the Idea Submission and any supporting 
+documentation)  
+(1) Participants may submit in OSIP certain Ideas, Idea Submissions and any 
+supporting documentation (herein “Participant Content”) and the following shall 
+apply:  
+ 
+a. In case the content submitted to OSIP by a Participant qualifies as a 
+“Participant Content” under these General Conditions of Participation, 
+these General Conditions of Participation and any Specific Conditions of 
+participation will apply to that content; 
+ 
+b. In case the content submitted by a Participant to OSIP by a Participant 
+does not qualify as a “Participant Content” under these General 
+Conditions of Participation, the corresponding provisions of the OSIP 
+Conditions released by ESA will apply to that User Content. 
+ 
+c. Following an Implementation Path, the rights to use the Participant 
+Content will be governed by the relevant contracts or agreement in 
+accordance with the applicable ESA rules and regulations. 
+ 
+ 
+(2) Without prejudice to the possibility foreseen in Article VI, paragraph 4 below, 
+by submitting a Participant Content in OSIP, including in its draft status, within 
+the framework of a Campaign or Channel: 
+ 
+a. the Participant irrevocably grants to ESA (whether or not ESA is the 
+Organiser of the Campaign or Channel) and the Organiser (if different 
+from ESA) - without a formal declaration being needed in this respect - 
+a free of charge, perpetual, worldwide and transferable right of Use (as 
+defined below) and authorise the use (including the exercise of the rights 
+mentioned in paragraph a) above) of the Participant Content by any 
+Evaluation Panel, expert, on-site contractor, advisor or any Third Party 
+acting for ESA, the Participant Content, for the purpose of evaluating the 
+Participant Content in the framework of the Campaign and/or Channel; 
+for this purpose, the right to “Use” shall include the right to make the 
+ 
+1 As of August 2017 the Member States are Austria, Belgium, Czech Republic, Denmark, Estonia, Finland, France, 
+Germany, Greece, Hungary, Ireland, Italy, Luxembourg, The Netherlands, Norway, Poland, Portugal, Romania, 
+Spain, Sweden, Switzerland and the United Kingdom. 
+
+
+--- PAGE 11 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+Participant Content available publicly (e.g. by displaying the Content on 
+the OSIP) only when the relevant option provided in … is activated by 
+the Participant. 
+ 
+b. the Participant irrevocably grants to ESA (whether or not ESA is the 
+Organiser of the Campaign or Channel) and the Organiser (if different 
+from ESA) - without a formal declaration being needed in this respect - 
+a free of charge, perpetual, worldwide and transferable right of Use (as 
+defined below) the Participant Content selected by ESA in the framework 
+of the Campaign and/or Channel following the Idea Evaluation phase, 
+for ESA communication purposes, in particular to highlight the OSIP, 
+ESA Campaigns or Channels, to promote similar initiatives in the future 
+and/or promote the Participant Content. 
+ 
+For the purpose of this Article VI, “Use” means edit, reproduce, store the 
+Participant Content on any device, equipment, server, network etc.  (whether 
+operated by, or for, ESA) as well as to display, share, process it. 
+ 
+(3) Upon ESA request, the Participant undertakes to: 
+a. demonstrate that the Participant actually has intellectual property rights 
+in the Participant Content and  
+b. to execute any document necessary to confirm the rights granted by 
+these General Conditions of Participation.  
+ 
+(4) Notwithstanding the paragraph (2) above, if the Participant withdraws its own 
+Participant Content from OSIP by using a functionality in OSIP (if and for as 
+long as such functionality is available), the above rights of use shall lapse for 
+further use. However, ESA shall be entitled to retain copies for backup and/or 
+verification purposes and for the purpose of managing any formality triggered 
+by the termination of the access to OSIP and/or participation in the Campaign 
+or Channel.  
+ 
+(5) The Participant must not insert any content forbidden under any Specific 
+Conditions of participation or under the General Conditions of Use of the OSIP, 
+in particular any Third Party element that would infringe upon any Intellectual 
+Property or other rights of any person or entity or which the Participant is not 
+permitted to deliver with the licenses granted as set forth herein or which would 
+trigger application of other terms and conditions. 
+ 
+(6) ESA reserves the right, but disclaims any obligation or responsibility, to control, 
+remove, to refuse to post an Participant Content and/or to edit, block or remove 
+posted any of such Participant Content, or to undertake the examination 
+thereof. The User remains responsible of its Participant Content regardless of 
+the examination or assessment made by ESA. 
+ 
+In particular, any such Participant Content submitted by the Users in OSIP must 
+not: 
+ 
+a. contain trademarks, logos or trade names owned by others, or 
+advertise or promote any brand or product of any kind, without 
+
+
+--- PAGE 12 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+permission, or contain any personal identification, such as license 
+plate numbers, personal names, e-mail addresses or street 
+addresses; 
+ 
+b. contain copyrighted materials owned by others (including 
+photographs, sculptures, paintings and other works of art or images 
+published on or in websites, television, movies or other media) 
+without permission; 
+ 
+c. contain materials embodying the names, likenesses, photographs, 
+or other indicia identifying any person, living or dead, without 
+permission; communicate messages or images inconsistent with 
+the positive images and/or goodwill to which ESA wishes to 
+associate; 
+ 
+d. be violent or derogatory of any ethnic, racial, gender, religious, 
+professional or age group, profane or pornographic; be obscene or 
+offensive, endorse any form of hate or hate group; defame, 
+misrepresent or contain disparaging remarks about ESA, or its 
+activities or team, or other people, products or companies; 
+ 
+e. contain any materially dangerous activity; promote alcohol, illegal 
+drugs, tobacco, firearms/weapons (or the use of any of the 
+foregoing), any activities that may appear unsafe or dangerous, or 
+any particular political agenda or message; and 
+ 
+f. depict, and cannot itself, be in violation of any law. 
+ 
+(7)  By submitting a Participant Content in OSIP, including in its draft status, within 
+the framework of a Campaign or Channel, the Participant represents and 
+warrants to ESA and Organiser, without a formal declaration being needed in 
+this respect, that  
+a. it does not infringe upon any Intellectual Property or other rights of any 
+person or entity; 
+b. the Participant is the owner of potential intellectual property rights (if any) 
+in and to the Participant Content or, at least, that the Participant obtained 
+all the necessary rights, licenses, approvals, authorisations and releases 
+to submit them under these Conditions of Participation, the Specific 
+Conditions and the OSIP Conditions and to grant the rights of use 
+pursuant to the above-mentioned Conditions. 
+ 
+The above-mentioned rights, licenses, approvals, authorisations and 
+releases must have been obtained by the Users, prior to the submission 
+of Participant Content, from any right holder, in particular from: 
+(i) 
+any individual whose name, likeness or voice is used in any 
+such Participant Content; 
+(ii) 
+any natural or legal person who may have contributed or 
+participated in any way in the creation of the submitted 
+Participant Content; and/or 
+
+
+--- PAGE 13 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+(iii) 
+any natural or legal person who may own or control any 
+elements used in the Participant Content which are not 
+owned or controlled by the Participant. 
+ 
+The above-mentioned rights, licenses, approvals, authorisations and 
+releases must have been obtained by the Participants without placing 
+ESA or the Organiser under any obligation. 
+ 
+ 
+(8) The Participant will defend, indemnify and hold harmless ESA, from any claims 
+related to the Participant Content provided in a Campaign or Channel. All 
+obligations and warranties set forth herein or (for User Content) in the General 
+Conditions of Use of the OSIP and in the Specific Conditions (if any) will survive 
+the termination of the Participant’s participation in the Campaign or Channel, 
+for the duration of the rights granted to ESA. 
+ 
+ 
+ 
+
+
+--- PAGE 14 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+VII. Procedure conditions 
+Campaign and Channel overview pages provide information regarding the Campaign 
+or Channel specific procedure conditions and/or refers to other sources of information 
+made available by ESA and related to the Implementation Path(s). 
+A. Idea Phase 
+Entering Ideas  
+ 
+(1) The Idea phase starts with the entering of a draft description of an Idea into 
+OSIP. 
+a. Users enter an Idea into a Campaign or Channel hosted on the OSIP 
+platform by providing at the minimum the following: 
+- 
+A short meaningful title, and optionally an illustration of the Idea 
+- 
+A concise description of the Idea (max 2000 characters) 
+b. By entering an Idea, the Participant accepts that: 
+- 
+The Idea must be new, in terms of content, and original in its 
+presentation as Idea Submission; the Idea must also comply with 
+other conditions which may result from the Specific Conditions of 
+participation; in particular the Idea must not have been previously 
+published, in whole or in part, and must not have won previous 
+awards, prizes etc.; 
+c. Depending on the specific requirements for the Campaign or the 
+Channel, Users can be asked to provide further optional or mandatory 
+information.  
+Submission of Ideas and maturation 
+(2) Once Participants are satisfied with the description of their Idea, they submit 
+the Idea. The Participant agrees that submissions of Ideas imply that: 
+a. Ideas become visible to ESA and evaluators in OSIP; 
+b. Ideas may be made public as required by the relevant ESA rules and 
+regulations; Ideas may be processed by ESA; 
+c. Ideas shall be used as set forth in Article VII (4) of these Conditions or 
+as required by the relevant ESA rules and regulations;  
+d. Other Users can comment on visible Ideas or give ratings given to Ideas 
+proposed by other Users or insert any other comment onto the OSIP to 
+the extent permitted by the functionalities of OSIP.  
+e. Following the receipt of an Idea and based on the information provided, 
+the Idea would be matured, improved and finalised by the Participants. 
+This might be done either spontaneously by the Participant, upon 
+invitation by ESA or pursuant to an open dialogue about the Idea among 
+Users (e.g. during an optional community/maturation period). ESA may 
+require the Participant to work in cooperation with another Participant to 
+the Campaign or Channel, in order for them to merge their respective 
+Ideas and submit in OSIP a combined Idea under the responsibility of 
+one of the two Participants. In any case when a Participant will submit a 
+matured, improved and finalised Idea, in particular after embedding or 
+otherwise capturing the contributions of other authors, the Participant 
+
+
+--- PAGE 15 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+must ensure compliance with the terms of the Article VII (4) of these 
+General Conditions of Participation, and, in particular, ensure that 
+Participants obtained all the necessary rights, licenses, approvals 
+authorisation and releases to submit the new, mature, improved and/or 
+finalised Idea and grant the rights provided for in the said Article VII (4) 
+of these General Conditions of Participation. 
+Evaluation of Ideas 
+(3) Following the submission deadline of Campaigns (and optionally an additional 
+community/maturation period) and at intervals predetermined for Channels, 
+ESA will evaluate the Ideas according to the eligibility and evaluation criteria. 
+At this stage, Ideas can no longer be modified by the Participant. 
+ 
+(4) The CM will 
+a. Assess the eligibility of the Idea (according to pre-established and 
+announced eligibility criteria, e.g. space context, general feasibility, 
+scope); 
+b. Archive non-eligible Ideas and inform the authors via OSIP about the 
+non-eligibility of their Idea; 
+c. Ensure that each eligible Idea is evaluated; 
+d. Route the eligible Ideas to a pre-established Evaluation Panel and 
+informing them about the evaluation criteria. 
+ 
+(5) Evaluators will 
+a. Assess each eligible Idea assigned to them individually according to pre-
+established and announced evaluation criteria. For OSIP calls under the 
+Discovery element of the Basic Activities, such criteria will include at 
+least the novelty of the Idea. 
+ 
+(6) The CM will: 
+a. Extend or close the Idea evaluation phase. 
+b. Inform the Participants of the outcome of the evaluation via OSIP. 
+c. Select the highest ranked Ideas up to a cut-off level.  
+d. Inform the Participants of the selected best ranked Ideas. 
+(7) The OSIP Secretary will  
+a. Archive for at least 1 year the non-eligible and non-selected Ideas for 
+the purpose of keeping a record, for referencing, for statistical analysis 
+and for checking overlaps and duplications with other ideas. 
+ 
+(8) The marking of Ideas evaluated by more than one evaluator will be averaged. 
+To allow for a fast process, evaluators will use the OSIP evaluation system 
+online, not requiring physical meetings nor consensus among them. In case of 
+any significant difference of marking, the CM may guide a discussion with the 
+evaluators to reduce these differences. 
+ 
+(9) The evaluation will result in a sorted list of Ideas with their titles, descriptions 
+and evaluation selected for the proposal phase. Ideas not retained for the 
+proposal phase will be archived in the system at their original confidentiality 
+level for at least 1 year.  
+ 
+
+
+--- PAGE 16 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+(10) 
+In case of open Channels, at regular interval, the Channel Manager and 
+OSIP secretary will transfer the best evaluated Ideas together with the 
+evaluators’ comments and recommendation on the implementation path to be 
+followed.  
+ 
+(11) 
+Following the selection of an Idea and the appropriate Implementation 
+Path, Participants are informed via OSIP of the outcome of such process. 
+ 
+(12) 
+For selected Implementation Paths (e.g. procurement, including co-
+funded Research or EISI), Participants may be invited to complement their idea, 
+via OSIP, with additional information. 
+ 
+(13) 
+To enable a fast process, ESA will only provide a concise written 
+feedback on OSIP (no oral debriefing, no feedback by email). 
+ 
+(14) 
+The Idea submission, maturation, evaluation and selection Phase, 
+making use of the OSIP platform, is concluded at this point. 
+ 
+B. Implementation Path  
+(1) One or more steps of the selected Implementation Path may be conducted via 
+OSIP and, in any case: 
+ 
+i. 
+the Participant shall be given visibility on the steps to be accomplished 
+via OSIP and the ones to be accomplished out of OSIP; 
+ii. 
+the Participant shall be provided with the necessary templates, 
+instructions and/or guidelines; and 
+ 
+iii. 
+when necessary, the Participant shall be directed to another ESA 
+operated platform or system more appropriate for the steps to be 
+conducted out of OSIP; 
+ 
+iv. 
+OSIP shall be used only to the extent the compliance with the ESA rules 
+and regulations applicable to the selected Implementation Path is 
+ensured throughout the process. 
+ 
+(2) For illustration purposes, some Implementation Paths, like “co-funded 
+research” or “EISI” may be implemented via OSIP from the invitation to submit 
+ideas to the submitted proposal evaluation. Contractual matters in case of 
+proposal selection may be dealt outside of the OSIP upon ESA’s decision. 
+ 
+i. 
+The Participant is, following idea selection, invited to submit a proposal 
+on OSIP in a dedicated Channel. 
+ 
+ii. 
+Proposals will be based on selected ideas from the idea phase and 
+require adding further information specific to the implementation path. 
+ 
+
+
+--- PAGE 17 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+iii. 
+Proposals will be reviewed by an evaluation board appointed as per the 
+applicable ESA rules and regulations. 
+ 
+iv. 
+A standard contract / agreement applies for all activities. The draft 
+contract / agreement shall be accessible via the relevant proposal 
+Channel or the other sources referred therein by ESA. 
+ 
+ 
+C. Implementation Paths where the proposal phase is implemented via 
+ESA’s standard procurement process phase (for information only) 
+ 
+i. 
+Subject to compliance with ESA Procurement Regulations and with 
+Specific Conditions which might be released by ESA in this respect, this 
+section C is only meant to provide general and not binding information 
+on the basic aspects of the individual Implementation Path specific to 
+activities within the Discovery Element of ESA’s Basic Activities and 
+other ESA programmes using OSIP for this purpose. 
+ 
+ii. 
+For all Implementation Paths except those covered under the previous 
+phase, the appropriate Procurement processes will be triggered at this 
+point under the Agency’s applicable rules and regulations. Within this 
+framework, Participants may be invited to transform their Idea into a 
+proposal in response to the appropriate solicitation formula (Invitation to 
+submit a full proposal, Request for Proposal, Invitation to Tender, etc.). 
+In most cases, proposal templates, specifically tailored for the selected 
+Implementation Path, will be provided as part of the solicitation package.  
+Preparation of Proposal 
+(1) The Participant may be required to submit a proposal within a predetermined 
+and announced period following the announcement of the Idea selection, and 
+to comply with the requirements linked to the Implementation Path.  
+ 
+(2) The proposal will include the selected Idea from the Idea phase and additionally 
+information specific to the requirements from the selected Implementation Path. 
+Evaluation of Proposal 
+(1) Proposals will be subject to a full evaluation following the rules and principles 
+laid out in the ESA Procurement Regulations or, as applicable, the legal 
+framework applicable to the other available Implementation Paths such as the 
+one applicable to “EISI” (for as long as they are in force). 
+ 
+(2) To appropriately cater for the need for innovative activities, ESA reserves the 
+right to carry out the evaluation in two steps. 
+- 
+In the first step, proposals are evaluated against a single Evaluation 
+Criterion (weighting factor 100%) focusing on the innovativeness of the 
+proposal. 
+- 
+Proposals not reaching a mark of 60 (Good) for innovation are excluded 
+from further evaluation, thus from the second step. 
+- 
+Authors whose proposal is excluded at this stage will receive a concise 
+message informing of the exclusion. 
+
+
+--- PAGE 18 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+- 
+In the second step, the proposals qualifying for further evaluation are 
+evaluated under the remaining evaluation criteria (weighting factors adding 
+up to 100% in case of competitive tendering), ranked according to the total 
+weighted scores (competitive tendering) and recommended for contract 
+award according to the standard procedure.  
+- 
+Endorsement of the Tender Evaluation Board recommendations as per 
+standard procedure. 
+- 
+Contract negotiation and award. 
+VIII. 
+Compliance with Laws and Regulations 
+(1) All Participants must observe all local, regional, national, and international laws, 
+orders, directives, ordinances, treaties, rules and regulations which may apply 
+to Participants in connection with all aspects of the participation to Campaigns 
+or Channels. Participants are solely responsible for acquiring the appropriate 
+licenses, waivers, or permits from the applicable regulatory bodies or other 
+applicable third parties. ESA shall in no way be responsible for providing the 
+Participants any advice or counsel, legal or otherwise, with regard thereto. 
+IX. Applicable Law and Settlement of Disputes 
+(1) Except for personal data matters or incidents for which ESA Framework on 
+Personal Data Protection shall apply, and for which ESA Supervisory Authority 
+shall have jurisdiction:  
+a. Without prejudice to the applicability of ESA Convention on privileges of 
+ESA, this Agreement shall be governed by and shall be interpreted in 
+accordance with the Law of France. 
+ 
+b. All disputes between the Parties in connection with or arising out of the 
+existence, validity, construction, performance and termination of this 
+Agreement (or any terms thereof) which the Parties cannot resolve 
+within 30 days from the date of a written notice from one Party to the 
+other Party to notify the existing dispute, shall be finally settled under the 
+Rules of Arbitration of the International Chamber of Commerce by 3 
+arbitrators appointed in accordance with the said rules. The cost of 
+arbitration, including the fees and expenses of the arbitrators, shall be 
+shared equally by the Parties unless the award otherwise provides. Each 
+Party shall bear its own representation fees and costs associated with 
+the arbitration. The arbitration proceedings shall be conducted in the 
+English language in Paris (France) and the arbitration award shall be 
+final and binding upon the Parties, their successors and assigns which 
+shall comply in good faith with such decision. 
+X. Limitation of ESA liability 
+(1) ESA will be liable towards the Participants only for losses resulting from 
+procedural breaches of the Campaign or Channel, in which case ESA shall be 
+liable only in the event of wilful intent (including fraudulent intent) and gross 
+
+
+--- PAGE 19 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+negligence on the part of ESA, provided that the claim is formulated by the User 
+within three (3) months of the date when the first loss occurred. Any claims 
+beyond the above shall be excluded. 
+XI. Processing of Personal Data 
+(1) Personal Data is processed according to the ESA Personal Data Protection 
+Framework 
+a. The European Space Agency collects and/or processes personal data 
+concerning various individuals, in particular – but not only – ESA Staff 
+members and personnel engaged by ESA contractors and their 
+subcontractors. 
+ 
+(2) The European Space Agency is subject to a Personal Data Protection 
+framework composed of the following elements:  
+a. The Principles of Personal Data Protection, as adopted by ESA Council 
+Resolution (ESA/C/CCLXVIII/Res.2 (Final)) adopted on 13 June 2017 
+b. The Rules of Procedure for the Data Protection Supervisory Authority, 
+as adopted by ESA Council Resolution (ESA/C/CCLXVIII/Res.2 (Final)) 
+adopted on 13 June 2017 
+The Policy on Personal Data Protection adopted by Director General of 
+ESA on 5 February 2018 and effective on 1 March 2018 
+ 
+(3) ESA Framework on Personal Data Protection:  
+o 
+http://www.esa.int/About_Us/Law_at_ESA/Highlights_of_ESA_rules_and_regulations 
+The processing is notified under a registered DPNR 
+ 
+
+
+--- PAGE 20 ---
+ESA UNCLASSIFIED – For ESA Official Use Only    
+ 
+ 
+ESA OSIP – General Conditions of Participation 
+Version 3 – 12.01.2022 
+Reference No: ESA-TECSF-TOR-2022-000109 
+ 
+Indicative Standard Process 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Entered idea 
+draft / final 
+Comments by users 
+/ ESA (optional) 
+In case publicly visible (e.g. to 
+search for partners) 
+Assessment of eligibility of ideas by ESA  
+Evaluation of ideas by ESA-appointed evaluation 
+panel (standard evaluation at least on novelty level) 
+2nd Phase on OSIP 
+Written feedback via 
+OSIP 
+Written feedback via 
+OSIP 
+Campaigns: 
+-
+After submission deadline 
+Channels: 
+-
+At regular intervals (e.g. every month) 
+Best ranked ideas 
+1.
+Idea title 
+2.
+Idea title 
+3.
+Idea title 
+… 
+10. Idea title 
+Channelling by ESA into implementation scheme 
+2nd Phase on esastar  
+Other 
+Proposal evaluation/ 
+TEB 
+TEB 
+Progr. specific 
+selection 
+Req. to submit full 
+proposal 
+Req. to submit full 
+proposal  
+Depending on impl. 
+Progr, 
+-
+Selecting best ranked prop. for implementation at regular intervals 
+-
+Other ideas in channels remain for next round in the pool – before being archived 
+proposal process  
+Section VII B 
+idea process 
+ Section VII A 
+Submitted idea 
+draft / final 
+Negotiation & Contract 
+Negotiation & Contract 
