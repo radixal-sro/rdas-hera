@@ -346,7 +346,7 @@ def generate_10page_proposal(p_cfg):
         "<b>Proposing Entity Profile: radixal s.r.o.</b><br/>"
         "Established in 2016 in Brno, Czech Republic (Purkynova 649/127), <b>radixal s.r.o.</b> is an established European mission-critical software engineering company. "
         "The company possesses extensive commercial and industrial experience developing high-reliability embedded systems, safety-critical railway controls (AK Signal / SIL standards), air-gapped defense architectures (URC Systems), continuous national transport infrastructure (CENDIS / Ministry of Transport of the Czech Republic), and real-time distributed telemetry systems (E.ON, Schneider Electric, Swiss Life Select).<br/>"
-        "• <b>Relevant Commercial Space Heritage:</b> Proven commercial track record developing optimized C algorithms for real-time satellite imagery filtering and optical data processing for an established commercial client in Norway.",
+        "• <b>Proven European Spaceflight & Satellite Imagery Heritage (Spacemetric AB / Norway & Sweden):</b> Direct engineering partnership on native C/C++ image decompression and high-performance processing engines for <b>Spacemetric</b> (repo: <code>gitlab.com/spacemetric/ext/native-code</code>, collaborating with Chief Scientist Hakan Wiman). The project involved optimized C builds of <b>OpenJPEG (JPEG2000 2D DWT lifting transforms)</b>, <b>CharLS (JpegLS)</b>, and <b>HDF4/HDF5</b> scientific satellite data formats for processing <b>ESA Copernicus Sentinel-2</b> multispectral satellite imagery.",
         body_style
     ))
     story.append(Paragraph(
