@@ -98,15 +98,18 @@ def generate_10page_proposal(p_cfg):
     callout_bg = colors.HexColor("#EEF4F8")
     table_header_bg = colors.HexColor("#0B2545")
 
-    title_style = ParagraphStyle('DocTitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=15, leading=19, textColor=primary_color, spaceAfter=4)
-    subtitle_style = ParagraphStyle('DocSubtitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9, leading=12, textColor=accent_blue, spaceAfter=8)
-    meta_label = ParagraphStyle('MetaLabel', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=7.5, leading=10.5, textColor=colors.HexColor("#333333"))
-    meta_val = ParagraphStyle('MetaVal', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.5, leading=10.5, textColor=colors.HexColor("#444444"))
-    h1_style = ParagraphStyle('H1', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=11, leading=14, textColor=primary_color, spaceBefore=8, spaceAfter=3, keepWithNext=True)
-    h2_style = ParagraphStyle('H2', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.5, leading=12.5, textColor=secondary_color, spaceBefore=6, spaceAfter=2, keepWithNext=True)
-    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.2, leading=11.2, textColor=dark_neutral, spaceAfter=4)
-    callout_style = ParagraphStyle('Callout', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8, leading=11, textColor=colors.HexColor("#102A43"))
-    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.2, leading=9.2, textColor=dark_neutral)
+    title_style = ParagraphStyle('DocTitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=15.5, leading=19.5, textColor=primary_color, spaceAfter=3)
+    subtitle_style = ParagraphStyle('DocSubtitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.5, leading=13, textColor=accent_blue, spaceAfter=6)
+    meta_label = ParagraphStyle('MetaLabel', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=7.8, leading=11, textColor=colors.HexColor("#1E293B"))
+    meta_val = ParagraphStyle('MetaVal', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.8, leading=11, textColor=colors.HexColor("#334155"))
+    h1_style = ParagraphStyle('H1', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=11.5, leading=15, textColor=primary_color, spaceBefore=8, spaceAfter=4, keepWithNext=True)
+    h2_style = ParagraphStyle('H2', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.8, leading=13, textColor=secondary_color, spaceBefore=6, spaceAfter=3, keepWithNext=True)
+    
+    # Relaxed, airy body typography (1.45x line-height ratio)
+    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.7, leading=12.6, textColor=dark_neutral, spaceAfter=5)
+    callout_style = ParagraphStyle('Callout', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.6, leading=12.5, textColor=colors.HexColor("#0F172A"))
+    
+    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.6, leading=10.0, textColor=dark_neutral)
     table_cell_bold = ParagraphStyle('TCellB', parent=table_cell, fontName=FONT_BOLD, textColor=colors.white)
     table_cell_h = ParagraphStyle('TCellH', parent=table_cell, fontName=FONT_BOLD, textColor=primary_color)
 
