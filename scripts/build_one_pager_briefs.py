@@ -39,12 +39,17 @@ class OnePageCanvas(canvas.Canvas):
 
     def draw_decorations(self, lang="CZ"):
         self.saveState()
-        self.setFont(FONT_NORMAL, 7.5)
-        self.setFillColor(colors.HexColor("#555555"))
+        self.setFont(FONT_BOLD, 7.5)
+        self.setFillColor(colors.HexColor("#B45309")) # Amber dark
         
-        # Header line
-        self.drawString(40, 808, "ESA OSIP Hera Space Probe Code Contest | Radixal Deep-Space Autonomy Suite (R-DAS)")
-        self.drawRightString(595 - 40, 808, "radixal s.r.o. – Executive Brief")
+        # Header line with Draft badge
+        if lang == "CZ":
+            self.drawString(40, 808, "ESA OSIP Hera Space Probe Code Contest | R-DAS Suite")
+            self.drawRightString(595 - 40, 808, "● PRACOVNÍ KONCEPT K DISKUZI (DRAFT v0.9) – radixal s.r.o.")
+        else:
+            self.drawString(40, 808, "ESA OSIP Hera Space Probe Code Contest | R-DAS Suite")
+            self.drawRightString(595 - 40, 808, "● WORKING DRAFT FOR CONSULTATION (DRAFT v0.9) – radixal s.r.o.")
+            
         self.setStrokeColor(colors.HexColor("#D0D0D0"))
         self.setLineWidth(0.5)
         self.line(40, 802, 595 - 40, 802)
@@ -54,11 +59,13 @@ class OnePageCanvas(canvas.Canvas):
         self.setLineWidth(0.5)
         self.line(40, 36, 595 - 40, 36)
         
+        self.setFont(FONT_NORMAL, 7.2)
+        self.setFillColor(colors.HexColor("#555555"))
         if lang == "CZ":
-            self.drawString(40, 24, "DŮVĚRNÉ – radixal s.r.o. | Purkyňova 649/127, 612 00 Brno | www.radixal.net")
+            self.drawString(40, 24, "DŮVĚRNÉ – PRACOVNÍ VERZE PRO JEDNÁNÍ | radixal s.r.o. | Purkyňova 649/127, 612 00 Brno | www.radixal.net")
             self.drawRightString(595 - 40, 24, "Strana 1 z 1")
         else:
-            self.drawString(40, 24, "CONFIDENTIAL – radixal s.r.o. | Purkynova 649/127, 612 00 Brno, Czech Republic | www.radixal.net")
+            self.drawString(40, 24, "CONFIDENTIAL – WORKING CONSULTATION DRAFT | radixal s.r.o. | Purkynova 649/127, Brno | www.radixal.net")
             self.drawRightString(595 - 40, 24, "Page 1 of 1")
         self.restoreState()
 
@@ -332,10 +339,22 @@ if __name__ == "__main__":
     build_czech_one_pager(cz_pdf)
     build_english_one_pager(en_pdf)
     
+    # Also create explicit Draft named copies
+    import shutil
+    shutil.copyfile(cz_pdf, "proposals/R-DAS_Hera_Executive_Brief_CZ_Draft.pdf")
+    shutil.copyfile(en_pdf, "proposals/R-DAS_Hera_Executive_Brief_EN_Draft.pdf")
+    
     # Sync to Google Drive
     gdrive_dir = r"c:\Users\vikto\Disk Google\Radixal\Zakázky\2026_026 Hera Space Probe Code Contest\navrhy"
     if os.path.exists(gdrive_dir):
-        import shutil
-        shutil.copyfile(cz_pdf, os.path.join(gdrive_dir, "R-DAS_Hera_Executive_Brief_CZ.pdf"))
-        shutil.copyfile(en_pdf, os.path.join(gdrive_dir, "R-DAS_Hera_Executive_Brief_EN.pdf"))
+        for src, name in [
+            (cz_pdf, "R-DAS_Hera_Executive_Brief_CZ.pdf"),
+            (en_pdf, "R-DAS_Hera_Executive_Brief_EN.pdf"),
+            ("proposals/R-DAS_Hera_Executive_Brief_CZ_Draft.pdf", "R-DAS_Hera_Executive_Brief_CZ_Draft.pdf"),
+            ("proposals/R-DAS_Hera_Executive_Brief_EN_Draft.pdf", "R-DAS_Hera_Executive_Brief_EN_Draft.pdf"),
+        ]:
+            try:
+                shutil.copyfile(src, os.path.join(gdrive_dir, name))
+            except Exception as e:
+                print(f"[NOTE] Could not overwrite {name} on Google Drive (file is open in viewer): {e}")
         print("[SUCCESS] Synchronized One-Pagers to Google Drive navrhy/")
