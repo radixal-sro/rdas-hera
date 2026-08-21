@@ -8,7 +8,7 @@ CFLAGS = -mcpu=leon3 -O2 -Wall -Wextra -Wpedantic -std=c99 \
 
 LDFLAGS = -Ttext=0x40000000 -nostartfiles
 
-OBJS = rdas_wavelet.o rdas_saliency.o rdas_main.o
+OBJS = rdas_wavelet.o rdas_saliency.o rdas_main.o rdas_shadow_gnc.o
 
 all: rdas_core1.elf
 

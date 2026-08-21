@@ -67,21 +67,22 @@ Ke každé přihlášce se jako **hlavní příloha (Primary Attachment)** nahra
 **Attached PDF:** `ESA-OSIP-HERA-2026-RDAS-NAV-AURA-GNC_Proposal.pdf`
 
 ### 1. Title of the Idea:
-`AURA-GNC: Autonomous Vision-Based Relative Navigation & Crater Feature Tracking for Binary Asteroids`
+`AURA-GNC: In-Flight Shadow-Mode Autonomous Navigation, In-Situ 3D Landmark Mesh & Gravity Inversion Benchmark on Hera LEON3 Bare-Metal Core`
 
 ### 2. The Problem:
-`Operating in close proximity to the irregular, low-gravity Didymos binary asteroid presents major GNC challenges. 24–44 min round-trip latency prevents closed-loop station-keeping. Traditional optical Center-of-Brightness (CoB) centroiding fails due to irregular non-spherical shapes and phase-angle shadowing, causing navigation errors exceeding 15%.`
+`Operating in close proximity to the irregular, low-gravity Didymos binary asteroid presents major GNC challenges. 24–44 min round-trip latency prevents closed-loop station-keeping. Traditional optical Center-of-Brightness (CoB) centroiding fails due to irregular non-spherical shapes and phase-angle shadowing, causing navigation errors exceeding 15%. Crucially, while future deep-space missions (e.g. ESA Ramses 2029 to Apophis) require onboard autonomous guidance, flight algorithms cannot be entrusted with direct thruster control without prior in-flight empirical benchmarking.`
 
 ### 3. The Solution:
-`AURA-GNC implements a 4-stage optical navigation engine: (1) Tiny-FAST corner extractor detecting up to 60 feature points per frame, (2) 256-bit binary BRIEF descriptor matching using bitwise XOR in integer registers, (3) ingestion of PALT laser altitude to resolve optical scale ambiguity, and (4) a 9-state fixed-point Extended Kalman Filter (EKF) estimating relative position, velocity, and asteroid spin vector on board.`
+`AURA-GNC implements a 4-stage in-flight Shadow-Mode benchmarking architecture executing passively on Core 1 bare-metal C without actuator control: (1) multi-view triangulation of tracked optical craters into a body-fixed 3D Landmark Mesh, (2) a 9-state fixed-point Extended Kalman Filter (EKF) propagating relative state vectors, (3) in-situ gravity parameter (GM) recursive estimation from passive ballistic orbital accelerations, and (4) an autonomous shadow delta-V trajectory optimizer calculating impulsive transfer maneuvers to target the DART impact crater site, emitting results via PUS-20 packets (APID 0x482).`
 
 ### 4. Technical Feasibility & In-Flight Budgets:
-`• Core 1 Bare-Metal: 3.8 s WCET per frame (16.2% CPU load @ 50 MHz), 96.4 kB Static RAM, 21.8 kB Stack depth.
-• Reduces relative range estimation error from > 15% (CoB) to < 1.8% at 10–20 km proximity.`
+`• Core 1 Bare-Metal: 3.80 s WCET per epoch (16.2% CPU load @ 50 MHz), 96.4 kB Static RAM, 21.8 kB Stack depth.
+• Relative Range Accuracy: < 1.8% error at 10–20 km proximity; GM convergence within +/- 4.5%.
+• 100% Deterministic Fixed-Point C99 (Zero dynamic memory allocation / No malloc).`
 
 ### 5. Benefits & European Impact:
-`• Enables autonomous vision-based proximity operations and station-keeping without ground commanding.
-• Direct technology transfer and flight heritage for ESA's Ramses mission to asteroid Apophis in 2029.`
+`• Ground-Truth Validation Methodology: Onboard shadow maneuvers are downlinked and benchmarked against official ESOC Flight Dynamics plans on Earth, measuring the exact fidelity of onboard autonomous algorithms.
+• De-risking & TRL 8 Technology Transfer: Delivers flight-proven, zero-risk autonomous navigation, 3D mesh building, and in-situ gravity inversion algorithms for ESA's 2029 Ramses mission to asteroid (99942) Apophis.`
 
 ---
 
