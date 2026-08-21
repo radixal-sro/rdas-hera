@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 build_one_pager_briefs.py
-Generates beautifully spaced, airy, professional 1-page Executive Brief PDFs in Czech and English.
+Generates beautifully spaced, airy, professional 1-page Executive Brief PDFs in Czech and English
+with a dedicated Contact Box and relaxed, readable typography.
 """
 
 import os
@@ -40,33 +41,33 @@ class OnePageCanvas(canvas.Canvas):
     def draw_decorations(self, lang="CZ"):
         self.saveState()
         self.setFont(FONT_BOLD, 7.8)
-        self.setFillColor(colors.HexColor("#B45309")) # Amber / Gold Draft color
+        self.setFillColor(colors.HexColor("#B45309")) # Amber / Gold Draft badge
         
         # Header line with Draft badge
         if lang == "CZ":
-            self.drawString(38, 810, "ESA OSIP Hera Space Probe Code Contest | R-DAS Suite")
-            self.drawRightString(595 - 38, 810, "● PRACOVNÍ KONCEPT K DISKUZI (DRAFT v0.9) – radixal s.r.o.")
+            self.drawString(36, 812, "ESA OSIP Hera Space Probe Code Contest | R-DAS Suite")
+            self.drawRightString(595 - 36, 812, "● PRACOVNÍ KONCEPT K DISKUZI (DRAFT v0.9) – radixal s.r.o.")
         else:
-            self.drawString(38, 810, "ESA OSIP Hera Space Probe Code Contest | R-DAS Suite")
-            self.drawRightString(595 - 38, 810, "● WORKING DRAFT FOR CONSULTATION (DRAFT v0.9) – radixal s.r.o.")
+            self.drawString(36, 812, "ESA OSIP Hera Space Probe Code Contest | R-DAS Suite")
+            self.drawRightString(595 - 36, 812, "● WORKING DRAFT FOR CONSULTATION (DRAFT v0.9) – radixal s.r.o.")
             
         self.setStrokeColor(colors.HexColor("#CBD5E1"))
         self.setLineWidth(0.6)
-        self.line(38, 803, 595 - 38, 803)
+        self.line(36, 805, 595 - 36, 805)
 
         # Footer line
         self.setStrokeColor(colors.HexColor("#CBD5E1"))
         self.setLineWidth(0.6)
-        self.line(38, 38, 595 - 38, 38)
+        self.line(36, 32, 595 - 36, 32)
         
-        self.setFont(FONT_NORMAL, 7.5)
+        self.setFont(FONT_NORMAL, 7.2)
         self.setFillColor(colors.HexColor("#64748B"))
         if lang == "CZ":
-            self.drawString(38, 26, "DŮVĚRNÉ – PRACOVNÍ VERZE PRO JEDNÁNÍ | radixal s.r.o. | Purkyňova 649/127, 612 00 Brno | www.radixal.net")
-            self.drawRightString(595 - 38, 26, "Strana 1 z 1")
+            self.drawString(36, 20, "DŮVĚRNÉ – PRACOVNÍ VERZE PRO JEDNÁNÍ | radixal s.r.o. | Purkyňova 649/127, 612 00 Brno | www.radixal.net")
+            self.drawRightString(595 - 36, 20, "Strana 1 z 1")
         else:
-            self.drawString(38, 26, "CONFIDENTIAL – WORKING CONSULTATION DRAFT | radixal s.r.o. | Purkynova 649/127, Brno | www.radixal.net")
-            self.drawRightString(595 - 38, 26, "Page 1 of 1")
+            self.drawString(36, 20, "CONFIDENTIAL – WORKING CONSULTATION DRAFT | radixal s.r.o. | Purkynova 649/127, Brno | www.radixal.net")
+            self.drawRightString(595 - 36, 20, "Page 1 of 1")
         self.restoreState()
 
 def build_czech_one_pager(output_path):
@@ -74,10 +75,10 @@ def build_czech_one_pager(output_path):
     doc = SimpleDocTemplate(
         output_path,
         pagesize=A4,
-        leftMargin=38,
-        rightMargin=38,
-        topMargin=40,
-        bottomMargin=40
+        leftMargin=36,
+        rightMargin=36,
+        topMargin=36,
+        bottomMargin=36
     )
 
     styles = getSampleStyleSheet()
@@ -86,13 +87,16 @@ def build_czech_one_pager(output_path):
     accent_blue = colors.HexColor("#0066CC")
     dark_neutral = colors.HexColor("#1E293B")
 
-    title_style = ParagraphStyle('DocTitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=14.5, leading=18, textColor=primary_color, spaceAfter=2)
-    subtitle_style = ParagraphStyle('DocSubtitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.0, leading=12, textColor=accent_blue, spaceAfter=6)
-    h1_style = ParagraphStyle('H1', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=10.0, leading=13, textColor=primary_color, spaceBefore=6, spaceAfter=3)
-    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.3, leading=11.5, textColor=dark_neutral, spaceAfter=4)
-    callout_style = ParagraphStyle('Callout', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.3, leading=11.6, textColor=colors.HexColor("#0F172A"))
+    title_style = ParagraphStyle('DocTitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=14.0, leading=17, textColor=primary_color, spaceAfter=2)
+    subtitle_style = ParagraphStyle('DocSubtitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=8.8, leading=11.5, textColor=accent_blue, spaceAfter=4)
+    h1_style = ParagraphStyle('H1', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.5, leading=12.5, textColor=primary_color, spaceBefore=4, spaceAfter=2)
     
-    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.6, leading=9.8, textColor=dark_neutral)
+    # Relaxed, readable body typography (line spacing 1.55x)
+    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.0, leading=11.8, textColor=dark_neutral, spaceAfter=3)
+    callout_style = ParagraphStyle('Callout', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.0, leading=11.8, textColor=colors.HexColor("#0F172A"))
+    contact_style = ParagraphStyle('Contact', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.8, leading=11.2, textColor=colors.HexColor("#0F172A"))
+    
+    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.4, leading=9.6, textColor=dark_neutral)
     table_cell_bold = ParagraphStyle('TCellB', parent=table_cell, fontName=FONT_BOLD, textColor=colors.white)
 
     story = []
@@ -103,15 +107,15 @@ def build_czech_one_pager(output_path):
 
     header_img = None
     if os.path.exists(patch_path):
-        header_img = Image(patch_path, width=58, height=58)
+        header_img = Image(patch_path, width=54, height=54)
 
     title_p = Paragraph("Projekt R-DAS: Palubní autonomní software pro sondu ESA Hera", title_style)
     sub_p = Paragraph("Inovační výzva Evropské vesmírné agentury (ESA OSIP) | Mise planetární obrany u asteroidu Didymos", subtitle_style)
 
     if header_img:
-        hdr_tbl = Table([[title_p, header_img], [sub_p, ""]], colWidths=[450, 69])
+        hdr_tbl = Table([[title_p, header_img], [sub_p, ""]], colWidths=[455, 68])
         hdr_tbl.setStyle(TableStyle([
-            ('VALIGN', (0,0), (-1,-1), 'TOP'),
+            ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
             ('SPAN', (1,0), (1,1)),
             ('ALIGN', (1,0), (1,1), 'RIGHT'),
             ('LEFTPADDING', (0,0), (-1,-1), 0),
@@ -124,7 +128,7 @@ def build_czech_one_pager(output_path):
         story.append(title_p)
         story.append(sub_p)
 
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 3))
 
     # Executive Summary Box
     exec_summary_html = """
@@ -133,17 +137,17 @@ def build_czech_one_pager(output_path):
     • <b>Klíčové technologické inovace:</b> Autonomní detekce a katalogizace impaktních kráterů a geomorfologie povrchu v C, bezeztrátová vlnková komprese šetřící 82 % downlinku, in-situ triangulace 3D modelu tělesa a pasivní odhad gravitace (GM).<br/>
     • <b>Synergie s českou vědou:</b> Přímá návaznost na fotometrický výzkum Astronomického ústavu AV ČR v Ondřejově (Dr. Petr Pravec) a technologický demonstrátor pro misi <b>ESA Ramses 2029 k asteroidu Apophis</b>.
     """
-    callout_tbl = Table([[Paragraph(exec_summary_html, callout_style)]], colWidths=[519])
+    callout_tbl = Table([[Paragraph(exec_summary_html, callout_style)]], colWidths=[523])
     callout_tbl.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#F1F5F9")),
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#F8FAFC")),
         ('BOX', (0,0), (-1,-1), 0.75, colors.HexColor("#94A3B8")),
-        ('LEFTPADDING', (0,0), (-1,-1), 8),
-        ('RIGHTPADDING', (0,0), (-1,-1), 8),
-        ('TOPPADDING', (0,0), (-1,-1), 6),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 6),
+        ('LEFTPADDING', (0,0), (-1,-1), 7),
+        ('RIGHTPADDING', (0,0), (-1,-1), 7),
+        ('TOPPADDING', (0,0), (-1,-1), 5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 5),
     ]))
     story.append(callout_tbl)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
 
     # 6 Modules Table
     story.append(Paragraph("Přehled 6 podávaných návrhů sady R-DAS (Pokrytí všech 6 kategorií ESA)", h1_style))
@@ -156,19 +160,19 @@ def build_czech_one_pager(output_path):
         [Paragraph("<b>5. ARES-Planner</b>", table_cell), Paragraph("Kat. 3: Optimalizace", table_cell), Paragraph("Autonomní řešič CSP pro plánování vědeckých pozorování a garanci energetických rezerv", table_cell), Paragraph("1.40 s WCET | 43 kB Scratchpad<br/><i>(Integer solver)</i>", table_cell)],
         [Paragraph("<b>6. CHRONOS</b>", table_cell), Paragraph("Kat. 6: Věda / Astrofyzika", table_cell), Paragraph("Palubní fotometrie a sledování periody Dimorphosu navazující na výzkum Ondřejova", table_cell), Paragraph("0.85 s WCET | 29 kB Scratchpad<br/><i>(Aperture phot.)</i>", table_cell)],
     ]
-    mod_tbl = Table(mod_data, colWidths=[112, 86, 206, 115])
+    mod_tbl = Table(mod_data, colWidths=[114, 88, 203, 118])
     mod_tbl.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), primary_color),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 3.5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
-        ('LEFTPADDING', (0,0), (-1,-1), 5),
-        ('RIGHTPADDING', (0,0), (-1,-1), 5),
+        ('TOPPADDING', (0,0), (-1,-1), 2.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2.5),
+        ('LEFTPADDING', (0,0), (-1,-1), 4),
+        ('RIGHTPADDING', (0,0), (-1,-1), 4),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.append(mod_tbl)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
 
     # Technical Feasibility & Safety
     story.append(Paragraph("Technická proveditelnost a bezpečnost letu (Zero Risk)", h1_style))
@@ -179,20 +183,49 @@ def build_czech_one_pager(output_path):
         "Běh probíhá v hardwarově izolovaném sandboxu jádra Core 1 bez jakéhokoliv zásahu do primárního řízení sondy (Core 0 RTEMS).",
         body_style
     ))
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 3))
 
-    # Company & Team Heritage
-    story.append(Paragraph("Předkladatel: radixal s.r.o. & Řídicí tým", h1_style))
+    # Company Heritage & Team Triad
+    story.append(Paragraph("Předkladatel: radixal s.r.o. & Realizační tým", h1_style))
     story.append(Paragraph(
         "<b>radixal s.r.o.</b> (založeno 2016 v Brně) má 10letou historii ve vývoji safety-critical systémů (AK Signal / drážní normy SIL), "
-        "družicového zpracování vlnkových dat ze satelitů <b>ESA Sentinel-2 (projekt Spacemetric AB / Norsko a Švédsko)</b>, obranných systémů (URC Systems) a státní infrastruktury (CENDIS / MD ČR).<br/>"
+        "družicového zpracování vlnkových dat ze satelitů <b>ESA Copernicus Sentinel-2 (projekt Spacemetric AB / Norsko a Švédsko)</b>, obranných technologií (URC Systems) a státní infrastruktury (CENDIS / MD ČR).<br/>"
         "• <b>Bc. Viktor Lošťák (Principal Investigator & Lead Architect):</b> Hlavní architekt projektu a autor matematických algoritmů.<br/>"
         "• <b>Ing. Petr Slepička (Engineering Lead & Delivery Director):</b> Vedoucí inženýr letového C kódu, statické verifikace MISRA-C a ECSS QA.<br/>"
-        "• <b>Mgr. David Riedl (Executive Director & Governance):</b> Řízení projektu, smluvní rámec a compliance s pravidly ESA.<br/>"
-        "<b>Přímý kontakt:</b> Bc. Viktor Lošťák | Tel: <b>+420 604 761 154</b> | E-mail: <code>viktor.lostak@radixal.net</code> | Web: <code>https://radixal.net</code><br/>"
-        "<b>Otevřený repozitář se zdrojovými kódy:</b> <code>https://github.com/radixal-sro/rdas-hera</code>",
+        "• <b>Mgr. David Riedl (Executive Director & Governance):</b> Řízení projektu, smluvní rámec a compliance s pravidly ESA.",
         body_style
     ))
+    story.append(Spacer(1, 4))
+
+    # Dedicated Principal Contact Box
+    contact_left = """
+    <b>HLAVNÍ KONTAKT PRO JEDNÁNÍ:</b><br/>
+    <b>Bc. Viktor Lošťák</b><br/>
+    Principal Investigator & Lead Architect<br/>
+    Jednatel společnosti radixal s.r.o.<br/>
+    Sídlo: Purkyňova 649/127, 612 00 Brno
+    """
+    contact_right = """
+    <b>PŘÍMÉ SPOJENÍ & ODKAZY:</b><br/>
+    Telefon: <b>+420 604 761 154</b><br/>
+    E-mail: <b>viktor.lostak@radixal.net</b><br/>
+    Web: <b>https://radixal.net</b><br/>
+    Git: <b>github.com/radixal-sro/rdas-hera</b>
+    """
+    contact_tbl = Table([
+        [Paragraph(contact_left, contact_style), Paragraph(contact_right, contact_style)]
+    ], colWidths=[260, 263])
+    contact_tbl.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#EFF6FF")), # Light blue tint
+        ('BOX', (0,0), (-1,-1), 1.0, colors.HexColor("#3B82F6")),   # Blue accent border
+        ('LINEBEFORE', (1,0), (1,-1), 0.5, colors.HexColor("#BFDBFE")),
+        ('LEFTPADDING', (0,0), (-1,-1), 8),
+        ('RIGHTPADDING', (0,0), (-1,-1), 8),
+        ('TOPPADDING', (0,0), (-1,-1), 4),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
+        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+    ]))
+    story.append(contact_tbl)
 
     def make_canvas(*args, **kwargs):
         c = OnePageCanvas(*args, **kwargs)
@@ -209,10 +242,10 @@ def build_english_one_pager(output_path):
     doc = SimpleDocTemplate(
         output_path,
         pagesize=A4,
-        leftMargin=38,
-        rightMargin=38,
-        topMargin=40,
-        bottomMargin=40
+        leftMargin=36,
+        rightMargin=36,
+        topMargin=36,
+        bottomMargin=36
     )
 
     styles = getSampleStyleSheet()
@@ -221,13 +254,16 @@ def build_english_one_pager(output_path):
     accent_blue = colors.HexColor("#0066CC")
     dark_neutral = colors.HexColor("#1E293B")
 
-    title_style = ParagraphStyle('DocTitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=14.5, leading=18, textColor=primary_color, spaceAfter=2)
-    subtitle_style = ParagraphStyle('DocSubtitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.0, leading=12, textColor=accent_blue, spaceAfter=6)
-    h1_style = ParagraphStyle('H1', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=10.0, leading=13, textColor=primary_color, spaceBefore=6, spaceAfter=3)
-    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.3, leading=11.5, textColor=dark_neutral, spaceAfter=4)
-    callout_style = ParagraphStyle('Callout', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.3, leading=11.6, textColor=colors.HexColor("#0F172A"))
+    title_style = ParagraphStyle('DocTitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=14.0, leading=17, textColor=primary_color, spaceAfter=2)
+    subtitle_style = ParagraphStyle('DocSubtitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=8.8, leading=11.5, textColor=accent_blue, spaceAfter=4)
+    h1_style = ParagraphStyle('H1', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.5, leading=12.5, textColor=primary_color, spaceBefore=4, spaceAfter=2)
     
-    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.6, leading=9.8, textColor=dark_neutral)
+    # Relaxed, readable body typography (line spacing 1.55x)
+    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.0, leading=11.8, textColor=dark_neutral, spaceAfter=3)
+    callout_style = ParagraphStyle('Callout', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.0, leading=11.8, textColor=colors.HexColor("#0F172A"))
+    contact_style = ParagraphStyle('Contact', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.8, leading=11.2, textColor=colors.HexColor("#0F172A"))
+    
+    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.4, leading=9.6, textColor=dark_neutral)
     table_cell_bold = ParagraphStyle('TCellB', parent=table_cell, fontName=FONT_BOLD, textColor=colors.white)
 
     story = []
@@ -238,15 +274,15 @@ def build_english_one_pager(output_path):
 
     header_img = None
     if os.path.exists(patch_path):
-        header_img = Image(patch_path, width=58, height=58)
+        header_img = Image(patch_path, width=54, height=54)
 
     title_p = Paragraph("Project R-DAS: Onboard Deep-Space Autonomy Suite for ESA Hera", title_style)
     sub_p = Paragraph("ESA Open Space Innovation Platform (OSIP) | Autonomous Software Experiments on Hera", subtitle_style)
 
     if header_img:
-        hdr_tbl = Table([[title_p, header_img], [sub_p, ""]], colWidths=[450, 69])
+        hdr_tbl = Table([[title_p, header_img], [sub_p, ""]], colWidths=[455, 68])
         hdr_tbl.setStyle(TableStyle([
-            ('VALIGN', (0,0), (-1,-1), 'TOP'),
+            ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
             ('SPAN', (1,0), (1,1)),
             ('ALIGN', (1,0), (1,1), 'RIGHT'),
             ('LEFTPADDING', (0,0), (-1,-1), 0),
@@ -259,7 +295,7 @@ def build_english_one_pager(output_path):
         story.append(title_p)
         story.append(sub_p)
 
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 3))
 
     # Executive Summary Box
     exec_summary_html = """
@@ -268,17 +304,17 @@ def build_english_one_pager(output_path):
     • <b>Key Technological Innovations:</b> Autonomous detection and cataloging of asteroid impact craters and surface depressions via INT8 Micro-CNN & PALT laser fusion, lossless CDF 5/3 integer wavelet compression (-82.2% bandwidth), in-situ 3D shape mesh building, and passive gravity parameter (GM) inversion.<br/>
     • <b>In-Flight Benchmark & Ramses Synergy:</b> Executes an in-flight Shadow-Mode GNC benchmark comparing onboard maneuver recommendations against ESOC Flight Dynamics ground truth, establishing TRL 8 flight qualification for the <b>2029 ESA Ramses mission to asteroid (99942) Apophis</b>.
     """
-    callout_tbl = Table([[Paragraph(exec_summary_html, callout_style)]], colWidths=[519])
+    callout_tbl = Table([[Paragraph(exec_summary_html, callout_style)]], colWidths=[523])
     callout_tbl.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#F1F5F9")),
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#F8FAFC")),
         ('BOX', (0,0), (-1,-1), 0.75, colors.HexColor("#94A3B8")),
-        ('LEFTPADDING', (0,0), (-1,-1), 8),
-        ('RIGHTPADDING', (0,0), (-1,-1), 8),
-        ('TOPPADDING', (0,0), (-1,-1), 6),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 6),
+        ('LEFTPADDING', (0,0), (-1,-1), 7),
+        ('RIGHTPADDING', (0,0), (-1,-1), 7),
+        ('TOPPADDING', (0,0), (-1,-1), 5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 5),
     ]))
     story.append(callout_tbl)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
 
     # 6 Modules Table
     story.append(Paragraph("The 6 Proposals of the R-DAS Suite (Covering All 6 ESA Contest Categories)", h1_style))
@@ -291,19 +327,19 @@ def build_english_one_pager(output_path):
         [Paragraph("<b>5. ARES-Planner</b>", table_cell), Paragraph("Cat. 3: Operations", table_cell), Paragraph("Autonomous integer CSP solver for multi-payload observation scheduling (+35% science return)", table_cell), Paragraph("1.40 s WCET | 43 kB Scratchpad<br/><i>(Integer solver)</i>", table_cell)],
         [Paragraph("<b>6. CHRONOS</b>", table_cell), Paragraph("Cat. 6: Science / Astro", table_cell), Paragraph("Onboard aperture photometry & Dimorphos lightcurve tracking (Ondrejov Observatory synergy)", table_cell), Paragraph("0.85 s WCET | 29 kB Scratchpad<br/><i>(Aperture phot.)</i>", table_cell)],
     ]
-    mod_tbl = Table(mod_data, colWidths=[112, 86, 206, 115])
+    mod_tbl = Table(mod_data, colWidths=[114, 88, 203, 118])
     mod_tbl.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), primary_color),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 3.5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
-        ('LEFTPADDING', (0,0), (-1,-1), 5),
-        ('RIGHTPADDING', (0,0), (-1,-1), 5),
+        ('TOPPADDING', (0,0), (-1,-1), 2.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2.5),
+        ('LEFTPADDING', (0,0), (-1,-1), 4),
+        ('RIGHTPADDING', (0,0), (-1,-1), 4),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.append(mod_tbl)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
 
     # Technical Feasibility & Safety
     story.append(Paragraph("Technical Feasibility & Spacecraft Safety (Zero Flight Risk)", h1_style))
@@ -314,20 +350,49 @@ def build_english_one_pager(output_path):
         "Execution is confined to the isolated Core 1 bare-metal sandbox without actuator authority, ensuring absolute zero risk to Core 0 flight software.",
         body_style
     ))
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 3))
 
-    # Company & Team Heritage
+    # Company Heritage & Leadership Triad
     story.append(Paragraph("Proposing Entity: radixal s.r.o. & Leadership Triad", h1_style))
     story.append(Paragraph(
         "<b>radixal s.r.o.</b> (est. 2016 in Brno) holds a 10-year track record in safety-critical systems (AK Signal / SIL railway), "
         "satellite image wavelet pipelines for <b>ESA Copernicus Sentinel-2 (Spacemetric AB / Sweden & Norway)</b>, defense systems (URC Systems), and national infrastructure.<br/>"
         "• <b>Bc. Viktor Lostak (Principal Investigator & Lead Architect):</b> Lead architect and designer of mathematical algorithms.<br/>"
         "• <b>Ing. Petr Slepicka (Engineering Lead & Delivery Director):</b> Lead flight software engineer, MISRA-C static verification, and ECSS QA.<br/>"
-        "• <b>Mgr. David Riedl (Executive Director & Governance):</b> Project governance, legal, and ESA institutional compliance.<br/>"
-        "<b>Direct Contact:</b> Bc. Viktor Lostak | Phone: <b>+420 604 761 154</b> | Email: <code>viktor.lostak@radixal.net</code> | Web: <code>https://radixal.net</code><br/>"
-        "<b>Open Flight Code Repository:</b> <code>https://github.com/radixal-sro/rdas-hera</code>",
+        "• <b>Mgr. David Riedl (Executive Director & Governance):</b> Project governance, legal, and ESA institutional compliance.",
         body_style
     ))
+    story.append(Spacer(1, 4))
+
+    # Dedicated Principal Contact Box
+    contact_left = """
+    <b>PRINCIPAL INVESTIGATOR & CONTACT:</b><br/>
+    <b>Bc. Viktor Lostak</b><br/>
+    Principal Investigator & Lead Architect<br/>
+    Executive Director, radixal s.r.o.<br/>
+    HQ: Purkynova 649/127, 612 00 Brno, Czech Rep.
+    """
+    contact_right = """
+    <b>DIRECT CONTACT & REPOSITORY:</b><br/>
+    Phone: <b>+420 604 761 154</b><br/>
+    Email: <b>viktor.lostak@radixal.net</b><br/>
+    Web: <b>https://radixal.net</b><br/>
+    Git: <b>github.com/radixal-sro/rdas-hera</b>
+    """
+    contact_tbl = Table([
+        [Paragraph(contact_left, contact_style), Paragraph(contact_right, contact_style)]
+    ], colWidths=[260, 263])
+    contact_tbl.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#EFF6FF")), # Light blue tint
+        ('BOX', (0,0), (-1,-1), 1.0, colors.HexColor("#3B82F6")),   # Blue accent border
+        ('LINEBEFORE', (1,0), (1,-1), 0.5, colors.HexColor("#BFDBFE")),
+        ('LEFTPADDING', (0,0), (-1,-1), 8),
+        ('RIGHTPADDING', (0,0), (-1,-1), 8),
+        ('TOPPADDING', (0,0), (-1,-1), 4),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
+        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+    ]))
+    story.append(contact_tbl)
 
     def make_canvas(*args, **kwargs):
         c = OnePageCanvas(*args, **kwargs)
