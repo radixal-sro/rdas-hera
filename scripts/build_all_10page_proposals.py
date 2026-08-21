@@ -2,7 +2,12 @@
 """
 build_all_10page_proposals.py
 Compiles all 6 R-DAS Proposals into comprehensive, beautifully formatted ESA/IEEE Technical Proposal PDFs.
-Uses natural continuous flow, relaxed typography, beautiful formula callouts, and clean international English.
+Features:
+- Generous, airy line-height (1.6x leading)
+- Separate paragraphs with dedicated margins for all bullet points
+- Dedicated Principal Contact Card in Section 9.0
+- Beautiful formula callout cards
+- Natural, unforced page flow
 """
 
 import os
@@ -71,7 +76,7 @@ class NumberedCanvas(canvas.Canvas):
         self.setLineWidth(0.5)
         self.line(42, 38, 595 - 42, 38)
         
-        self.drawString(42, 26, "CONFIDENTIAL & PROPRIETARY – radixal s.r.o. | Submitted to European Space Agency (ESA)")
+        self.drawString(42, 26, "radixal s.r.o. – Technical Proposal (R-DAS Suite) | Submitted to European Space Agency (ESA OSIP)")
         self.drawRightString(595 - 42, 26, f"Page {self._pageNumber} of {page_count}")
         self.restoreState()
 
@@ -95,22 +100,23 @@ def generate_proposal_pdf(p_cfg):
     secondary_color = colors.HexColor("#134074")
     accent_blue = colors.HexColor("#0066CC")
     dark_neutral = colors.HexColor("#1E293B")
-    callout_bg = colors.HexColor("#F1F5F9")
+    callout_bg = colors.HexColor("#F8FAFC")
     table_header_bg = colors.HexColor("#0B2545")
 
-    title_style = ParagraphStyle('DocTitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=14.5, leading=18.5, textColor=primary_color, spaceAfter=3)
-    subtitle_style = ParagraphStyle('DocSubtitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.0, leading=12.5, textColor=accent_blue, spaceAfter=6)
-    meta_label = ParagraphStyle('MetaLabel', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=7.6, leading=10.5, textColor=colors.HexColor("#1E293B"))
-    meta_val = ParagraphStyle('MetaVal', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.6, leading=10.5, textColor=colors.HexColor("#334155"))
-    h1_style = ParagraphStyle('H1', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=11.0, leading=14.5, textColor=primary_color, spaceBefore=10, spaceAfter=4, keepWithNext=True)
-    h2_style = ParagraphStyle('H2', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.5, leading=12.5, textColor=secondary_color, spaceBefore=7, spaceAfter=3, keepWithNext=True)
+    title_style = ParagraphStyle('DocTitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=15.0, leading=19.0, textColor=primary_color, spaceAfter=3)
+    subtitle_style = ParagraphStyle('DocSubtitle', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.2, leading=13.0, textColor=accent_blue, spaceAfter=6)
+    meta_label = ParagraphStyle('MetaLabel', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=7.8, leading=11.2, textColor=colors.HexColor("#1E293B"))
+    meta_val = ParagraphStyle('MetaVal', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.8, leading=11.2, textColor=colors.HexColor("#334155"))
+    h1_style = ParagraphStyle('H1', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=11.5, leading=15.5, textColor=primary_color, spaceBefore=12, spaceAfter=5, keepWithNext=True)
+    h2_style = ParagraphStyle('H2', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=9.8, leading=13.5, textColor=secondary_color, spaceBefore=9, spaceAfter=4, keepWithNext=True)
     
-    # Relaxed, airy body typography (1.45x line-height ratio)
-    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.5, leading=12.4, textColor=dark_neutral, spaceAfter=5)
-    callout_style = ParagraphStyle('Callout', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.4, leading=12.0, textColor=colors.HexColor("#0F172A"))
-    formula_style = ParagraphStyle('Formula', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=8.3, leading=11.8, textColor=colors.HexColor("#0F172A"))
+    # Generous, airy, un-squeezed body typography (1.6x leading ratio)
+    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.8, leading=14.0, textColor=dark_neutral, spaceAfter=6)
+    callout_style = ParagraphStyle('Callout', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.6, leading=13.6, textColor=colors.HexColor("#0F172A"))
+    formula_style = ParagraphStyle('Formula', parent=styles['Normal'], fontName=FONT_BOLD, fontSize=8.5, leading=13.2, textColor=colors.HexColor("#0F172A"))
+    contact_style = ParagraphStyle('Contact', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=8.2, leading=12.2, textColor=colors.HexColor("#0F172A"))
     
-    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.6, leading=9.8, textColor=dark_neutral)
+    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.8, leading=10.5, textColor=dark_neutral)
     table_cell_bold = ParagraphStyle('TCellB', parent=table_cell, fontName=FONT_BOLD, textColor=colors.white)
     table_cell_h = ParagraphStyle('TCellH', parent=table_cell, fontName=FONT_BOLD, textColor=primary_color)
 
@@ -162,37 +168,38 @@ def generate_proposal_pdf(p_cfg):
         ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#F8FAFC")),
         ('BOX', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 2.5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 2.5),
-        ('LEFTPADDING', (0,0), (-1,-1), 5),
-        ('RIGHTPADDING', (0,0), (-1,-1), 5),
+        ('TOPPADDING', (0,0), (-1,-1), 3.0),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3.0),
+        ('LEFTPADDING', (0,0), (-1,-1), 6),
+        ('RIGHTPADDING', (0,0), (-1,-1), 6),
     ]))
     story.append(meta_tbl)
-    story.append(Spacer(1, 5))
+    story.append(Spacer(1, 6))
 
     # 3. EXECUTIVE SUMMARY CALLOUT
     callout_tbl = Table([[Paragraph(p_cfg['exec_summary_html'], callout_style)]], colWidths=[511])
     callout_tbl.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), callout_bg),
         ('BOX', (0,0), (-1,-1), 0.75, colors.HexColor("#94A3B8")),
-        ('LEFTPADDING', (0,0), (-1,-1), 8),
-        ('RIGHTPADDING', (0,0), (-1,-1), 8),
-        ('TOPPADDING', (0,0), (-1,-1), 6),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 6),
+        ('LEFTPADDING', (0,0), (-1,-1), 9),
+        ('RIGHTPADDING', (0,0), (-1,-1), 9),
+        ('TOPPADDING', (0,0), (-1,-1), 7),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 7),
     ]))
     story.append(callout_tbl)
-    story.append(Spacer(1, 5))
+    story.append(Spacer(1, 6))
 
-    # 4. ABSTRACT & TOC
+    # 4. ABSTRACT & SCOPE
     story.append(Paragraph("Abstract & Executive Scope", h1_style))
     story.append(Paragraph(p_cfg['abstract_text'], body_style))
-    story.append(Spacer(1, 3))
+    story.append(Spacer(1, 4))
 
     # 5. SECTION 1.0: PROBLEM STATEMENT
     story.append(Paragraph("1.0 The Problem Statement & Deep-Space Operational Challenges", h1_style))
     story.append(Paragraph(p_cfg['p1_problem_intro'], body_style))
-    story.append(Paragraph(p_cfg['p1_problem_details'], body_style))
-    story.append(Spacer(1, 3))
+    for paragraph_item in p_cfg['p1_problem_details']:
+        story.append(Paragraph(paragraph_item, body_style))
+    story.append(Spacer(1, 4))
     
     story.append(Paragraph("Table 1.1: Operational Bottleneck Comparison & Quantitative Advantage", h2_style))
     b_tbl = Table(p_cfg['table_1_1'], colWidths=[120, 130, 140, 121])
@@ -200,20 +207,21 @@ def generate_proposal_pdf(p_cfg):
         ('BACKGROUND', (0,0), (-1,0), table_header_bg),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 3),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
-        ('LEFTPADDING', (0,0), (-1,-1), 4),
-        ('RIGHTPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 3.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
+        ('LEFTPADDING', (0,0), (-1,-1), 5),
+        ('RIGHTPADDING', (0,0), (-1,-1), 5),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.append(b_tbl)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 8))
 
     # 6. SECTION 2.0: MISSION CONTEXT & TECHNICAL BASELINE
     story.append(Paragraph("2.0 Mission Context & Hera Platform Technical Baseline", h1_style))
     story.append(Paragraph(p_cfg['p2_baseline_intro'], body_style))
-    story.append(Paragraph(p_cfg['p2_baseline_details'], body_style))
-    story.append(Spacer(1, 3))
+    for paragraph_item in p_cfg['p2_baseline_details']:
+        story.append(Paragraph(paragraph_item, body_style))
+    story.append(Spacer(1, 4))
     
     story.append(Paragraph("Table 2.1: Hera Platform Allocation vs. Software Implementation Baseline", h2_style))
     p_tbl = Table(p_cfg['table_2_1'], colWidths=[115, 135, 145, 116])
@@ -221,20 +229,21 @@ def generate_proposal_pdf(p_cfg):
         ('BACKGROUND', (0,0), (-1,0), table_header_bg),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 3),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
-        ('LEFTPADDING', (0,0), (-1,-1), 4),
-        ('RIGHTPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 3.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
+        ('LEFTPADDING', (0,0), (-1,-1), 5),
+        ('RIGHTPADDING', (0,0), (-1,-1), 5),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.append(p_tbl)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 8))
 
     # 7. SECTION 3.0: ALGORITHMIC ARCHITECTURE
     story.append(Paragraph("3.0 Algorithmic Architecture & Software Pipeline Design", h1_style))
     story.append(Paragraph(p_cfg['p3_arch_intro'], body_style))
-    story.append(Paragraph(p_cfg['p3_arch_stages'], body_style))
-    story.append(Spacer(1, 3))
+    for paragraph_item in p_cfg['p3_arch_stages']:
+        story.append(Paragraph(paragraph_item, body_style))
+    story.append(Spacer(1, 4))
     
     story.append(Paragraph("Table 3.1: Pipeline Stage Execution & Memory Budget (50 MHz SPARC V8)", h2_style))
     st_tbl = Table(p_cfg['table_3_1'], colWidths=[120, 180, 115, 96])
@@ -243,36 +252,37 @@ def generate_proposal_pdf(p_cfg):
         ('BACKGROUND', (0,-1), (-1,-1), colors.HexColor("#EBF3FA")),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 3),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
-        ('LEFTPADDING', (0,0), (-1,-1), 4),
-        ('RIGHTPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 3.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
+        ('LEFTPADDING', (0,0), (-1,-1), 5),
+        ('RIGHTPADDING', (0,0), (-1,-1), 5),
     ]))
     story.append(st_tbl)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 8))
 
-    # 8. SECTION 4.0: MATHEMATICAL FORMULATIONS (Clean formula box)
+    # 8. SECTION 4.0: MATHEMATICAL FORMULATIONS
     story.append(Paragraph("4.0 Mathematical Formulation & Implementation Equations", h1_style))
     story.append(Paragraph(p_cfg['p4_math_intro'], body_style))
     
     math_box = Table([[Paragraph(p_cfg['p4_math_equations'], formula_style)]], colWidths=[511])
     math_box.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#F8FAFC")),
-        ('BOX', (0,0), (-1,-1), 0.75, colors.HexColor("#0284C7")), # Sky blue border
-        ('LINEBEFORE', (0,0), (0,-1), 3.0, colors.HexColor("#0284C7")), # Accent bar
-        ('LEFTPADDING', (0,0), (-1,-1), 10),
-        ('RIGHTPADDING', (0,0), (-1,-1), 10),
-        ('TOPPADDING', (0,0), (-1,-1), 7),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 7),
+        ('BOX', (0,0), (-1,-1), 0.75, colors.HexColor("#0284C7")),
+        ('LINEBEFORE', (0,0), (0,-1), 3.5, colors.HexColor("#0284C7")),
+        ('LEFTPADDING', (0,0), (-1,-1), 12),
+        ('RIGHTPADDING', (0,0), (-1,-1), 12),
+        ('TOPPADDING', (0,0), (-1,-1), 8),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 8),
     ]))
     story.append(math_box)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 8))
 
     # 9. SECTION 5.0: SIFT RADIATION HARDENING & CONFIG MAP
     story.append(Paragraph("5.0 SIFT Radiation Hardening & Fault-Tolerant Execution", h1_style))
     story.append(Paragraph(p_cfg['p5_sift_intro'], body_style))
-    story.append(Paragraph(p_cfg['p5_sift_details'], body_style))
-    story.append(Spacer(1, 3))
+    for paragraph_item in p_cfg['p5_sift_details']:
+        story.append(Paragraph(paragraph_item, body_style))
+    story.append(Spacer(1, 4))
     
     story.append(Paragraph("Table 5.1: 64-Byte In-Flight Configurable Memory Map (Fixed Address: 0x40001000)", h2_style))
     cfg_tbl = Table(p_cfg['table_5_1'], colWidths=[120, 50, 85, 256])
@@ -280,20 +290,21 @@ def generate_proposal_pdf(p_cfg):
         ('BACKGROUND', (0,0), (-1,0), table_header_bg),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 2.5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 2.5),
-        ('LEFTPADDING', (0,0), (-1,-1), 4),
-        ('RIGHTPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 3.0),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3.0),
+        ('LEFTPADDING', (0,0), (-1,-1), 5),
+        ('RIGHTPADDING', (0,0), (-1,-1), 5),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.append(cfg_tbl)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 8))
 
     # 10. SECTION 6.0: PLATFORM INTERFACE & PUS TELEMETRY
     story.append(Paragraph("6.0 Platform Interface Integration & PUS Telemetry Mapping", h1_style))
     story.append(Paragraph(p_cfg['p6_interface_intro'], body_style))
-    story.append(Paragraph(p_cfg['p6_interface_details'], body_style))
-    story.append(Spacer(1, 3))
+    for paragraph_item in p_cfg['p6_interface_details']:
+        story.append(Paragraph(paragraph_item, body_style))
+    story.append(Spacer(1, 4))
     
     story.append(Paragraph("Table 6.1: PUS Telemetry Packet Structures & Science Emission Budget", h2_style))
     pus_tbl = Table(p_cfg['table_6_1'], colWidths=[105, 95, 85, 65, 161])
@@ -301,14 +312,14 @@ def generate_proposal_pdf(p_cfg):
         ('BACKGROUND', (0,0), (-1,0), table_header_bg),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 3),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
-        ('LEFTPADDING', (0,0), (-1,-1), 4),
-        ('RIGHTPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 3.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
+        ('LEFTPADDING', (0,0), (-1,-1), 5),
+        ('RIGHTPADDING', (0,0), (-1,-1), 5),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.append(pus_tbl)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 8))
 
     # 11. SECTION 7.0: EMPIRICAL VERIFICATION & BENCHMARKS
     story.append(Paragraph("7.0 Empirical Verification & Ground Simulation Evidence", h1_style))
@@ -326,10 +337,10 @@ def generate_proposal_pdf(p_cfg):
                 ('BACKGROUND', (0,0), (-1,0), table_header_bg),
                 ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
                 ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-                ('TOPPADDING', (0,0), (-1,-1), 2),
-                ('BOTTOMPADDING', (0,0), (-1,-1), 2),
-                ('LEFTPADDING', (0,0), (-1,-1), 3),
-                ('RIGHTPADDING', (0,0), (-1,-1), 3),
+                ('TOPPADDING', (0,0), (-1,-1), 2.5),
+                ('BOTTOMPADDING', (0,0), (-1,-1), 2.5),
+                ('LEFTPADDING', (0,0), (-1,-1), 4),
+                ('RIGHTPADDING', (0,0), (-1,-1), 4),
             ]))
             fig_table = Table([[fig_img, det_tbl]], colWidths=[235, 276])
             fig_table.setStyle(TableStyle([
@@ -338,51 +349,94 @@ def generate_proposal_pdf(p_cfg):
                 ('RIGHTPADDING', (0,0), (-1,-1), 0),
             ]))
             story.append(fig_table)
-            story.append(Paragraph(f"<i>{fig_cfg['caption']}</i>", ParagraphStyle('Cap', parent=styles['Normal'], fontName=FONT_ITALIC, fontSize=7.6, textColor=colors.HexColor("#64748B"), spaceBefore=2)))
+            story.append(Paragraph(f"<i>{fig_cfg['caption']}</i>", ParagraphStyle('Cap', parent=styles['Normal'], fontName=FONT_ITALIC, fontSize=7.8, textColor=colors.HexColor("#64748B"), spaceBefore=3)))
 
-    story.append(Spacer(1, 3))
-    story.append(Paragraph(p_cfg['p7_verif_benchmarks'], body_style))
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
+    for paragraph_item in p_cfg['p7_verif_benchmarks']:
+        story.append(Paragraph(paragraph_item, body_style))
+    story.append(Spacer(1, 8))
 
     # 12. SECTION 8.0: OPERATIONAL TIMELINE & ROADMAP
     story.append(Paragraph("8.0 Operational Concept & Industrial Implementation Roadmap", h1_style))
-    story.append(Paragraph(p_cfg['p8_ops_intro'], body_style))
+    for paragraph_item in p_cfg['p8_ops_intro']:
+        story.append(Paragraph(paragraph_item, body_style))
     story.append(Paragraph(p_cfg['p8_milestones_intro'], body_style))
-    story.append(Spacer(1, 3))
+    story.append(Spacer(1, 4))
     
     ms_tbl = Table(p_cfg['table_8_1'], colWidths=[110, 85, 236, 80])
     ms_tbl.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), table_header_bg),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 3),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
-        ('LEFTPADDING', (0,0), (-1,-1), 4),
-        ('RIGHTPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 3.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
+        ('LEFTPADDING', (0,0), (-1,-1), 5),
+        ('RIGHTPADDING', (0,0), (-1,-1), 5),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.append(ms_tbl)
-    story.append(Spacer(1, 3))
+    story.append(Spacer(1, 4))
     story.append(Paragraph(p_cfg['p8_ground_decoder'], body_style))
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 8))
 
     # 13. SECTION 9.0: TEAM PROFILE & HERITAGE
     story.append(Paragraph("9.0 Proposing Entity & Key Leadership Triad", h1_style))
+    story.append(Paragraph("<b>Proposing Entity Profile: radixal s.r.o.</b>", body_style))
     story.append(Paragraph(
-        "<b>Proposing Entity Profile: radixal s.r.o.</b><br/>"
         "Established in 2016 in Brno, Czech Republic (Purkynova 649/127), <b>radixal s.r.o.</b> is an established European mission-critical software engineering company. "
-        "The company possesses extensive commercial and industrial experience developing high-reliability embedded systems, safety-critical railway controls (AK Signal / SIL standards), air-gapped defense architectures (URC Systems), continuous national transport infrastructure (CENDIS / Ministry of Transport of the Czech Republic), and real-time distributed telemetry systems (E.ON, Schneider Electric, Swiss Life Select).<br/>"
+        "The company possesses extensive commercial and industrial experience developing high-reliability embedded systems, safety-critical railway controls (AK Signal / SIL standards), air-gapped defense architectures (URC Systems), continuous national transport infrastructure (CENDIS / Ministry of Transport of the Czech Republic), and real-time distributed telemetry systems (E.ON, Schneider Electric, Swiss Life Select).",
+        body_style
+    ))
+    story.append(Paragraph(
         "• <b>Proven European Spaceflight & Satellite Imagery Heritage (Spacemetric AB / Sweden & Norway):</b> Direct engineering partnership on native C/C++ image decompression and high-performance processing engines for <b>Spacemetric</b> (repo: <code>gitlab.com/spacemetric/ext/native-code</code>, collaborating with Chief Scientist Hakan Wiman). The project involved optimized C builds of <b>OpenJPEG (JPEG2000 2D DWT lifting transforms)</b>, <b>CharLS (JpegLS)</b>, and <b>HDF4/HDF5</b> scientific satellite data formats for processing <b>ESA Copernicus Sentinel-2</b> multispectral satellite imagery.",
         body_style
     ))
+    story.append(Spacer(1, 3))
+    story.append(Paragraph("<b>Key Leadership Triad:</b>", body_style))
     story.append(Paragraph(
-        "<b>Key Leadership Triad:</b><br/>"
-        "• <b>Bc. Viktor Lostak – Principal Investigator & Lead Architect:</b> Over a decade of software architecture and mathematical algorithm design. Responsible for overall scientific concept, pipeline design, and ESA technical interface coordination.<br/>"
-        "• <b>Ing. Petr Slepicka – Engineering Lead & Delivery Director:</b> Specialist in safety-critical C engineering, MISRA-C static verification, automated QEMU CI/CD test harness, and strict ECSS Category D quality assurance.<br/>"
+        "• <b>Bc. Viktor Lostak – Principal Investigator & Lead Architect:</b> Over a decade of software architecture and mathematical algorithm design. Responsible for overall scientific concept, pipeline design, and ESA technical interface coordination.",
+        body_style
+    ))
+    story.append(Paragraph(
+        "• <b>Ing. Petr Slepicka – Engineering Lead & Delivery Director:</b> Specialist in safety-critical C engineering, MISRA-C static verification, automated QEMU CI/CD test harness, and strict ECSS Category D quality assurance.",
+        body_style
+    ))
+    story.append(Paragraph(
         "• <b>Mgr. David Riedl – Executive Director & Project Governance:</b> Responsible for contract management, legal and IPR governance, institutional compliance with ESA rules, and resource allocation.",
         body_style
     ))
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 6))
+
+    # Dedicated Principal Contact Card
+    contact_left = """
+    <b>PRINCIPAL INVESTIGATOR & INSTITUTIONAL CONTACT:</b><br/>
+    <b>Bc. Viktor Lostak</b><br/>
+    Principal Investigator & Lead Architect<br/>
+    Executive Director, radixal s.r.o.<br/>
+    HQ: Purkynova 649/127, 612 00 Brno, Czech Republic
+    """
+    contact_right = """
+    <b>DIRECT COMMUNICATIONS & REPOSITORY:</b><br/>
+    Direct Phone: <b>+420 604 761 154</b><br/>
+    Direct Email: <b>viktor.lostak@radixal.net</b><br/>
+    Corporate Web: <b>https://radixal.net</b><br/>
+    Open Codebase: <b>github.com/radixal-sro/rdas-hera</b>
+    """
+    contact_tbl = Table([
+        [Paragraph(contact_left, contact_style), Paragraph(contact_right, contact_style)]
+    ], colWidths=[250, 261])
+    contact_tbl.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#EFF6FF")),
+        ('BOX', (0,0), (-1,-1), 1.0, colors.HexColor("#3B82F6")),
+        ('LINEBEFORE', (1,0), (1,-1), 0.5, colors.HexColor("#BFDBFE")),
+        ('LEFTPADDING', (0,0), (-1,-1), 8),
+        ('RIGHTPADDING', (0,0), (-1,-1), 8),
+        ('TOPPADDING', (0,0), (-1,-1), 5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 5),
+        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+    ]))
+    story.append(contact_tbl)
+    story.append(Spacer(1, 8))
 
     # 14. SECTION 10.0: REFERENCES & ADVISORY BOARD
     story.append(Paragraph("10.0 Scientific References & Proposed External Advisory Board", h1_style))
@@ -402,7 +456,7 @@ def generate_proposal_pdf(p_cfg):
 
 def run_compilation():
     styles = getSampleStyleSheet()
-    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.6, leading=9.8, textColor=colors.HexColor("#1E293B"))
+    table_cell = ParagraphStyle('TCell', parent=styles['Normal'], fontName=FONT_NORMAL, fontSize=7.8, leading=10.5, textColor=colors.HexColor("#1E293B"))
     table_cell_bold = ParagraphStyle('TCellB', parent=table_cell, fontName=FONT_BOLD, textColor=colors.white)
 
     # 1. ARGOS-AI (Edge AI)
@@ -423,7 +477,11 @@ def run_compilation():
         """,
         'abstract_text': "<b>Abstract:</b> Deep-space planetary missions face severe downlink bottlenecks and round-trip light-time latency. The ARGOS-AI experiment operationalizes deterministic edge intelligence on Hera's Core 1 bare-metal LEON3 processor. Operating strictly with zero dynamic memory allocation (0 malloc) and integer fixed-point arithmetic, ARGOS-AI autonomously detects natural impact craters and morphological depressions on asteroid Didymos and Dimorphos, fusing optical framing camera imagery with laser altimetry to tag high-priority Regions of Interest (ROIs).",
         'p1_problem_intro': "The Hera mission's proximity operations at the Didymos binary asteroid encounter critical communication and operational bottlenecks:",
-        'p1_problem_details': "<b>1.1 Downlink Bandwidth Asymmetry:</b> Hera's deep-space communications link via the Estrack 35 m antenna network provides downlink rates of only tens of kilobits per second. Downlinking full uncompressed 1020×1020 16-bit Asteroid Framing Camera (AFC) frames consumes massive downlink passes.<br/><b>1.2 Ground-Loop Latency:</b> The 24 to 44 minute round-trip light time to Earth precludes ground-in-the-loop real-time targeting of scientific opportunities.<br/><b>1.3 Heavy Computational Models Fail in Deep Space:</b> Modern terrestrial AI models (e.g. YOLO, PyTorch) require gigabytes of RAM and GPU accelerators unavailable on the rad-hard 50 MHz LEON3 processor.",
+        'p1_problem_details': [
+            "<b>1.1 Downlink Bandwidth Asymmetry:</b> Hera's deep-space communications link via the Estrack 35 m antenna network provides downlink rates of only tens of kilobits per second. Downlinking full uncompressed 1020×1020 16-bit Asteroid Framing Camera (AFC) frames consumes massive downlink passes.",
+            "<b>1.2 Ground-Loop Latency:</b> The 24 to 44 minute round-trip light time to Earth precludes ground-in-the-loop real-time targeting of scientific opportunities.",
+            "<b>1.3 Heavy Computational Models Fail in Deep Space:</b> Modern terrestrial AI models (e.g. YOLO, PyTorch) require gigabytes of RAM and GPU accelerators unavailable on the rad-hard 50 MHz LEON3 processor."
+        ],
         'table_1_1': [
             [Paragraph("Operational Metric", table_cell_bold), Paragraph("Traditional Ground Processing", table_cell_bold), Paragraph("ARGOS-AI Onboard Micro-Kernel", table_cell_bold), Paragraph("Quantitative Advantage", table_cell_bold)],
             [Paragraph("Triage Latency", table_cell), Paragraph("24 to 48 hours (Ground loop)", table_cell), Paragraph("2.39 seconds (Real-time in situ)", table_cell), Paragraph("~36,000× speedup", table_cell_bold)],
@@ -432,7 +490,10 @@ def run_compilation():
             [Paragraph("Spacecraft Risk Profile", table_cell), Paragraph("Ground Dependent (High latency)", table_cell), Paragraph("Core 1 Isolated Sandbox", table_cell), Paragraph("Zero Primary Core Impact", table_cell_bold)]
         ],
         'p2_baseline_intro': "Hera's onboard computing architecture is powered by the Frontgrade Gaisler GR712RC processor, comprising two SPARC V8 (LEON3) cores at 50 MHz:",
-        'p2_baseline_details': "<b>2.1 Core 1 Sandbox Constraints:</b> Core 1 executes guest software bare-metal without an operating system, completely isolated from Core 0 RTEMS. Guest software has 142 kB static RAM allocation, a strict 64 kB stack limit, and zero dynamic memory management.<br/><b>2.2 Mission Data Pool Interface:</b> ARGOS-AI queries telemetry parameters via the standard Annex B API (hera_interface.h), including laser altimeter altitude (PALT_ALTITUDE_VAL) and solar aspect angle to calibrate optical thresholds.",
+        'p2_baseline_details': [
+            "<b>2.1 Core 1 Sandbox Constraints:</b> Core 1 executes guest software bare-metal without an operating system, completely isolated from Core 0 RTEMS. Guest software has 142 kB static RAM allocation, a strict 64 kB stack limit, and zero dynamic memory management.",
+            "<b>2.2 Mission Data Pool Interface:</b> ARGOS-AI queries telemetry parameters via the standard Annex B API (hera_interface.h), including laser altimeter altitude (PALT_ALTITUDE_VAL) and solar aspect angle to calibrate optical thresholds."
+        ],
         'table_2_1': [
             [Paragraph("Platform Characteristic", table_cell_bold), Paragraph("Hera Platform Allocation", table_cell_bold), Paragraph("ARGOS-AI Implementation", table_cell_bold), Paragraph("Compliance Status", table_cell_bold)],
             [Paragraph("CPU Core Assignment", table_cell), Paragraph("Core 1 (LEON3 SPARC V8 @ 50 MHz)", table_cell), Paragraph("Dedicated bare-metal C99 thread", table_cell), Paragraph("100% Fully Compliant", table_cell)],
@@ -442,7 +503,12 @@ def run_compilation():
             [Paragraph("Worst-Case Execution Time", table_cell), Paragraph("&lt; 10.0 s per optical frame", table_cell), Paragraph("2.39 s WCET @ 50 MHz", table_cell), Paragraph("+76.1% Time Margin", table_cell)]
         ],
         'p3_arch_intro': "ARGOS-AI executes a deterministic 4-stage integer vision and classification pipeline:",
-        'p3_arch_stages': "<b>3.1 Stage 1 – Integral Image Saliency Extractor:</b> Computes a 16-bit downsampled integral intensity map to detect high-contrast asteroid surface features without floating-point divisions.<br/><b>3.2 Stage 2 – Integer Radial Ray Casting:</b> Casts 8 radial rays from candidate centers to locate crater rims and morphological edges via directional gradient thresholds.<br/><b>3.3 Stage 3 – PALT Laser Altimetry Fusion:</b> Ingests the instant laser distance to scale pixel radii into physical meters ($D_m = 2 R_{px} \\cdot h_{PALT} \\cdot \\text{IFOV}$).<br/><b>3.4 Stage 4 – Scientific ROI Priority Ranking:</b> Generates prioritized PUS-20 telemetry packets for high-value targets (fresh impact depressions, boulder fields).",
+        'p3_arch_stages': [
+            "<b>3.1 Stage 1 – Integral Image Saliency Extractor:</b> Computes a 16-bit downsampled integral intensity map to detect high-contrast asteroid surface features without floating-point divisions.",
+            "<b>3.2 Stage 2 – Integer Radial Ray Casting:</b> Casts 8 radial rays from candidate centers to locate crater rims and morphological edges via directional gradient thresholds.",
+            "<b>3.3 Stage 3 – PALT Laser Altimetry Fusion:</b> Ingests the instant laser distance to scale pixel radii into physical meters ($D_m = 2 R_{px} \\cdot h_{PALT} \\cdot \\text{IFOV}$).",
+            "<b>3.4 Stage 4 – Scientific ROI Priority Ranking:</b> Generates prioritized PUS-20 telemetry packets for high-value targets (fresh impact depressions, boulder fields)."
+        ],
         'table_3_1': [
             [Paragraph("Pipeline Stage", table_cell_bold), Paragraph("Algorithmic Function", table_cell_bold), Paragraph("Memory Footprint", table_cell_bold), Paragraph("WCET @ 50 MHz", table_cell_bold)],
             [Paragraph("Stage 1: Saliency Map", table_cell), Paragraph("Integral image contrast computation (8-bit)", table_cell), Paragraph("32.0 kB Static Buffer", table_cell), Paragraph("0.48 seconds", table_cell)],
@@ -461,7 +527,11 @@ def run_compilation():
         &nbsp;&nbsp;&nbsp;&nbsp;D_crater [meters] = 2 · R_px · h_PALT · IFOV_AFC &nbsp;&nbsp;&nbsp;&nbsp;<i>(where IFOV_AFC = 0.13133 mrad/px)</i>
         """,
         'p5_sift_intro': "Operating in interplanetary space requires active protection against Single Event Upsets (SEU):",
-        'p5_sift_details': "<b>5.1 Triple Modular Redundancy (TMR):</b> Critical loop indices and candidate counts are stored in triple-replicated registers with majority voting.<br/><b>5.2 Control Flow Assertion Checking:</b> Every processing stage verifies monotonic state transitions.<br/><b>5.3 64-Byte Ground-Configurable Memory Map:</b> Parameters are mapped at 0x40001000 with CRC-32 integrity validation.",
+        'p5_sift_details': [
+            "<b>5.1 Triple Modular Redundancy (TMR):</b> Critical loop indices and candidate counts are stored in triple-replicated registers with majority voting.",
+            "<b>5.2 Control Flow Assertion Checking:</b> Every processing stage verifies monotonic state transitions.",
+            "<b>5.3 64-Byte Ground-Configurable Memory Map:</b> Parameters are mapped at 0x40001000 with CRC-32 integrity validation."
+        ],
         'table_5_1': [
             [Paragraph("Offset / Field", table_cell_bold), Paragraph("Type", table_cell_bold), Paragraph("Default Value", table_cell_bold), Paragraph("Operational Description & Tuning Function", table_cell_bold)],
             [Paragraph("+0x00: config_version", table_cell), Paragraph("uint16", table_cell), Paragraph("0x0100", table_cell), Paragraph("Software configuration version identifier", table_cell)],
@@ -470,8 +540,11 @@ def run_compilation():
             [Paragraph("+0x06: max_crater_radius_px", table_cell), Paragraph("uint16", table_cell), Paragraph("120", table_cell), Paragraph("Maximum detectable feature radius in pixels", table_cell)],
             [Paragraph("+0x08: crc32_checksum", table_cell), Paragraph("uint32", table_cell), Paragraph("Computed", table_cell), Paragraph("CRC-32 checksum covering bytes +0x00 to +0x06", table_cell)]
         ],
-        'p6_interface_intro': "ARGOS-AI interfaces cleanly with Core 0 through the standard telemetry structures:",
-        'p6_interface_details': "<b>6.1 PUS Service 20 Science Packets:</b> Emits 64-byte science descriptors (APID 0x480, Subtype 1) containing crater centers, radii, confidence scores, and laser altitude.<br/><b>6.2 PUS Service 3 Housekeeping:</b> Transmits diagnostic execution statistics (APID 0x480, SID 0x0101) every 10 minutes.",
+        'p6_interface_intro': "ARGOS-AI interfaces cleanly with Core 0 through standard telemetry structures:",
+        'p6_interface_details': [
+            "<b>6.1 PUS Service 20 Science Packets:</b> Emits 64-byte science descriptors (APID 0x480, Subtype 1) containing crater centers, radii, confidence scores, and laser altitude.",
+            "<b>6.2 PUS Service 3 Housekeeping:</b> Transmits diagnostic execution statistics (APID 0x480, SID 0x0101) every 10 minutes."
+        ],
         'table_6_1': [
             [Paragraph("PUS Service / Packet", table_cell_bold), Paragraph("APID / SID", table_cell_bold), Paragraph("Cadence / Trigger", table_cell_bold), Paragraph("Payload Size", table_cell_bold), Paragraph("Telemetry Description", table_cell_bold)],
             [Paragraph("PUS-3 Housekeeping", table_cell), Paragraph("APID 0x480, SID 0x0101", table_cell), Paragraph("Every 10 minutes", table_cell), Paragraph("128 bytes", table_cell), Paragraph("Core 1 health, WCET, SIFT bit-flip counters", table_cell)],
@@ -494,8 +567,19 @@ def run_compilation():
                 [Paragraph("C8", table_cell), Paragraph("(419, 788)", table_cell), Paragraph("27 px", table_cell), Paragraph("83.7 m", table_cell), Paragraph("94.3%", table_cell)]
             ]
         },
-        'p7_verif_benchmarks': "<b>7.1 Verification Summary & Quantitative Benchmarks:</b><br/>• <b>True Positive Detection Rate:</b> 94.2% across varied phase angles (10°–85°).<br/>• <b>Radius Estimation Precision:</b> RMSE = 0.84 pixels.<br/>• <b>Worst-Case Execution Time:</b> Exactly <b>2.39 seconds</b> per 1020×1020 frame @ 50 MHz SPARC V8.<br/>• <b>Zero Heap Memory:</b> Strictly 0 dynamic allocations (0 malloc).",
-        'p8_ops_intro': "<b>8.1 Operational Timeline (3-Hour In-Flight Slot):</b><br/>• t = 00:00 to 00:02 min: Boot sequence, SIFT register parity check, and configuration table read.<br/>• t = 00:02 to 01:45 min: Continuous processing of AFC image buffers and PUS-20 telemetry generation.<br/>• t = 175:00 to 180:0 min: Final session summary serialization and graceful handover to Core 0 RTEMS.",
+        'p7_verif_benchmarks': [
+            "<b>7.1 Verification Summary & Quantitative Benchmarks:</b>",
+            "• <b>True Positive Detection Rate:</b> 94.2% across varied phase angles (10°–85°).",
+            "• <b>Radius Estimation Precision:</b> RMSE = 0.84 pixels across 2,400+ calibration frames.",
+            "• <b>Worst-Case Execution Time:</b> Exactly <b>2.39 seconds</b> per 1020×1020 frame @ 50 MHz SPARC V8.",
+            "• <b>Zero Heap Memory:</b> Strictly 0 dynamic allocations (0 malloc)."
+        ],
+        'p8_ops_intro': [
+            "<b>8.1 Operational Timeline (3-Hour In-Flight Slot):</b>",
+            "• <b>t = 00:00 to 00:02 min:</b> Boot sequence, SIFT register parity check, and configuration table read.",
+            "• <b>t = 00:02 to 01:45 min:</b> Continuous processing of AFC image buffers and PUS-20 telemetry generation.",
+            "• <b>t = 175:00 to 180:0 min:</b> Final session summary serialization and graceful handover to Core 0 RTEMS."
+        ],
         'p8_milestones_intro': "<b>8.2 Industrial Implementation Milestones (Phase 2 Delivery to May 31, 2027):</b>",
         'table_8_1': [
             [Paragraph("Milestone", table_cell_bold), Paragraph("Target Date", table_cell_bold), Paragraph("Key Deliverables & Verification Scope", table_cell_bold), Paragraph("Standard", table_cell_bold)],
@@ -533,7 +617,11 @@ def run_compilation():
         """,
         'abstract_text': "<b>Abstract:</b> Deep-space planetary science payloads generate high-resolution imagery that severely overwhelms low-bandwidth interplanetary downlinks. The DEEP-WAVE experiment demonstrates deterministic, zero-heap 2D integer wavelet image compression on Hera's Core 1 bare-metal LEON3 processor. By implementing an integer lifting CDF 5/3 factorization with streaming line-buffers, DEEP-WAVE reduces AFC image downlink volume by 82.2% without loss of scientific fidelity.",
         'p1_problem_intro': "Deep-space communication from Didymos (1.0–1.5 AU from Earth) imposes severe transmission constraints:",
-        'p1_problem_details': "<b>1.1 Downlink Channel Saturation:</b> Downlink rates over 35 m Estrack ground stations are limited to tens of kbps. A single uncompressed 1020×1020 16-bit AFC frame requires ~2.08 MB.<br/><b>1.2 Loss of Scientific Value in Lossy Compression:</b> Standard lossy algorithms (JPEG) introduce high-frequency blocking artifacts that destroy micro-crater topography and photometric gradients.<br/><b>1.3 Severe Memory Constraints on Core 1:</b> Standard JPEG2000 libraries (OpenJPEG) allocate 10–50 MB of heap memory, exceeding Core 1's bounded static memory.",
+        'p1_problem_details': [
+            "<b>1.1 Downlink Channel Saturation:</b> Downlink rates over 35 m Estrack ground stations are limited to tens of kbps. A single uncompressed 1020×1020 16-bit AFC frame requires ~2.08 MB.",
+            "<b>1.2 Loss of Scientific Value in Lossy Compression:</b> Standard lossy algorithms (JPEG) introduce high-frequency blocking artifacts that destroy micro-crater topography and photometric gradients.",
+            "<b>1.3 Severe Memory Constraints on Core 1:</b> Standard JPEG2000 libraries (OpenJPEG) allocate 10–50 MB of heap memory, exceeding Core 1's bounded static memory."
+        ],
         'table_1_1': [
             [Paragraph("Compression Method", table_cell_bold), Paragraph("Compression Ratio", table_cell_bold), Paragraph("Reconstruction Fidelity", table_cell_bold), Paragraph("Core 1 Feasibility @ 50 MHz", table_cell_bold)],
             [Paragraph("Uncompressed Raw (16-bit)", table_cell), Paragraph("1.0 : 1 (0% saving)", table_cell), Paragraph("100% Lossless", table_cell), Paragraph("Saturates deep-space downlink", table_cell)],
@@ -541,7 +629,10 @@ def run_compilation():
             [Paragraph("DEEP-WAVE (radixal CDF 5/3)", table_cell_bold), Paragraph("5.6 : 1 (82.2% saving)", table_cell_bold), Paragraph("100% Reversible Lossless", table_cell_bold), Paragraph("2.39 s WCET / 38.4 kB Static RAM", table_cell_bold)]
         ],
         'p2_baseline_intro': "DEEP-WAVE runs entirely in the bare-metal Core 1 sandbox of Hera's GR712RC processor:",
-        'p2_baseline_details': "<b>2.1 Core 1 Memory Architecture:</b> Uses streaming line-buffers requiring only 38.4 kB of static scratchpad RAM.<br/><b>2.2 Zero Heap Execution:</b> Strictly zero malloc, 100% deterministic execution time and memory bounds.",
+        'p2_baseline_details': [
+            "<b>2.1 Core 1 Memory Architecture:</b> Uses streaming line-buffers requiring only 38.4 kB of static scratchpad RAM.",
+            "<b>2.2 Zero Heap Execution:</b> Strictly zero malloc, 100% deterministic execution time and memory bounds."
+        ],
         'table_2_1': [
             [Paragraph("Platform Characteristic", table_cell_bold), Paragraph("Hera Specification / Constraint", table_cell_bold), Paragraph("DEEP-WAVE Implementation", table_cell_bold), Paragraph("Compliance Status", table_cell_bold)],
             [Paragraph("Processor Architecture", table_cell), Paragraph("GR712RC Dual-Core LEON3 (SPARC V8)", table_cell), Paragraph("Pure ANSI C99 / BCC SPARC Toolchain", table_cell), Paragraph("100% Fully Compliant", table_cell)],
@@ -551,7 +642,12 @@ def run_compilation():
             [Paragraph("Worst-Case Execution Time", table_cell), Paragraph("&lt; 10.0 s per optical frame", table_cell), Paragraph("2.39 s WCET @ 50 MHz", table_cell), Paragraph("+76.1% Time Margin", table_cell)]
         ],
         'p3_arch_intro': "DEEP-WAVE deploys a 4-stage integer lifting wavelet and entropy encoding pipeline:",
-        'p3_arch_stages': "<b>3.1 Stage 1 – 2D CDF 5/3 Integer Lifting Transform:</b> Decomposes 2D image rows and columns into low-frequency approximations and high-frequency details.<br/><b>3.2 Stage 2 – Multi-Resolution Subband Organization:</b> Arranges coefficients into LL, LH, HL, and HH subbands.<br/><b>3.3 Stage 3 – Adaptive Integer Quantization & Dynamic Range Partitioning:</b> Groups subband coefficients for entropy coding.<br/><b>3.4 Stage 4 – Bitstream Packing & PUS-20 Framing:</b> Packs compressed bitstream into standard PUS Service 20 science packets (APID 0x481).",
+        'p3_arch_stages': [
+            "<b>3.1 Stage 1 – 2D CDF 5/3 Integer Lifting Transform:</b> Decomposes 2D image rows and columns into low-frequency approximations and high-frequency details.",
+            "<b>3.2 Stage 2 – Multi-Resolution Subband Organization:</b> Arranges coefficients into LL, LH, HL, and HH subbands.",
+            "<b>3.3 Stage 3 – Adaptive Integer Quantization & Dynamic Range Partitioning:</b> Groups subband coefficients for entropy coding.",
+            "<b>3.4 Stage 4 – Bitstream Packing & PUS-20 Framing:</b> Packs compressed bitstream into standard PUS Service 20 science packets (APID 0x481)."
+        ],
         'table_3_1': [
             [Paragraph("Pipeline Stage", table_cell_bold), Paragraph("Algorithmic Function", table_cell_bold), Paragraph("Memory Footprint", table_cell_bold), Paragraph("WCET @ 50 MHz", table_cell_bold)],
             [Paragraph("Stage 1: Row Lifting", table_cell), Paragraph("1D CDF 5/3 integer transform on rows", table_cell), Paragraph("12.8 kB Static Buffer", table_cell), Paragraph("0.72 seconds", table_cell)],
@@ -571,7 +667,10 @@ def run_compilation():
         <i>This integer lifting identity guarantees exact bit-for-bit mathematical reversibility (PSNR = ∞) without round-off error.</i>
         """,
         'p5_sift_intro': "SIFT protections prevent bit-flips in entropy encoding buffers from corrupting compressed tiles:",
-        'p5_sift_details': "<b>5.1 Subband Parity Words:</b> Each compressed subband block includes a 16-bit parity word.<br/><b>5.2 64-Byte Config Block (0x40001000):</b> Tunable compression mode (lossless vs near-lossless target bitrate).",
+        'p5_sift_details': [
+            "<b>5.1 Subband Parity Words:</b> Each compressed subband block includes a 16-bit parity word.",
+            "<b>5.2 64-Byte Config Block (0x40001000):</b> Tunable compression mode (lossless vs near-lossless target bitrate)."
+        ],
         'table_5_1': [
             [Paragraph("Offset / Field", table_cell_bold), Paragraph("Type", table_cell_bold), Paragraph("Default Value", table_cell_bold), Paragraph("Operational Description & Tuning Function", table_cell_bold)],
             [Paragraph("+0x00: config_version", table_cell), Paragraph("uint16", table_cell), Paragraph("0x0100", table_cell), Paragraph("DEEP-WAVE configuration version identifier", table_cell)],
@@ -580,15 +679,25 @@ def run_compilation():
             [Paragraph("+0x08: crc32_checksum", table_cell), Paragraph("uint32", table_cell), Paragraph("Computed", table_cell), Paragraph("Configuration block integrity checksum", table_cell)]
         ],
         'p6_interface_intro': "DEEP-WAVE formats compressed science data into standard PUS packets:",
-        'p6_interface_details': "<b>6.1 Telemetry Streams:</b> Emits compressed image chunks in PUS Service 20 packets (APID 0x481, 1024 bytes per packet) with subband reassembly headers.",
+        'p6_interface_details': [
+            "<b>6.1 Telemetry Streams:</b> Emits compressed image chunks in PUS Service 20 packets (APID 0x481, 1024 bytes per packet) with subband reassembly headers."
+        ],
         'table_6_1': [
             [Paragraph("PUS Service / Packet", table_cell_bold), Paragraph("APID / SID", table_cell_bold), Paragraph("Cadence / Trigger", table_cell_bold), Paragraph("Payload Size", table_cell_bold), Paragraph("Telemetry Description", table_cell_bold)],
             [Paragraph("PUS-3 Housekeeping", table_cell), Paragraph("APID 0x481, SID 0x0201", table_cell), Paragraph("Every 10 minutes", table_cell), Paragraph("128 bytes", table_cell), Paragraph("Compression ratio, throughput, bit-error flags", table_cell)],
             [Paragraph("PUS-20 Science Packet", table_cell), Paragraph("APID 0x481, Type 20/2", table_cell), Paragraph("Per compressed tile", table_cell), Paragraph("1024 bytes", table_cell), Paragraph("Tile index, compressed wavelet bitstream chunk", table_cell)]
         ],
         'p7_verif_intro': "DEEP-WAVE was empirically validated on 2,400+ real Hera AFC calibration frames in QEMU SPARC V8:",
-        'p7_verif_benchmarks': "<b>7.1 Verification Summary & Quantitative Benchmarks:</b><br/>• <b>Lossless Compression Ratio:</b> 5.6 : 1 average on AFC asteroid surface imagery.<br/>• <b>Mathematical Reversibility:</b> 100% bit-for-bit identical (PSNR = ∞).<br/>• <b>Execution Time:</b> Exactly <b>2.39 seconds</b> per 1020×1020 16-bit frame @ 50 MHz.<br/>• <b>Static Memory:</b> Exactly <b>38.4 kB</b> Static RAM (0 malloc).",
-        'p8_ops_intro': "<b>8.1 Operational Timeline:</b> Executes autonomously during scheduled 2-to-3-hour daily observation windows, compressing image queues to Mass Memory.",
+        'p7_verif_benchmarks': [
+            "<b>7.1 Verification Summary & Quantitative Benchmarks:</b>",
+            "• <b>Lossless Compression Ratio:</b> 5.6 : 1 average on AFC asteroid surface imagery.",
+            "• <b>Mathematical Reversibility:</b> 100% bit-for-bit identical (PSNR = ∞).",
+            "• <b>Execution Time:</b> Exactly <b>2.39 seconds</b> per 1020×1020 16-bit frame @ 50 MHz.",
+            "• <b>Static Memory:</b> Exactly <b>38.4 kB</b> Static RAM (0 malloc)."
+        ],
+        'p8_ops_intro': [
+            "<b>8.1 Operational Timeline:</b> Executes autonomously during scheduled 2-to-3-hour daily observation windows, compressing image queues to Mass Memory."
+        ],
         'p8_milestones_intro': "<b>8.2 Industrial Implementation Milestones (Phase 2 Delivery to May 31, 2027):</b>",
         'table_8_1': [
             [Paragraph("Milestone", table_cell_bold), Paragraph("Target Date", table_cell_bold), Paragraph("Key Deliverables & Verification Scope", table_cell_bold), Paragraph("Standard", table_cell_bold)],
@@ -625,7 +734,11 @@ def run_compilation():
         """,
         'abstract_text': "<b>Abstract:</b> Autonomous proximity operations around binary asteroids require in-situ navigation and environmental estimation without ground latency. The AURA-GNC experiment implements an in-flight Shadow-Mode benchmarking architecture on Hera's Core 1 bare-metal LEON3 processor. By fusing optical landmark features with laser altimetry, AURA-GNC constructs a sparse 3D body mesh, estimates the gravitational parameter GM in real time, and computes optimal delta-V transfer maneuvers to scientific regions of interest. Transmitted via PUS-20 telemetry, these onboard calculations are benchmarked against ESOC ground-truth flight dynamics, establishing TRL 8 maturity for deep-space autonomy.",
         'p1_problem_intro': "Deep-space proximity operations around irregular binary asteroids are fundamentally constrained by communication latency and complex gravitational dynamics:",
-        'p1_problem_details': "<b>1.1 Communication Latency & Ground-Loop Delays:</b> 24 to 44 min round-trip radio propagation prevents ground-in-the-loop closed-loop station-keeping and immediate trajectory redirection towards newly discovered impact features.<br/><b>1.2 Center-of-Brightness Centroiding Failures:</b> Irregular non-spherical asteroid geometries and dynamic solar phase angles cause Center-of-Brightness (CoB) navigation errors exceeding 15%.<br/><b>1.3 The Need for Shadow-Mode In-Flight Benchmarking:</b> While future missions (e.g. ESA Ramses 2029 to Apophis) require onboard autonomous guidance, flight software cannot be trusted with actuator control without prior empirical in-orbit validation. A shadow-mode experiment on Hera Core 1 provides the exact ground-truth comparison needed without risking spacecraft safety.",
+        'p1_problem_details': [
+            "<b>1.1 Communication Latency & Ground-Loop Delays:</b> 24 to 44 min round-trip radio propagation prevents ground-in-the-loop closed-loop station-keeping and immediate trajectory redirection towards newly discovered impact features.",
+            "<b>1.2 Center-of-Brightness Centroiding Failures:</b> Irregular non-spherical asteroid geometries and dynamic solar phase angles cause Center-of-Brightness (CoB) navigation errors exceeding 15%.",
+            "<b>1.3 The Need for Shadow-Mode In-Flight Benchmarking:</b> While future missions (e.g. ESA Ramses 2029 to Apophis) require onboard autonomous guidance, flight software cannot be trusted with actuator control without prior empirical in-orbit validation. A shadow-mode experiment on Hera Core 1 provides the exact ground-truth comparison needed without risking spacecraft safety."
+        ],
         'table_1_1': [
             [Paragraph("Navigation & Guidance Paradigm", table_cell_bold), Paragraph("Flight Safety & Risk", table_cell_bold), Paragraph("Ground Truth Comparison", table_cell_bold), Paragraph("Computing Load @ 50 MHz", table_cell_bold)],
             [Paragraph("Ground-Based Flight Dynamics", table_cell), Paragraph("100% Safe (Manual uplink)", table_cell), Paragraph("Baseline (24-48h ground delay)", table_cell), Paragraph("Ground Supercomputers", table_cell)],
@@ -633,7 +746,10 @@ def run_compilation():
             [Paragraph("AURA-GNC Shadow-Mode (radixal)", table_cell_bold), Paragraph("100% Safe (Passive Sandbox)", table_cell_bold), Paragraph("Exact Concordance with ESOC", table_cell_bold), Paragraph("3.8 s WCET / 96.4 kB RAM", table_cell_bold)]
         ],
         'p2_baseline_intro': "AURA-GNC executes within the bare-metal Core 1 sandbox of Hera's GR712RC processor, interfacing with camera buffers and mission telemetry:",
-        'p2_baseline_details': "<b>2.1 Core 1 Sandbox Constraints:</b> 96.4 kB Static RAM, 21.8 kB stack depth, strictly zero dynamic allocation (0 malloc).<br/><b>2.2 Multi-Sensor Ingestion:</b> Queries PALT_ALTITUDE_VAL, PCDU_BATT_V_VAL, and AOCS gyro rates from the RTEMS Mission Data Pool (Annex B) to initialize optical scale and monitor passive orbital acceleration.",
+        'p2_baseline_details': [
+            "<b>2.1 Core 1 Sandbox Constraints:</b> 96.4 kB Static RAM, 21.8 kB stack depth, strictly zero dynamic allocation (0 malloc).",
+            "<b>2.2 Multi-Sensor Ingestion:</b> Queries PALT_ALTITUDE_VAL, PCDU_BATT_V_VAL, and AOCS gyro rates from the RTEMS Mission Data Pool (Annex B) to initialize optical scale and monitor passive orbital acceleration."
+        ],
         'table_2_1': [
             [Paragraph("Platform Characteristic", table_cell_bold), Paragraph("Hera Specification / Constraint", table_cell_bold), Paragraph("AURA-GNC Implementation", table_cell_bold), Paragraph("Compliance Status", table_cell_bold)],
             [Paragraph("Processor Architecture", table_cell), Paragraph("GR712RC Dual-Core LEON3 (SPARC V8)", table_cell), Paragraph("Pure ANSI C99 / BCC SPARC Toolchain", table_cell), Paragraph("100% Fully Compliant", table_cell)],
@@ -643,7 +759,12 @@ def run_compilation():
             [Paragraph("Execution Model", table_cell), Paragraph("Passive Guest Experiment", table_cell), Paragraph("Shadow-Mode (Advisory PUS-20 Stream)", table_cell), Paragraph("Zero Flight Risk", table_cell)]
         ],
         'p3_arch_intro': "AURA-GNC deploys a 4-stage shadow-mode navigation and guidance pipeline:",
-        'p3_arch_stages': "<b>3.1 Stage 1 – Optical Feature Tracking & 3D Mesh Triangulation:</b> FAST-9 corners and crater centers are triangulated with PALT laser ranges into a body-fixed 3D Landmark Mesh (64 landmarks in 1.5 kB RAM).<br/><b>3.2 Stage 2 – 9-State Fixed-Point EKF:</b> Propagates spacecraft relative position, velocity, and asteroid rotation state vector in real time.<br/><b>3.3 Stage 3 – In-Situ Gravity Parameter (GM) Inversion:</b> Recursively estimates Didymos GM from passive ballistic acceleration via scalar RLS regression.<br/><b>3.4 Stage 4 – Shadow Delta-V Trajectory Optimizer:</b> Computes the optimal impulsive delta-V transfer maneuver to target a 3 km scientific flyby directly above the DART crater site, serializing results into PUS-20 packets (APID 0x482).",
+        'p3_arch_stages': [
+            "<b>3.1 Stage 1 – Optical Feature Tracking & 3D Mesh Triangulation:</b> FAST-9 corners and crater centers are triangulated with PALT laser ranges into a body-fixed 3D Landmark Mesh (64 landmarks in 1.5 kB RAM).",
+            "<b>3.2 Stage 2 – 9-State Fixed-Point EKF:</b> Propagates spacecraft relative position, velocity, and asteroid rotation state vector in real time.",
+            "<b>3.3 Stage 3 – In-Situ Gravity Parameter (GM) Inversion:</b> Recursively estimates Didymos GM from passive ballistic acceleration via scalar RLS regression.",
+            "<b>3.4 Stage 4 – Shadow Delta-V Trajectory Optimizer:</b> Computes the optimal impulsive delta-V transfer maneuver to target a 3 km scientific flyby directly above the DART crater site, serializing results into PUS-20 packets (APID 0x482)."
+        ],
         'table_3_1': [
             [Paragraph("Pipeline Stage", table_cell_bold), Paragraph("Algorithmic Function", table_cell_bold), Paragraph("Memory Footprint", table_cell_bold), Paragraph("WCET @ 50 MHz", table_cell_bold)],
             [Paragraph("Stage 1: 3D Landmark Mesh", table_cell), Paragraph("Feature tracking & multi-view triangulation", table_cell), Paragraph("18.4 kB Static Buffer", table_cell), Paragraph("0.95 seconds", table_cell)],
@@ -662,7 +783,11 @@ def run_compilation():
         &nbsp;&nbsp;&nbsp;&nbsp;Δv_opt = v_transfer(t₀⁺) - v_current(t₀⁻) = B⁻¹ · [r_target(t_f) - A · r₀] - v₀
         """,
         'p5_sift_intro': "SIFT protections guarantee absolute mathematical stability in the presence of cosmic radiation bit-flips:",
-        'p5_sift_details': "<b>5.1 Covariance Positive-Definite Guard:</b> EKF covariance matrix P is enforced symmetric positive-definite after every epoch.<br/><b>5.2 TMR Protection of Landmark 3D Coordinates:</b> All triangulated 3D mesh points are stored with TMR majority-voted integrity flags.<br/><b>5.3 64-Byte Config Block (0x40001000):</b> Ground tunable target crater ID, target flyby altitude, and GM filtering gains.",
+        'p5_sift_details': [
+            "<b>5.1 Covariance Positive-Definite Guard:</b> EKF covariance matrix P is enforced symmetric positive-definite after every epoch.",
+            "<b>5.2 TMR Protection of Landmark 3D Coordinates:</b> All triangulated 3D mesh points are stored with TMR majority-voted integrity flags.",
+            "<b>5.3 64-Byte Config Block (0x40001000):</b> Ground tunable target crater ID, target flyby altitude, and GM filtering gains."
+        ],
         'table_5_1': [
             [Paragraph("Offset / Field", table_cell_bold), Paragraph("Type", table_cell_bold), Paragraph("Default Value", table_cell_bold), Paragraph("Operational Description & Tuning Function", table_cell_bold)],
             [Paragraph("+0x00: config_version", table_cell), Paragraph("uint16", table_cell), Paragraph("0x0100", table_cell), Paragraph("AURA-GNC configuration version identifier", table_cell)],
@@ -672,15 +797,29 @@ def run_compilation():
             [Paragraph("+0x08: crc32_checksum", table_cell), Paragraph("uint32", table_cell), Paragraph("Computed", table_cell), Paragraph("Configuration block integrity checksum", table_cell)]
         ],
         'p6_interface_intro': "AURA-GNC interfaces with Core 0 via standard hera_interface.h functions:",
-        'p6_interface_details': "<b>6.1 Telemetry Emission:</b> Emits 54-byte shadow-mode guidance packets in PUS Science Reports (APID 0x482, Subtype 3) and PUS-3 Housekeeping.<br/><b>6.2 Ground-Truth Benchmarking Protocol:</b> Ground controllers ingest APID 0x482 packets into ESOC flight dynamics tools to compute concordance metrics (||Δv_onboard - Δv_ground||).",
+        'p6_interface_details': [
+            "<b>6.1 Telemetry Emission:</b> Emits 54-byte shadow-mode guidance packets in PUS Science Reports (APID 0x482, Subtype 3) and PUS-3 Housekeeping.",
+            "<b>6.2 Ground-Truth Benchmarking Protocol:</b> Ground controllers ingest APID 0x482 packets into ESOC flight dynamics tools to compute concordance metrics (||Δv_onboard - Δv_ground||)."
+        ],
         'table_6_1': [
             [Paragraph("PUS Service / Packet", table_cell_bold), Paragraph("APID / SID", table_cell_bold), Paragraph("Cadence / Trigger", table_cell_bold), Paragraph("Payload Size", table_cell_bold), Paragraph("Telemetry Description", table_cell_bold)],
             [Paragraph("PUS-3 Housekeeping", table_cell), Paragraph("APID 0x482, SID 0x0303", table_cell), Paragraph("Every 10 minutes", table_cell), Paragraph("128 bytes", table_cell), Paragraph("EKF health, tracked landmark count, GM convergence", table_cell)],
             [Paragraph("PUS-20 Science Report", table_cell), Paragraph("APID 0x482, Type 20/3", table_cell), Paragraph("Per navigation epoch", table_cell), Paragraph("54 bytes", table_cell), Paragraph("Shadow maneuver recommendation (Delta-V, GM, epoch)", table_cell)]
         ],
         'p7_verif_intro': "AURA-GNC was verified inside QEMU LEON3 using real Hera AFC calibration sequences and synthetic orbital flyby scenarios:",
-        'p7_verif_benchmarks': "<b>7.1 Verification Summary & Quantitative Benchmarks:</b><br/>• <b>Relative Range Estimation Accuracy:</b> &lt; 1.8% relative error at 10–20 km proximity range.<br/>• <b>In-Situ GM Convergence:</b> Within &plusmn; 4.5% of Didymos nominal gravity (35.4 m³/s²) within 20 optical epochs.<br/>• <b>Worst-Case Execution Time:</b> Exactly <b>3.80 seconds</b> per epoch @ 50 MHz SPARC V8.<br/>• <b>Memory Allocation:</b> Exactly <b>96.4 kB</b> Static RAM (Zero malloc / Zero heap fragmentation).",
-        'p8_ops_intro': "<b>8.1 Operational Timeline (3-Hour In-Flight Shadow Session):</b><br/>• t = 00:00 to 00:02 min: Boot sequence and TMR register verification.<br/>• t = 00:02 to 01:45 min: Continuous landmark tracking, 3D mesh building, GM regression, and delta-V maneuver calculation.<br/>• t = 175:00 to 180:0 min: Session summary telemetry emission and return of control to Core 0 RTEMS.",
+        'p7_verif_benchmarks': [
+            "<b>7.1 Verification Summary & Quantitative Benchmarks:</b>",
+            "• <b>Relative Range Estimation Accuracy:</b> &lt; 1.8% relative error at 10–20 km proximity range.",
+            "• <b>In-Situ GM Convergence:</b> Within &plusmn; 4.5% of Didymos nominal gravity (35.4 m³/s²) within 20 optical epochs.",
+            "• <b>Worst-Case Execution Time:</b> Exactly <b>3.80 seconds</b> per epoch @ 50 MHz SPARC V8.",
+            "• <b>Memory Allocation:</b> Exactly <b>96.4 kB</b> Static RAM (Zero malloc / Zero heap fragmentation)."
+        ],
+        'p8_ops_intro': [
+            "<b>8.1 Operational Timeline (3-Hour In-Flight Shadow Session):</b>",
+            "• <b>t = 00:00 to 00:02 min:</b> Boot sequence and TMR register verification.",
+            "• <b>t = 00:02 to 01:45 min:</b> Continuous landmark tracking, 3D mesh building, GM regression, and delta-V maneuver calculation.",
+            "• <b>t = 175:00 to 180:0 min:</b> Session summary telemetry emission and return of control to Core 0 RTEMS."
+        ],
         'p8_milestones_intro': "<b>8.2 Industrial Implementation Milestones (Phase 2 Delivery to May 31, 2027):</b>",
         'table_8_1': [
             [Paragraph("Milestone", table_cell_bold), Paragraph("Target Date", table_cell_bold), Paragraph("Key Deliverables & Verification Scope", table_cell_bold), Paragraph("Standard", table_cell_bold)],
@@ -718,7 +857,11 @@ def run_compilation():
         """,
         'abstract_text': "<b>Abstract:</b> Deep-space spacecraft health monitoring is limited by delayed ground telemetry processing. The AEGIS-FDIR experiment operationalizes research from ESA ESTEC's HERA-IoD initiative by deploying an integer-quantized Isolation Forest micro-kernel on Hera's Core 1 bare-metal LEON3 processor. By analyzing 64 concurrent telemetry parameters in real time with an execution time under 0.15 s, AEGIS-FDIR detects multivariate anomalies and sensor drift prior to traditional threshold alarms.",
         'p1_problem_intro': "Traditional spacecraft FDIR relies on static out-of-limits (OOL) threshold monitoring:",
-        'p1_problem_details': "<b>1.1 Failure of Static OOL Thresholds:</b> Complex multivariate degradation (e.g. correlated thermal drift and voltage sag) remains hidden until catastrophic failure.<br/><b>1.2 Ground Telemetry Latency:</b> Telemetry downlinked during sparse deep-space passes prevents timely intervention.<br/><b>1.3 Heavy ML Models Fail on Spacecraft:</b> Standard scikit-learn models cannot execute on 50 MHz rad-hard processors without specialized integer quantization.",
+        'p1_problem_details': [
+            "<b>1.1 Failure of Static OOL Thresholds:</b> Complex multivariate degradation (e.g. correlated thermal drift and voltage sag) remains hidden until catastrophic failure.",
+            "<b>1.2 Ground Telemetry Latency:</b> Telemetry downlinked during sparse deep-space passes prevents timely intervention.",
+            "<b>1.3 Heavy ML Models Fail on Spacecraft:</b> Standard scikit-learn models cannot execute on 50 MHz rad-hard processors without specialized integer quantization."
+        ],
         'table_1_1': [
             [Paragraph("FDIR Technique", table_cell_bold), Paragraph("Multivariate Anomaly Detection", table_cell_bold), Paragraph("Response Time", table_cell_bold), Paragraph("Resource Overhead @ 50 MHz", table_cell_bold)],
             [Paragraph("Static Out-of-Limits (OOL)", table_cell), Paragraph("None (Single parameter only)", table_cell), Paragraph("Late (Only after threshold breach)", table_cell), Paragraph("Low CPU / Low capability", table_cell)],
@@ -726,7 +869,10 @@ def run_compilation():
             [Paragraph("AEGIS-FDIR (radixal)", table_cell_bold), Paragraph("High (Integer Isolation Forest)", table_cell_bold), Paragraph("Real-Time (&lt; 0.15 s in situ)", table_cell_bold), Paragraph("0.12 s WCET / 18.2 kB Static RAM", table_cell_bold)]
         ],
         'p2_baseline_intro': "AEGIS-FDIR interfaces with the Mission Data Pool on Core 1 bare-metal C:",
-        'p2_baseline_details': "<b>2.1 Core 1 Execution Environment:</b> 18.2 kB Static RAM, 7.8 kB stack depth, zero malloc.<br/><b>2.2 Data Ingestion:</b> Queries Annex B telemetry parameters (PCDU voltages, battery temperatures, AOCS rates).",
+        'p2_baseline_details': [
+            "<b>2.1 Core 1 Execution Environment:</b> 18.2 kB Static RAM, 7.8 kB stack depth, zero malloc.",
+            "<b>2.2 Data Ingestion:</b> Queries Annex B telemetry parameters (PCDU voltages, battery temperatures, AOCS rates)."
+        ],
         'table_2_1': [
             [Paragraph("Platform Characteristic", table_cell_bold), Paragraph("Hera Platform Constraint", table_cell_bold), Paragraph("AEGIS-FDIR Baseline", table_cell_bold), Paragraph("Compliance Status", table_cell_bold)],
             [Paragraph("Processor Architecture", table_cell), Paragraph("GR712RC Dual-Core LEON3 @ 50 MHz", table_cell), Paragraph("Pure ANSI C99 / BCC SPARC Toolchain", table_cell), Paragraph("100% Fully Compliant", table_cell)],
@@ -734,7 +880,11 @@ def run_compilation():
             [Paragraph("Stack Pointer Limit", table_cell), Paragraph("64.0 kB max", table_cell), Paragraph("7.8 kB peak stack depth", table_cell), Paragraph("+87.8% Stack Margin", table_cell)]
         ],
         'p3_arch_intro': "AEGIS-FDIR executes a 3-stage quantized Isolation Forest scoring pipeline:",
-        'p3_arch_stages': "<b>3.1 Stage 1 – Telemetry Ingestion & Normalization:</b> Fixed-point scaling of 64 telemetry channels.<br/><b>3.2 Stage 2 – Integer Tree Path Traversal:</b> Traverses 100 pre-trained isolation trees using 16-bit integer comparisons.<br/><b>3.3 Stage 3 – Anomaly Score & PUS Emission:</b> Computes average path length $E(h(x))$ and emits PUS-5 event reports (APID 0x483) when score exceeds threshold.",
+        'p3_arch_stages': [
+            "<b>3.1 Stage 1 – Telemetry Ingestion & Normalization:</b> Fixed-point scaling of 64 telemetry channels.",
+            "<b>3.2 Stage 2 – Integer Tree Path Traversal:</b> Traverses 100 pre-trained isolation trees using 16-bit integer comparisons.",
+            "<b>3.3 Stage 3 – Anomaly Score & PUS Emission:</b> Computes average path length $E(h(x))$ and emits PUS-5 event reports (APID 0x483) when score exceeds threshold."
+        ],
         'table_3_1': [
             [Paragraph("Pipeline Stage", table_cell_bold), Paragraph("Algorithmic Function", table_cell_bold), Paragraph("Memory Footprint", table_cell_bold), Paragraph("WCET @ 50 MHz", table_cell_bold)],
             [Paragraph("Stage 1: Ingestion", table_cell), Paragraph("Telemetry normalization (64 channels)", table_cell), Paragraph("2.0 kB Work Buffer", table_cell), Paragraph("0.01 seconds", table_cell)],
@@ -751,7 +901,10 @@ def run_compilation():
         <i>Computed via fixed-point LUTs (Look-Up Tables) in 16-bit integer arithmetic without runtime transcendentals.</i>
         """,
         'p5_sift_intro': "SIFT protections prevent bit-flips from generating false positive anomaly reports:",
-        'p5_sift_details': "<b>5.1 Model Table CRC:</b> The pre-trained isolation tree model is verified via CRC-32 before every evaluation.<br/><b>5.2 64-Byte Config Block (0x40001000):</b> Tunable anomaly detection threshold and monitored channel mask.",
+        'p5_sift_details': [
+            "<b>5.1 Model Table CRC:</b> The pre-trained isolation tree model is verified via CRC-32 before every evaluation.",
+            "<b>5.2 64-Byte Config Block (0x40001000):</b> Tunable anomaly detection threshold and monitored channel mask."
+        ],
         'table_5_1': [
             [Paragraph("Offset / Field", table_cell_bold), Paragraph("Type", table_cell_bold), Paragraph("Default Value", table_cell_bold), Paragraph("Operational Description & Tuning Function", table_cell_bold)],
             [Paragraph("+0x00: config_version", table_cell), Paragraph("uint16", table_cell), Paragraph("0x0100", table_cell), Paragraph("AEGIS-FDIR configuration version identifier", table_cell)],
@@ -760,15 +913,25 @@ def run_compilation():
             [Paragraph("+0x08: crc32_checksum", table_cell), Paragraph("uint32", table_cell), Paragraph("Computed", table_cell), Paragraph("Configuration block integrity checksum", table_cell)]
         ],
         'p6_interface_intro': "AEGIS-FDIR interfaces with Core 0 via standard telemetry services:",
-        'p6_interface_details': "<b>6.1 PUS Service 5 Anomaly Events:</b> Emits PUS 5/2 anomaly event packets (APID 0x483, 32 bytes) when multivariate degradation is detected.",
+        'p6_interface_details': [
+            "<b>6.1 PUS Service 5 Anomaly Events:</b> Emits PUS 5/2 anomaly event packets (APID 0x483, 32 bytes) when multivariate degradation is detected."
+        ],
         'table_6_1': [
             [Paragraph("PUS Service / Packet", table_cell_bold), Paragraph("APID / SID", table_cell_bold), Paragraph("Cadence / Trigger", table_cell_bold), Paragraph("Payload Size", table_cell_bold), Paragraph("Telemetry Description", table_cell_bold)],
             [Paragraph("PUS-3 Housekeeping", table_cell), Paragraph("APID 0x483, SID 0x0401", table_cell), Paragraph("Every 10 minutes", table_cell), Paragraph("128 bytes", table_cell), Paragraph("Overall subsystem health index, evaluated frame count", table_cell)],
             [Paragraph("PUS-5 Anomaly Event", table_cell), Paragraph("APID 0x483, Type 5/2", table_cell), Paragraph("On anomaly detection", table_cell), Paragraph("32 bytes", table_cell), Paragraph("Anomaly score, offending channel ID, deviation vector", table_cell)]
         ],
         'p7_verif_intro': "AEGIS-FDIR was verified on simulated Hera telemetry and ESA ESTEC benchmark datasets:",
-        'p7_verif_benchmarks': "<b>7.1 Verification Summary:</b><br/>• <b>True Positive Anomaly Rate:</b> 96.4% detection rate.<br/>• <b>False Alarm Rate:</b> &lt; 0.1% on nominal flight sequences.<br/>• <b>Execution Time:</b> <b>0.12 seconds</b> per 64-channel frame @ 50 MHz.<br/>• <b>Memory Allocation:</b> 18.2 kB Static RAM (0 malloc).",
-        'p8_ops_intro': "<b>8.1 Operational Timeline:</b> Executes continuously in the background on Core 1 during scheduled operations sessions.",
+        'p7_verif_benchmarks': [
+            "<b>7.1 Verification Summary:</b>",
+            "• <b>True Positive Anomaly Rate:</b> 96.4% detection rate across multivariate faults.",
+            "• <b>False Alarm Rate:</b> &lt; 0.1% on nominal flight sequences.",
+            "• <b>Execution Time:</b> <b>0.12 seconds</b> per 64-channel frame @ 50 MHz.",
+            "• <b>Memory Allocation:</b> 18.2 kB Static RAM (0 malloc)."
+        ],
+        'p8_ops_intro': [
+            "<b>8.1 Operational Timeline:</b> Executes continuously in the background on Core 1 during scheduled operations sessions."
+        ],
         'p8_milestones_intro': "<b>8.2 Industrial Implementation Milestones (Phase 2 Delivery to May 31, 2027):</b>",
         'table_8_1': [
             [Paragraph("Milestone", table_cell_bold), Paragraph("Target Date", table_cell_bold), Paragraph("Key Deliverables & Verification Scope", table_cell_bold), Paragraph("Standard", table_cell_bold)],
@@ -805,7 +968,11 @@ def run_compilation():
         """,
         'abstract_text': "<b>Abstract:</b> Deep-space planetary science observation planning is constrained by complex instrument power, data volume, and thermal budgets. The ARES-Planner experiment implements a deterministic integer Constraint Satisfaction Problem (CSP) branch-and-bound scheduler on Hera's Core 1 bare-metal LEON3 processor. By dynamically scheduling observation timelines based on real-time battery and pointing telemetry, ARES-Planner increases scientific observation return by 35% without ground re-planning.",
         'p1_problem_intro': "Dynamic proximity observation planning around binary asteroids encounters severe operational limits:",
-        'p1_problem_details': "<b>1.1 Static Ground Timeline Inefficiency:</b> Ground schedules uploaded days in advance cannot adapt to newly observed asteroid rotation phase changes.<br/><b>1.2 Conflicting Payload Constraints:</b> Simultaneous operation of AFC, PALT, and TIRI can violate peak battery power limits.<br/><b>1.3 Memory Bottlenecks of General CSP Solvers:</b> Terrestrial integer programming solvers require tens of megabytes of heap memory incompatible with Core 1.",
+        'p1_problem_details': [
+            "<b>1.1 Static Ground Timeline Inefficiency:</b> Ground schedules uploaded days in advance cannot adapt to newly observed asteroid rotation phase changes.",
+            "<b>1.2 Conflicting Payload Constraints:</b> Simultaneous operation of AFC, PALT, and TIRI can violate peak battery power limits.",
+            "<b>1.3 Memory Bottlenecks of General CSP Solvers:</b> Terrestrial integer programming solvers require tens of megabytes of heap memory incompatible with Core 1."
+        ],
         'table_1_1': [
             [Paragraph("Planning Paradigm", table_cell_bold), Paragraph("Response Latency", table_cell_bold), Paragraph("Resource Adaptability", table_cell_bold), Paragraph("Core 1 Feasibility @ 50 MHz", table_cell_bold)],
             [Paragraph("Ground Master Timeline", table_cell), Paragraph("24 to 48 hours", table_cell), Paragraph("Static (Cannot adapt to dynamics)", table_cell), Paragraph("Ground Supercomputer only", table_cell)],
@@ -813,7 +980,10 @@ def run_compilation():
             [Paragraph("ARES-Planner (radixal CSP)", table_cell_bold), Paragraph("1.40 seconds", table_cell_bold), Paragraph("Optimal (+35% science return)", table_cell_bold), Paragraph("1.40 s WCET / 42.8 kB Static RAM", table_cell_bold)]
         ],
         'p2_baseline_intro': "ARES-Planner executes within the bare-metal Core 1 sandbox on Hera's GR712RC processor:",
-        'p2_baseline_details': "<b>2.1 Core 1 Constraints:</b> 42.8 kB Static RAM, 15.2 kB stack, zero malloc.<br/><b>2.2 Multi-Sensor Ingestion:</b> Reads PCDU battery voltage and payload state flags from the Mission Data Pool.",
+        'p2_baseline_details': [
+            "<b>2.1 Core 1 Constraints:</b> 42.8 kB Static RAM, 15.2 kB stack, zero malloc.",
+            "<b>2.2 Multi-Sensor Ingestion:</b> Reads PCDU battery voltage and payload state flags from the Mission Data Pool."
+        ],
         'table_2_1': [
             [Paragraph("Platform Characteristic", table_cell_bold), Paragraph("Hera Specification / Constraint", table_cell_bold), Paragraph("ARES-Planner Baseline", table_cell_bold), Paragraph("Compliance Status", table_cell_bold)],
             [Paragraph("Processor Architecture", table_cell), Paragraph("GR712RC Dual-Core LEON3 @ 50 MHz", table_cell), Paragraph("Pure ANSI C99 / BCC SPARC Toolchain", table_cell), Paragraph("100% Fully Compliant", table_cell)],
@@ -821,7 +991,12 @@ def run_compilation():
             [Paragraph("Stack Pointer Limit", table_cell), Paragraph("64.0 kB max", table_cell), Paragraph("15.2 kB peak stack depth", table_cell), Paragraph("+76.2% Stack Margin", table_cell)]
         ],
         'p3_arch_intro': "ARES-Planner deploys a 4-stage bounded branch-and-bound integer scheduler:",
-        'p3_arch_stages': "<b>3.1 Stage 1 – Observation Request Ingestion:</b> Ingests up to 64 prioritized observation targets.<br/><b>3.2 Stage 2 – Multi-Resource Constraint Matrix Formulation:</b> Formulates power, data queue, and thermal constraints in fixed-point matrices.<br/><b>3.3 Stage 3 – Bounded Depth-First Search:</b> Solves optimal timeline via integer branch-and-bound with forward checking.<br/><b>3.4 Stage 4 – Schedule Serialization:</b> Outputs optimized timeline into PUS-20 schedule packets (APID 0x484).",
+        'p3_arch_stages': [
+            "<b>3.1 Stage 1 – Observation Request Ingestion:</b> Ingests up to 64 prioritized observation targets.",
+            "<b>3.2 Stage 2 – Multi-Resource Constraint Matrix Formulation:</b> Formulates power, data queue, and thermal constraints in fixed-point matrices.",
+            "<b>3.3 Stage 3 – Bounded Depth-First Search:</b> Solves optimal timeline via integer branch-and-bound with forward checking.",
+            "<b>3.4 Stage 4 – Schedule Serialization:</b> Outputs optimized timeline into PUS-20 schedule packets (APID 0x484)."
+        ],
         'table_3_1': [
             [Paragraph("Pipeline Stage", table_cell_bold), Paragraph("Algorithmic Function", table_cell_bold), Paragraph("Memory Footprint", table_cell_bold), Paragraph("WCET @ 50 MHz", table_cell_bold)],
             [Paragraph("Stage 1: Target Ingestion", table_cell), Paragraph("Science request parsing (64 targets)", table_cell), Paragraph("4.8 kB Work Buffer", table_cell), Paragraph("0.05 seconds", table_cell)],
@@ -840,7 +1015,10 @@ def run_compilation():
         <i>Solved using deterministic integer branch-and-bound without runtime floating-point operations.</i>
         """,
         'p5_sift_intro': "SIFT protections prevent radiation bit-flips from generating invalid timeline sequences:",
-        'p5_sift_details': "<b>5.1 Schedule Safety Validator:</b> Output timelines are checked by an independent safety rule-checker before serialization.<br/><b>5.2 64-Byte Config Block (0x40001000):</b> Ground tunable minimum battery voltage threshold (default 28.0 V).",
+        'p5_sift_details': [
+            "<b>5.1 Schedule Safety Validator:</b> Output timelines are checked by an independent safety rule-checker before serialization.",
+            "<b>5.2 64-Byte Config Block (0x40001000):</b> Ground tunable minimum battery voltage threshold (default 28.0 V)."
+        ],
         'table_5_1': [
             [Paragraph("Offset / Field", table_cell_bold), Paragraph("Type", table_cell_bold), Paragraph("Default Value", table_cell_bold), Paragraph("Operational Description & Tuning Function", table_cell_bold)],
             [Paragraph("+0x00: config_version", table_cell), Paragraph("uint16", table_cell), Paragraph("0x0100", table_cell), Paragraph("ARES-Planner configuration version identifier", table_cell)],
@@ -849,15 +1027,25 @@ def run_compilation():
             [Paragraph("+0x08: crc32_checksum", table_cell), Paragraph("uint32", table_cell), Paragraph("Computed", table_cell), Paragraph("Configuration block integrity checksum", table_cell)]
         ],
         'p6_interface_intro': "ARES-Planner formats observation schedules into standard PUS packets:",
-        'p6_interface_details': "<b>6.1 Telemetry Emission:</b> Emits recommended observation schedules in PUS Service 20 packets (APID 0x484, 128 bytes) and PUS-3 Housekeeping.",
+        'p6_interface_details': [
+            "<b>6.1 Telemetry Emission:</b> Emits recommended observation schedules in PUS Service 20 packets (APID 0x484, 128 bytes) and PUS-3 Housekeeping."
+        ],
         'table_6_1': [
             [Paragraph("PUS Service / Packet", table_cell_bold), Paragraph("APID / SID", table_cell_bold), Paragraph("Cadence / Trigger", table_cell_bold), Paragraph("Payload Size", table_cell_bold), Paragraph("Telemetry Description", table_cell_bold)],
             [Paragraph("PUS-3 Housekeeping", table_cell), Paragraph("APID 0x484, SID 0x0501", table_cell), Paragraph("Every 10 minutes", table_cell), Paragraph("128 bytes", table_cell), Paragraph("Scheduler state, solved target count, resource margins", table_cell)],
             [Paragraph("PUS-20 Science Schedule", table_cell), Paragraph("APID 0x484, Type 20/4", table_cell), Paragraph("Per scheduling epoch", table_cell), Paragraph("128 bytes", table_cell), Paragraph("Optimized instrument timeline (start, duration, target)", table_cell)]
         ],
         'p7_verif_intro': "ARES-Planner was verified in QEMU SPARC V8 across 500 simulated multi-instrument observation passes:",
-        'p7_verif_benchmarks': "<b>7.1 Verification Summary:</b><br/>• <b>Science Return Gain:</b> +35% target acquisitions compared to static ground plans.<br/>• <b>Constraint Violation Rate:</b> 0.0% (Zero power or thermal violations).<br/>• <b>Execution Time:</b> <b>1.40 seconds</b> per 24h schedule @ 50 MHz.<br/>• <b>Memory Allocation:</b> 42.8 kB Static RAM (0 malloc).",
-        'p8_ops_intro': "<b>8.1 Operational Timeline:</b> Executes autonomously at the beginning of each scheduled operations pass.",
+        'p7_verif_benchmarks': [
+            "<b>7.1 Verification Summary:</b>",
+            "• <b>Science Return Gain:</b> +35% target acquisitions compared to static ground plans.",
+            "• <b>Constraint Violation Rate:</b> 0.0% (Zero power or thermal violations).",
+            "• <b>Execution Time:</b> <b>1.40 seconds</b> per 24h schedule @ 50 MHz.",
+            "• <b>Memory Allocation:</b> 42.8 kB Static RAM (0 malloc)."
+        ],
+        'p8_ops_intro': [
+            "<b>8.1 Operational Timeline:</b> Executes autonomously at the beginning of each scheduled operations pass."
+        ],
         'p8_milestones_intro': "<b>8.2 Industrial Implementation Milestones (Phase 2 Delivery to May 31, 2027):</b>",
         'table_8_1': [
             [Paragraph("Milestone", table_cell_bold), Paragraph("Target Date", table_cell_bold), Paragraph("Key Deliverables & Verification Scope", table_cell_bold), Paragraph("Standard", table_cell_bold)],
@@ -894,7 +1082,11 @@ def run_compilation():
         """,
         'abstract_text': "<b>Abstract:</b> Measuring the orbital period changes of Dimorphos following NASA's DART impact is a primary scientific objective of the Hera mission. The CHRONOS experiment implements autonomous onboard aperture photometry on Hera's Core 1 bare-metal LEON3 processor. Translating ground-based lightcurve techniques developed by the Ondrejov Observatory into deterministic integer C code, CHRONOS extracts high-precision lightcurves in real time, transmitting compact photometric descriptors that bypass downlink bandwidth constraints.",
         'p1_problem_intro': "Continuous photometric characterization of the Didymos binary system encounters significant operational bottlenecks:",
-        'p1_problem_details': "<b>1.1 Downlink Limits on Continuous Imaging:</b> Monitoring full mutual orbital periods (11.92 hours) requires hundreds of continuous AFC images, far exceeding available downlink passes.<br/><b>1.2 Ground Lightcurve Extraction Delay:</b> Terrestrial lightcurve extraction occurs days after downlink, precluding autonomous adaptation of observation cadence.<br/><b>1.3 Spacecraft Computational Constraints:</b> Standard astronomical IRAF/SExtractor tools cannot execute on 50 MHz bare-metal processors.",
+        'p1_problem_details': [
+            "<b>1.1 Downlink Limits on Continuous Imaging:</b> Monitoring full mutual orbital periods (11.92 hours) requires hundreds of continuous AFC images, far exceeding available downlink passes.",
+            "<b>1.2 Ground Lightcurve Extraction Delay:</b> Terrestrial lightcurve extraction occurs days after downlink, precluding autonomous adaptation of observation cadence.",
+            "<b>1.3 Spacecraft Computational Constraints:</b> Standard astronomical IRAF/SExtractor tools cannot execute on 50 MHz bare-metal processors."
+        ],
         'table_1_1': [
             [Paragraph("Photometry Paradigm", table_cell_bold), Paragraph("Data Downlink Volume", table_cell_bold), Paragraph("Lightcurve Latency", table_cell_bold), Paragraph("Core 1 Feasibility @ 50 MHz", table_cell_bold)],
             [Paragraph("Full Image Downlink", table_cell), Paragraph("~500 MB (Full sequence)", table_cell), Paragraph("24 to 72 hours (Ground processing)", table_cell), Paragraph("Saturates deep-space downlink", table_cell)],
@@ -902,7 +1094,10 @@ def run_compilation():
             [Paragraph("CHRONOS (radixal Onboard)", table_cell_bold), Paragraph("1.2 kB (Compact flux stream)", table_cell_bold), Paragraph("Real-Time (&lt; 0.85 s in situ)", table_cell_bold), Paragraph("0.85 s WCET / 28.6 kB Static RAM", table_cell_bold)]
         ],
         'p2_baseline_intro': "CHRONOS executes within the bare-metal Core 1 sandbox on Hera's GR712RC processor:",
-        'p2_baseline_details': "<b>2.1 Core 1 Constraints:</b> 28.6 kB Static RAM, 9.4 kB stack, zero malloc.<br/><b>2.2 Sensor Ingestion:</b> Reads 1020×1020 AFC camera frame buffers and Mission Data Pool timestamp headers.",
+        'p2_baseline_details': [
+            "<b>2.1 Core 1 Constraints:</b> 28.6 kB Static RAM, 9.4 kB stack, zero malloc.",
+            "<b>2.2 Sensor Ingestion:</b> Reads 1020×1020 AFC camera frame buffers and Mission Data Pool timestamp headers."
+        ],
         'table_2_1': [
             [Paragraph("Platform Characteristic", table_cell_bold), Paragraph("Hera Specification / Constraint", table_cell_bold), Paragraph("CHRONOS Baseline", table_cell_bold), Paragraph("Compliance Status", table_cell_bold)],
             [Paragraph("Processor Architecture", table_cell), Paragraph("GR712RC Dual-Core LEON3 @ 50 MHz", table_cell), Paragraph("Pure ANSI C99 / BCC SPARC Toolchain", table_cell), Paragraph("100% Fully Compliant", table_cell)],
@@ -910,7 +1105,12 @@ def run_compilation():
             [Paragraph("Stack Pointer Limit", table_cell), Paragraph("64.0 kB max", table_cell), Paragraph("9.4 kB peak stack depth", table_cell), Paragraph("+85.3% Stack Margin", table_cell)]
         ],
         'p3_arch_intro': "CHRONOS deploys a 4-stage integer aperture photometry pipeline:",
-        'p3_arch_stages': "<b>3.1 Stage 1 – Centroid Localization:</b> Computes integer intensity centroids of Didymos and Dimorphos.<br/><b>3.2 Stage 2 – Circular Aperture Integration:</b> Integrates pixel flux within circular aperture radius $R_{ap}$.<br/><b>3.3 Stage 3 – Sky Background Annulus Subtraction:</b> Estimates local sky background within outer concentric annulus.<br/><b>3.4 Stage 4 – Mutual Eclipse Detection & PUS Serialization:</b> Detects flux drops corresponding to occultation events and serializes PUS-20 packets (APID 0x485).",
+        'p3_arch_stages': [
+            "<b>3.1 Stage 1 – Centroid Localization:</b> Computes integer intensity centroids of Didymos and Dimorphos.",
+            "<b>3.2 Stage 2 – Circular Aperture Integration:</b> Integrates pixel flux within circular aperture radius $R_{ap}$.",
+            "<b>3.3 Stage 3 – Sky Background Annulus Subtraction:</b> Estimates local sky background within outer concentric annulus.",
+            "<b>3.4 Stage 4 – Mutual Eclipse Detection & PUS Serialization:</b> Detects flux drops corresponding to occultation events and serializes PUS-20 packets (APID 0x485)."
+        ],
         'table_3_1': [
             [Paragraph("Pipeline Stage", table_cell_bold), Paragraph("Algorithmic Function", table_cell_bold), Paragraph("Memory Footprint", table_cell_bold), Paragraph("WCET @ 50 MHz", table_cell_bold)],
             [Paragraph("Stage 1: Centroiding", table_cell), Paragraph("Intensity-weighted centroid localization", table_cell), Paragraph("6.4 kB Work Buffer", table_cell), Paragraph("0.18 seconds", table_cell)],
@@ -929,7 +1129,10 @@ def run_compilation():
         &nbsp;&nbsp;&nbsp;&nbsp;m_inst = -2.5 · log₁₀( F_net ) + C_cal &nbsp;&nbsp;&nbsp;&nbsp;<i>(computed via 16-bit integer LUTs)</i>
         """,
         'p5_sift_intro': "SIFT protections prevent cosmic radiation bit-flips from introducing artificial flux spikes:",
-        'p5_sift_details': "<b>5.1 Cosmic Ray Spike Rejection:</b> Median filtering of pixel neighborhoods removes transient ionizing hits.<br/><b>5.2 64-Byte Config Block (0x40001000):</b> Tunable aperture radius and background annulus inner/outer radii.",
+        'p5_sift_details': [
+            "<b>5.1 Cosmic Ray Spike Rejection:</b> Median filtering of pixel neighborhoods removes transient ionizing hits.",
+            "<b>5.2 64-Byte Config Block (0x40001000):</b> Tunable aperture radius and background annulus inner/outer radii."
+        ],
         'table_5_1': [
             [Paragraph("Offset / Field", table_cell_bold), Paragraph("Type", table_cell_bold), Paragraph("Default Value", table_cell_bold), Paragraph("Operational Description & Tuning Function", table_cell_bold)],
             [Paragraph("+0x00: config_version", table_cell), Paragraph("uint16", table_cell), Paragraph("0x0100", table_cell), Paragraph("CHRONOS configuration version identifier", table_cell)],
@@ -939,15 +1142,25 @@ def run_compilation():
             [Paragraph("+0x08: crc32_checksum", table_cell), Paragraph("uint32", table_cell), Paragraph("Computed", table_cell), Paragraph("Configuration block integrity checksum", table_cell)]
         ],
         'p6_interface_intro': "CHRONOS formats photometric measurements into standard PUS packets:",
-        'p6_interface_details': "<b>6.1 Telemetry Emission:</b> Emits compact lightcurve data points in PUS Service 20 packets (APID 0x485, 32 bytes per frame) and PUS-3 Housekeeping.",
+        'p6_interface_details': [
+            "<b>6.1 Telemetry Emission:</b> Emits compact lightcurve data points in PUS Service 20 packets (APID 0x485, 32 bytes per frame) and PUS-3 Housekeeping."
+        ],
         'table_6_1': [
             [Paragraph("PUS Service / Packet", table_cell_bold), Paragraph("APID / SID", table_cell_bold), Paragraph("Cadence / Trigger", table_cell_bold), Paragraph("Payload Size", table_cell_bold), Paragraph("Telemetry Description", table_cell_bold)],
             [Paragraph("PUS-3 Housekeeping", table_cell), Paragraph("APID 0x485, SID 0x0601", table_cell), Paragraph("Every 10 minutes", table_cell), Paragraph("128 bytes", table_cell), Paragraph("Photometry health, background noise, tracking SNR", table_cell)],
             [Paragraph("PUS-20 Lightcurve Stream", table_cell), Paragraph("APID 0x485, Type 20/5", table_cell), Paragraph("Per optical frame", table_cell), Paragraph("32 bytes", table_cell), Paragraph("Timestamp, net flux, instrumental magnitude, SNR", table_cell)]
         ],
         'p7_verif_intro': "CHRONOS was verified on synthetic asteroid lightcurves and real AFC calibration frames in QEMU SPARC V8:",
-        'p7_verif_benchmarks': "<b>7.1 Verification Summary:</b><br/>• <b>Relative Flux Precision:</b> &lt; 0.003 mag RMSE.<br/>• <b>Mutual Event Detection:</b> 100% detection of eclipse dips &gt; 0.05 mag.<br/>• <b>Execution Time:</b> <b>0.85 seconds</b> per 1020×1020 frame @ 50 MHz.<br/>• <b>Memory Allocation:</b> 28.6 kB Static RAM (0 malloc).",
-        'p8_ops_intro': "<b>8.1 Operational Timeline:</b> Executes during multi-hour continuous observation windows to track complete binary orbits.",
+        'p7_verif_benchmarks': [
+            "<b>7.1 Verification Summary:</b>",
+            "• <b>Relative Flux Precision:</b> &lt; 0.003 mag RMSE.",
+            "• <b>Mutual Event Detection:</b> 100% detection of eclipse dips &gt; 0.05 mag.",
+            "• <b>Execution Time:</b> <b>0.85 seconds</b> per 1020×1020 frame @ 50 MHz.",
+            "• <b>Memory Allocation:</b> 28.6 kB Static RAM (0 malloc)."
+        ],
+        'p8_ops_intro': [
+            "<b>8.1 Operational Timeline:</b> Executes during multi-hour continuous observation windows to track complete binary orbits."
+        ],
         'p8_milestones_intro': "<b>8.2 Industrial Implementation Milestones (Phase 2 Delivery to May 31, 2027):</b>",
         'table_8_1': [
             [Paragraph("Milestone", table_cell_bold), Paragraph("Target Date", table_cell_bold), Paragraph("Key Deliverables & Verification Scope", table_cell_bold), Paragraph("Standard", table_cell_bold)],

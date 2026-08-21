@@ -63,10 +63,10 @@ class OnePageCanvas(canvas.Canvas):
         self.setFont(FONT_NORMAL, 7.2)
         self.setFillColor(colors.HexColor("#64748B"))
         if lang == "CZ":
-            self.drawString(36, 20, "DŮVĚRNÉ – PRACOVNÍ VERZE PRO JEDNÁNÍ | radixal s.r.o. | Purkyňova 649/127, 612 00 Brno | www.radixal.net")
+            self.drawString(36, 20, "radixal s.r.o. | Purkyňova 649/127, 612 00 Brno | www.radixal.net | Inovační výzva ESA OSIP")
             self.drawRightString(595 - 36, 20, "Strana 1 z 1")
         else:
-            self.drawString(36, 20, "CONFIDENTIAL – WORKING CONSULTATION DRAFT | radixal s.r.o. | Purkynova 649/127, Brno | www.radixal.net")
+            self.drawString(36, 20, "radixal s.r.o. | Purkynova 649/127, Brno | www.radixal.net | ESA OSIP Innovation Campaign")
             self.drawRightString(595 - 36, 20, "Page 1 of 1")
         self.restoreState()
 
