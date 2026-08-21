@@ -141,20 +141,23 @@ def build_czech_one_pager(output_path):
     story.append(Paragraph("Přehled 6 podávaných návrhů sady R-DAS (Pokrytí všech 6 kategorií ESA)", h1_style))
     mod_data = [
         [Paragraph("Modul / Kód", table_cell_bold), Paragraph("Kategorie ESA", table_cell_bold), Paragraph("Inovativní funkce a cíl na sondě Hera", table_cell_bold), Paragraph("Inženýrský rozpočet", table_cell_bold)],
-        [Paragraph("1. ARGOS-AI (Vlajková loď)", table_cell), Paragraph("Kat. 4: Edge AI", table_cell), Paragraph("Detekce kráteru DART v INT8 Micro-CNN + laserová fúze PALT pro měření rozměrů v metrech", table_cell), Paragraph("2.39 s WCET | 142 kB RAM"), table_cell],
-        [Paragraph("2. DEEP-WAVE", table_cell), Paragraph("Kat. 2: Komprese", table_cell), Paragraph("Reverzibilní vlnková komprese CDF 5/3 šetřící 82.2 % přenosového pásma na Zemi", table_cell), Paragraph("2.39 s WCET | 38 kB RAM"), table_cell],
-        [Paragraph("3. AURA-GNC", table_cell), Paragraph("Kat. 1: Autonomie", table_cell), Paragraph("Shadow-Mode 3D triangulace tělesa, gravitační inverze GM a validace vůči letové dynamice ESOC", table_cell), Paragraph("3.80 s WCET | 96 kB RAM"), table_cell],
-        [Paragraph("4. AEGIS-FDIR", table_cell), Paragraph("Kat. 5: Odolnost", table_cell), Paragraph("In-flight realizace výzkumu ESTEC (HERA-IoD): Isolation Forest pro detekci anomálií telemetrie", table_cell), Paragraph("0.12 s WCET | 18 kB RAM"), table_cell],
-        [Paragraph("5. ARES-Planner", table_cell), Paragraph("Kat. 3: Optimalizace", table_cell), Paragraph("Autonomní řešič CSP pro plánování vědeckých pozorování a garanci energetických rezerv", table_cell), Paragraph("1.40 s WCET | 43 kB RAM"), table_cell],
-        [Paragraph("6. CHRONOS", table_cell), Paragraph("Kat. 6: Věda / Astrofyzika", table_cell), Paragraph("Palubní aperturová fotometrie a sledování periody Dimorphosu navazující na výzkum Ondřejova", table_cell), Paragraph("0.85 s WCET | 29 kB RAM"), table_cell],
+        [Paragraph("<b>1. ARGOS-AI</b> (Vlajková loď)", table_cell), Paragraph("Kat. 4: Edge AI", table_cell), Paragraph("Detekce kráteru DART v INT8 Micro-CNN + laserová fúze PALT pro metrické rozměry", table_cell), Paragraph("2.39 s WCET | 142 kB RAM", table_cell)],
+        [Paragraph("<b>2. DEEP-WAVE</b>", table_cell), Paragraph("Kat. 2: Komprese", table_cell), Paragraph("Reverzibilní vlnková komprese CDF 5/3 šetřící 82.2 % přenosového pásma na Zemi", table_cell), Paragraph("2.39 s WCET | 38 kB RAM", table_cell)],
+        [Paragraph("<b>3. AURA-GNC</b>", table_cell), Paragraph("Kat. 1: Autonomie & GNC", table_cell), Paragraph("Shadow-Mode 3D triangulace tělesa, gravitační inverze GM a validace vůči ESOC", table_cell), Paragraph("3.80 s WCET | 96 kB RAM", table_cell)],
+        [Paragraph("<b>4. AEGIS-FDIR</b>", table_cell), Paragraph("Kat. 5: Odolnost & FDIR", table_cell), Paragraph("In-flight realizace výzkumu ESTEC (HERA-IoD): Isolation Forest pro detekci anomálií", table_cell), Paragraph("0.12 s WCET | 18 kB RAM", table_cell)],
+        [Paragraph("<b>5. ARES-Planner</b>", table_cell), Paragraph("Kat. 3: Optimalizace", table_cell), Paragraph("Autonomní řešič CSP pro plánování vědeckých pozorování a garanci energetických rezerv", table_cell), Paragraph("1.40 s WCET | 43 kB RAM", table_cell)],
+        [Paragraph("<b>6. CHRONOS</b>", table_cell), Paragraph("Kat. 6: Věda / Astrofyzika", table_cell), Paragraph("Palubní fotometrie a sledování periody Dimorphosu navazující na výzkum Ondřejova", table_cell), Paragraph("0.85 s WCET | 29 kB RAM", table_cell)],
     ]
-    mod_tbl = Table(mod_data, colWidths=[105, 75, 235, 100])
+    mod_tbl = Table(mod_data, colWidths=[110, 85, 215, 105])
     mod_tbl.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), primary_color),
-        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#D0D5DD")),
-        ('TOPPADDING', (0,0), (-1,-1), 1.8),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 1.8),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8F9FA")]),
+        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
+        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+        ('TOPPADDING', (0,0), (-1,-1), 2.2),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2.2),
+        ('LEFTPADDING', (0,0), (-1,-1), 4),
+        ('RIGHTPADDING', (0,0), (-1,-1), 4),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.append(mod_tbl)
     story.append(Spacer(1, 3))
@@ -269,20 +272,23 @@ def build_english_one_pager(output_path):
     story.append(Paragraph("The 6 Proposals of the R-DAS Suite (Covering All 6 ESA Contest Categories)", h1_style))
     mod_data = [
         [Paragraph("Module / Identifier", table_cell_bold), Paragraph("ESA Category", table_cell_bold), Paragraph("Primary Function & In-Flight Objective on Hera", table_cell_bold), Paragraph("Engineering Budget", table_cell_bold)],
-        [Paragraph("1. ARGOS-AI (Flagship)", table_cell), Paragraph("Cat. 4: Edge AI", table_cell), Paragraph("DART crater detection in INT8 Micro-CNN + PALT laser altimeter metric sizing in meters", table_cell), Paragraph("2.39 s WCET | 142 kB RAM"), table_cell],
-        [Paragraph("2. DEEP-WAVE", table_cell), Paragraph("Cat. 2: Compression", table_cell), Paragraph("Reversible CDF 5/3 integer wavelet compression achieving -82.2% downlink bandwidth reduction", table_cell), Paragraph("2.39 s WCET | 38 kB RAM"), table_cell],
-        [Paragraph("3. AURA-GNC", table_cell), Paragraph("Cat. 1: Autonomy & GNC", table_cell), Paragraph("Shadow-Mode 3D landmark mesh building, GM gravity inversion & ESOC ground-truth validation", table_cell), Paragraph("3.80 s WCET | 96 kB RAM"), table_cell],
-        [Paragraph("4. AEGIS-FDIR", table_cell), Paragraph("Cat. 5: Resilience", table_cell), Paragraph("Operationalizing ESTEC HERA-IoD research: Quantized Isolation Forest telemetry anomaly detector", table_cell), Paragraph("0.12 s WCET | 18 kB RAM"), table_cell],
-        [Paragraph("5. ARES-Planner", table_cell), Paragraph("Cat. 3: Operations", table_cell), Paragraph("Autonomous integer CSP solver for multi-payload observation scheduling (+35% science return)", table_cell), Paragraph("1.40 s WCET | 43 kB RAM"), table_cell],
-        [Paragraph("6. CHRONOS", table_cell), Paragraph("Cat. 6: Science / Astro", table_cell), Paragraph("Onboard aperture photometry & Dimorphos lightcurve tracking (Ondrejov Observatory synergy)", table_cell), Paragraph("0.85 s WCET | 29 kB RAM"), table_cell],
+        [Paragraph("<b>1. ARGOS-AI</b> (Flagship)", table_cell), Paragraph("Cat. 4: Edge AI", table_cell), Paragraph("DART crater detection in INT8 Micro-CNN + PALT laser altimeter metric sizing in meters", table_cell), Paragraph("2.39 s WCET | 142 kB RAM", table_cell)],
+        [Paragraph("<b>2. DEEP-WAVE</b>", table_cell), Paragraph("Cat. 2: Compression", table_cell), Paragraph("Reversible CDF 5/3 integer wavelet compression achieving -82.2% downlink bandwidth reduction", table_cell), Paragraph("2.39 s WCET | 38 kB RAM", table_cell)],
+        [Paragraph("<b>3. AURA-GNC</b>", table_cell), Paragraph("Cat. 1: Autonomy & GNC", table_cell), Paragraph("Shadow-Mode 3D landmark mesh building, GM gravity inversion & ESOC ground-truth validation", table_cell), Paragraph("3.80 s WCET | 96 kB RAM", table_cell)],
+        [Paragraph("<b>4. AEGIS-FDIR</b>", table_cell), Paragraph("Cat. 5: Resilience & FDIR", table_cell), Paragraph("Operationalizing ESTEC HERA-IoD research: Quantized Isolation Forest telemetry anomaly detector", table_cell), Paragraph("0.12 s WCET | 18 kB RAM", table_cell)],
+        [Paragraph("<b>5. ARES-Planner</b>", table_cell), Paragraph("Cat. 3: Operations", table_cell), Paragraph("Autonomous integer CSP solver for multi-payload observation scheduling (+35% science return)", table_cell), Paragraph("1.40 s WCET | 43 kB RAM", table_cell)],
+        [Paragraph("<b>6. CHRONOS</b>", table_cell), Paragraph("Cat. 6: Science / Astro", table_cell), Paragraph("Onboard aperture photometry & Dimorphos lightcurve tracking (Ondrejov Observatory synergy)", table_cell), Paragraph("0.85 s WCET | 29 kB RAM", table_cell)],
     ]
-    mod_tbl = Table(mod_data, colWidths=[105, 75, 235, 100])
+    mod_tbl = Table(mod_data, colWidths=[110, 85, 215, 105])
     mod_tbl.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), primary_color),
-        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#D0D5DD")),
-        ('TOPPADDING', (0,0), (-1,-1), 1.8),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 1.8),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8F9FA")]),
+        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
+        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+        ('TOPPADDING', (0,0), (-1,-1), 2.2),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2.2),
+        ('LEFTPADDING', (0,0), (-1,-1), 4),
+        ('RIGHTPADDING', (0,0), (-1,-1), 4),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.append(mod_tbl)
     story.append(Spacer(1, 3))
